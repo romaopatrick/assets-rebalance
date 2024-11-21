@@ -3,9 +3,20 @@ using assets_rebalance_backend.src.Domain;
 
 namespace assets_rebalance_backend.src.Boundaries;
 
-public class ChangeFinAssetPanelInput
+public class ChangeFinAssetsPanelInput
 {
-    public Guid? PanelId { get; set; } = Guid.NewGuid();
+    public Guid Id { get; set; } = Guid.NewGuid();
     public required decimal AmountToInvest { get; set; } = 0;
-    public IEnumerable<FinAssetsGroup> FinAssetsGroups{ get; set; } = [];
+    public IEnumerable<FinAssetsGroup> Children { get; set; } = [];
+    public required string Name { get; set; }
+
+
+    public FinAssetsPanel Domain()
+       => new()
+       {
+           AmountToInvest = AmountToInvest,
+           Children = Children,
+           Id = Id,
+           Name = Name,
+       };
 }

@@ -1,12 +1,14 @@
 using assets_rebalance_backend.src.Adapters.Base;
 using assets_rebalance_backend.src.Boundaries;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace assets_rebalance_backend.src.Adapters.FinAssetBanks
+namespace assets_rebalance_backend.src.Adapters.FinAssetBankAccounts
 {
-    public class FinAssetBanksController(FinAssetBankService service) : AssetsController
+    public class FinAssetBankAccountController(FinAssetBankAccountService service) : AssetsController
     {
-        private readonly FinAssetBankService _service = service;
+
+        private readonly FinAssetBankAccountService _service = service;
         [HttpGet("all")]
         public async Task<IResult> All(
             [FromQuery] bool activeOnly = false,
@@ -14,7 +16,7 @@ namespace assets_rebalance_backend.src.Adapters.FinAssetBanks
             => ParseResult(await _service.ListAll(activeOnly, cancellationToken));
 
         [HttpPut]
-        public async Task<IResult> Change([FromBody] ChangeFinAssetBankInput input, CancellationToken cancellationToken = default)
+        public async Task<IResult> Change([FromBody] ChangeFinAssetBankAccountInput input, CancellationToken cancellationToken = default)
             => ParseResult(await _service.Change(input, cancellationToken));
 
         [HttpPatch("d/{id:Guid}")]

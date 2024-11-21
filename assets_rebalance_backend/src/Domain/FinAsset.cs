@@ -15,7 +15,7 @@ public class FinAsset
     public FinAssetExternalVariableIncomeData? VariableIncomeData { get; set; }
     public FinAssetFixedIncomeData? FixedIncomeData { get; set; }
         
-    public decimal ScorePercent => Score / 100;
+    public decimal ScorePercent => (decimal)Score / 100;
     public decimal RecommendedAmount(FinAssetsGroup parent_group, decimal total_amount) 
         =>  total_amount * parent_group.ScorePercent * ScorePercent; 
 

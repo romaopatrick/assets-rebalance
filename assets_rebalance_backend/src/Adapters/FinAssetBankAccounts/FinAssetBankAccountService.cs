@@ -1,5 +1,3 @@
-using System;
-using System.Security.Cryptography.X509Certificates;
 using assets_rebalance_backend.src.Boundaries;
 using assets_rebalance_backend.src.Domain;
 using assets_rebalance_backend.src.Ports;
@@ -7,7 +5,7 @@ using FluentResults;
 
 namespace assets_rebalance_backend.src.Adapters.FinAssetBankAccounts;
 
-public class FinAssetBankAccountsService(
+public class FinAssetBankAccountService(
     INoSqlRepository<FinAssetBank> bank_repository,
     INoSqlRepository<FinAssetBankAccount> repository)
 {

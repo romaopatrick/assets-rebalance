@@ -1,6 +1,7 @@
 using System;
 using assets_rebalance_backend.src.Adapters.FinAssetBankAccounts;
 using assets_rebalance_backend.src.Adapters.FinAssetBanks;
+using assets_rebalance_backend.src.Adapters.FinAssetsPanels;
 using assets_rebalance_backend.src.Adapters.MongoDbRepository;
 using assets_rebalance_backend.src.Domain;
 using assets_rebalance_backend.src.Ports;
@@ -16,7 +17,7 @@ public static class DI
 {
     public static IServiceCollection AddApplicationDependencies(this IServiceCollection services, IConfiguration configuration)
         => services
-        
+
         .Configure<MongoDbSettings>(configuration.GetSection(nameof(MongoDbSettings)))
         .AddSingleton<IMongoClient>(sp =>
         {
@@ -40,11 +41,13 @@ public static class DI
 
     private static IServiceCollection AddRepositories(this IServiceCollection services)
         => services.AddMongoDbRepository<FinAssetBank>()
-            .AddMongoDbRepository<FinAssetBankAccount>();
+            .AddMongoDbRepository<FinAssetBankAccount>()
+            .AddMongoDbRepository<FinAssetsPanel>();
     private static IServiceCollection AddMongoDbRepository<T>(this IServiceCollection services) where T : Entity
         => services.AddScoped<INoSqlRepository<T>, MongoDbRepository<T>>();
 
     private static IServiceCollection AddServices(this IServiceCollection services)
         => services.AddScoped<FinAssetBankService>()
-            .AddScoped<FinAssetBankAccountsService>();
+            .AddScoped<FinAssetBankAccountService>()
+            .AddScoped<FinAssetsPanelService>();
 }

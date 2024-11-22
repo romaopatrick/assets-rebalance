@@ -8,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddApplicationDependencies(builder.Configuration);
 
 builder.Services.AddControllers();
+builder.Services.AddCors();
 
 builder.Services.AddSwaggerGen(c =>
 {
@@ -26,6 +27,12 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors(opts => {
+    opts.AllowAnyMethod()
+        .AllowAnyHeader()
+        .AllowAnyOrigin();
+});
 
 app.MapControllers();
 

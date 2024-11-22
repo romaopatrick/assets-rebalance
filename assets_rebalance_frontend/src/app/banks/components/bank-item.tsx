@@ -7,7 +7,7 @@ export type BankItemsProps = {
 
 export default function BankItem({bank} : BankItemsProps) {
   return (
-    <div>
+    <div className='bg-slate-600 rounded-md p-4'>
         {bank.routing} - {bank.name}
     </div>
   )

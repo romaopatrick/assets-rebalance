@@ -5,14 +5,17 @@ import BankItem from './components/bank-item'
 export default async function Banks() {
     try {
         const banks = await finAssetsBankService.all()
-        const bankItems = banks.map(x => <BankItem key={x.id} bank={x}/>)
+        const bankItems = banks.map(x => <BankItem key={x.id} bank={x} />)
         return (
             <div>
-                {bankItems}
+                <div className='flex gap-4'>
+                    <div></div>
+                    {bankItems}
+                </div>
             </div>
         )
 
-    } catch(error) {
+    } catch (error) {
         console.error(error)
     }
 }

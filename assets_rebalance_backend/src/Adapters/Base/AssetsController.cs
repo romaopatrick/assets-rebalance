@@ -13,11 +13,11 @@ namespace assets_rebalance_backend.src.Adapters.Base
             => result.IsSuccess
                 ? result.ValueOrDefault is null
                     ? Results.NoContent()
-                    : Results.Json(result.Value, statusCode: (int?)successCode)
-                : Results.BadRequest(result.Errors);
+                    : Results.Json(result, statusCode: (int?)successCode)
+                : Results.BadRequest(result);
         protected IResult ParseResult(Result result, HttpStatusCode? successCode = HttpStatusCode.OK)
             => result.IsSuccess
                 ? Results.NoContent()
-                : Results.BadRequest(result.Errors);
+                : Results.BadRequest(result);
     }
 }

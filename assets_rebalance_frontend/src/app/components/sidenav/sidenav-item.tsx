@@ -1,13 +1,17 @@
+import Link from "next/link"
+
 export type SidenavItemProps = {
+    id: string
     label: string
     icon: React.ReactElement
+    path?: string
 }
 
 export default function SidenavItem(
-    { label, icon }: SidenavItemProps
+    { label, icon, id, path }: SidenavItemProps
 ) {
-    return <div className="flex gap-3 p-6 items-center">
+    return <Link className="flex hover:bg-slate-900 transition-all duration-200 p-6 gap-3 items-center" href={path ?? '/'}>
         <span>{icon}</span>
         <span>{label}</span>
-    </div>
+    </Link>
 }

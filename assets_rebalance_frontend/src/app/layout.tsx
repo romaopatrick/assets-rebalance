@@ -17,9 +17,11 @@ export default function RootLayout({
     <html lang="en" className="h-full w-full">
       <body className="h-full w-full max-w-full max-h-full">
         <Header />
-        <div className="flex w-full max-w-full h-[calc(100vh-60px)]">
-          <SideNav/>
-          {children}
+        <div className="flex w-full max-w-full overflow-hidden h-[calc(100vh-60px)]">
+          <SideNav />
+          <div className="w-[85%] overflow-auto">
+            {children}
+          </div>
         </div>
       </body>
     </html>

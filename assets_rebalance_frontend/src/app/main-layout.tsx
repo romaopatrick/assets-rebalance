@@ -6,7 +6,8 @@ import { ToastContainer } from 'react-toastify'
 import { QueryParamProvider } from 'use-query-params'
 import Header from './components/header'
 import SideNav from './components/sidenav/sidenav'
-
+import 'reflect-metadata';
+import './reset.scss'
 export default function MainLayout({children}: React.PropsWithChildren) {
     return <QueryParamProvider adapter={NextAdapterApp}>
         <ToastContainer

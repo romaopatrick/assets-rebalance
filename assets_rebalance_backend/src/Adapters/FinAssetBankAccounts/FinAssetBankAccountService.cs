@@ -17,6 +17,12 @@ public class FinAssetBankAccountService(
         var result = await _repository.List(x => !activeOnly || x.Enabled, ct);
         return result;
     }
+    public async Task<Result<FinAssetBankAccount>> FirstById(Guid id, CancellationToken cancellationToken)
+    {
+        var result = await _repository.First(x => x.Id.Equals(id), cancellationToken);
+        
+        return result;
+    }
 
     public async Task<Result<FinAssetBankAccount>> Change(ChangeFinAssetBankAccountInput input, CancellationToken ct = default)
     {

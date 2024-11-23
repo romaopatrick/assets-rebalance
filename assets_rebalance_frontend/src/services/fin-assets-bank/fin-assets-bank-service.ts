@@ -5,38 +5,39 @@ import axios from "axios";
 import { handleResponse } from "../common/response-handle";
 
 export class FinAssetsBankService {
+    private get basePath() { return process.env.NEXT_PUBLIC_BASE_URL + '/FinAssetBank' }
     async change(input: ChangeFinAssetBankInput): Promise<FinAssetBank> {
-        var response = await axios.put<AppResult<FinAssetBank> | any>(process.env.NEXT_PUBLIC_BASE_URL + '/FinAssetBank', input)
+        var response = await axios.put<AppResult<FinAssetBank> | any>(this.basePath, input)
 
         return handleResponse(response)
     }
 
     async all(activeOnly = false): Promise<FinAssetBank[]> {
-        var response = await axios.get<FinAssetBank[] | AppError[]>(process.env.NEXT_PUBLIC_BASE_URL + '/FinAssetBank/all', {
+        var response = await axios.get<FinAssetBank[] | AppError[]>(this.basePath + '/all', {
             params: {
                 activeOnly
             }
         })
 
+
         return handleResponse(response)
     }
 
     async getById(id: string): Promise<FinAssetBank> {
-        var response = await axios.get<FinAssetBank[] | AppError[]>(process.env.NEXT_PUBLIC_BASE_URL + `/FinAssetBank/${id}`)
+        var response = await axios.get<FinAssetBank | AppError[]>(this.basePath + `/${id}`)
 
-        return handleResponse(response)
-    }
+        return handleResponse(response)    }
 
     async disable(id: string): Promise<void> {
-        var response = await axios.patch<void | AppError[]>(process.env.NEXT_PUBLIC_BASE_URL + `/FinAssetBank/d/${id}`)
+        var response = await axios.patch<void | AppError[]>(this.basePath + `/d/${id}`)
 
-        return handleResponse(response)
+        return handleResponse(response)    
     }
-    
-    async enable(id: string): Promise<void> {
-        var response = await axios.patch<void | AppError[]>(process.env.NEXT_PUBLIC_BASE_URL + `/FinAssetBank/e/${id}`)
 
-        return handleResponse(response)
+    async enable(id: string): Promise<void> {
+        var response = await axios.patch<void | AppError[]>(this.basePath + `/e/${id}`)
+
+        return handleResponse(response)    
     }
 }
 

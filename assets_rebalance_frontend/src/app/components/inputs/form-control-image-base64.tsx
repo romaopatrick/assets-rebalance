@@ -9,13 +9,13 @@ type Props = {
 export default function FormControlImageBase64({ base64, onChange }: Props) {
     const handleChange = async (file: File | null) => {
         if (!file) {
-            console.log("empty file")
+            console.error("empty file")
             return
         }
 
         const b = await fileToBase64(file)
         if (!b) {
-            console.log("fileToBase64 failed", b)
+            console.error("fileToBase64 failed", b)
             return
         }
 

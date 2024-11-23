@@ -2,19 +2,13 @@ import Link from 'next/link'
 import React from 'react'
 import { IoIosArrowBack } from "react-icons/io";
 import BankForm from '../components/bank-form';
+import BackButton from '@/app/components/buttons/back-button';
 
 export default function NewBank() {
   return (
     <div>
-      <Link
-        className='flex hover:text-slate-300 hover:underline gap-1 items-center pt-2 text-xl px-2'
-        href={"."}>
-        <IoIosArrowBack />
-        <span>Back</span>
-      </Link>
-      <div className=''>
-        <BankForm />
-      </div>
+      <BackButton />
+      <BankForm />
     </div>
   )
 }

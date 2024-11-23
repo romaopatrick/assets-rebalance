@@ -25,14 +25,13 @@ export class ChangeFinAssetBankInput {
     }
 
     toDomain(): FinAssetBank {
-        const bank = new FinAssetBank(); // Initialize without parameters
-        bank.id = this.id!;
-        bank.name = this.name;
-        bank.routing = this.routing;
-        bank.ispb = this.ispb;
-        bank.ispbName = this.ispbName;
-        bank.iconBase64 = this.iconBase64;
-
-        return bank;
+        return {
+            id: this.id,
+            name: this.name,
+            routing: this.routing,
+            ispb: this.ispb,
+            ispbName: this.ispbName,
+            iconBase64: this.iconBase64,
+        };
     }
 }

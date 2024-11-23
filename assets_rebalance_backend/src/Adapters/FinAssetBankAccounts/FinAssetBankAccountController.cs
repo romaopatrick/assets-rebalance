@@ -15,6 +15,12 @@ namespace assets_rebalance_backend.src.Adapters.FinAssetBankAccounts
             CancellationToken cancellationToken = default)
             => ParseResult(await _service.ListAll(activeOnly, cancellationToken));
 
+        [HttpGet("{id:Guid}")]
+        public async Task<IResult> FirstById(
+                  [FromRoute] Guid id,
+                  CancellationToken cancellationToken = default)
+                  => ParseResult(await _service.FirstById(id, cancellationToken));
+
         [HttpPut]
         public async Task<IResult> Change([FromBody] ChangeFinAssetBankAccountInput input, CancellationToken cancellationToken = default)
             => ParseResult(await _service.Change(input, cancellationToken));

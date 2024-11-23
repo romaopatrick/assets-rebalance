@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="h-full w-full">
-      <body className="h-full w-full max-w-full max-h-full">
+      <body className="h-full  w-full max-w-full max-h-full font-arial">
         <MainLayout>
           {children}
         </MainLayout>

@@ -2,10 +2,9 @@ import React from 'react'
 import { MdOutlineArchive, MdOutlineUnarchive } from "react-icons/md";
 type Props = {
     archived?: boolean
-    bankId: string
     onClick: () => void
 }
-export default function ArchiveBankButton({ bankId, archived, onClick }: Props) {
+export default function ArchiveButton({ archived, onClick }: Props) {
     return (
         <div
             onClick={e => {
@@ -13,7 +12,7 @@ export default function ArchiveBankButton({ bankId, archived, onClick }: Props) 
                 e.stopPropagation()
                 onClick()
             }} className={`transition-all duration-300 
-            cursor-pointer p-1 rounded-md flex items-center justify-center 
+            cursor-pointer p-1 rounded-md text-slate-300 flex items-center justify-center 
             bg-slate-800
             ${archived ? 'hover:text-green-400' : 'hover:text-red-400 '}
             `} >

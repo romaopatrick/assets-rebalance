@@ -1,7 +1,7 @@
-export class Entity {
-    id: string = ''
+export type Entity = {
+    id?: string
     createdAt?: Date
     updatedAt?: Date
     disabledAt?: Date
-    enabled = false
+    enabled?: boolean
 }

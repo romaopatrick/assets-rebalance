@@ -12,6 +12,8 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { toast } from "react-toastify";
 import FormControlImageBase64 from "@/app/components/inputs/form-control-image-base64";
+import FormSubmit from "@/app/components/buttons/form-submit";
+import { successSaveToast } from "@/utils/toast";
 
 type Props = {
     bank?: FinAssetBank
@@ -34,15 +36,15 @@ export default function BankForm({ bank: defaultBank }: Props) {
     const onSave = async () => {
         await load.execute(async () => {
             const input = new ChangeFinAssetBankInput(
-                bank.name, 
-                bank.routing, 
-                defaultBank?.id, 
-                null, 
+                bank.name,
+                bank.routing,
+                defaultBank?.id,
+                null,
                 null,
                 bank.iconBase64)
 
-            const result = await finAssetsBankService.change(input)
-            toast.success(`Bank saved! ${dayjs(result.createdAt).format('MM/DD/YYYY')}`)
+            await finAssetsBankService.change(input)
+            successSaveToast('Bank')
         })
 
         router.back()
@@ -71,16 +73,13 @@ export default function BankForm({ bank: defaultBank }: Props) {
 
                     <Form.Field name="iconBase64" className="flex flex-col gap-2">
                         <Form.Label>Icon</Form.Label>
-                        <FormControlImageBase64 
-                            base64={bank.iconBase64 ?? undefined} 
+                        <FormControlImageBase64
+                            base64={bank.iconBase64 ?? undefined}
                             onChange={(b) => setBank({ ...bank, iconBase64: b })} />
                     </Form.Field>
 
                 </div>
-                <Form.Submit disabled={load.loading} onClick={onSave}
-                    className="hover:bg-slate-700 bg-slate-800 py-3 w-32 rounded-md disabled:bg-slate-400 disabled:text-slate-600">
-                    Save
-                </Form.Submit>
+                <FormSubmit disabled={load.loading} onSave={onSave} />
             </Form.Root>
         </div>
     )

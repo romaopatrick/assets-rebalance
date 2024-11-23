@@ -11,20 +11,36 @@ import dayjs from "dayjs";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { toast } from "react-toastify";
+import FormControlImageBase64 from "@/app/components/inputs/form-control-image-base64";
 
-type NewBankForm = {
+type Props = {
+    bank?: FinAssetBank
+}
+type BankForm = {
     name: string
     routing: string
+    iconBase64?: string | null; // optional
 }
 
-export default function NewBankForm() {
-    const [bank, setBank] = useState<NewBankForm>({ name: '', routing: '' })
+export default function BankForm({ bank: defaultBank }: Props) {
+    const [bank, setBank] = useState<BankForm>({
+        name: defaultBank?.name ?? '',
+        routing: defaultBank?.routing ?? '',
+        iconBase64: defaultBank?.iconBase64 ?? ''
+    })
     const load = useLoad()
     const router = useRouter()
 
     const onSave = async () => {
         await load.execute(async () => {
-            const input = new ChangeFinAssetBankInput(bank.name, bank.routing)
+            const input = new ChangeFinAssetBankInput(
+                bank.name, 
+                bank.routing, 
+                defaultBank?.id, 
+                null, 
+                null,
+                bank.iconBase64)
+
             const result = await finAssetsBankService.change(input)
             toast.success(`Bank saved! ${dayjs(result.createdAt).format('MM/DD/YYYY')}`)
         })
@@ -53,8 +69,15 @@ export default function NewBankForm() {
                             className="w-60 outline-none focus:border-pink-800 border-2 text-slate-900 px-2 py-2 rounded-sm" />
                     </Form.Field>
 
+                    <Form.Field name="iconBase64" className="flex flex-col gap-2">
+                        <Form.Label>Icon</Form.Label>
+                        <FormControlImageBase64 
+                            base64={bank.iconBase64 ?? undefined} 
+                            onChange={(b) => setBank({ ...bank, iconBase64: b })} />
+                    </Form.Field>
+
                 </div>
-                <Form.Submit disabled={load.loading} onClick={onSave} 
+                <Form.Submit disabled={load.loading} onClick={onSave}
                     className="hover:bg-slate-700 bg-slate-800 py-3 w-32 rounded-md disabled:bg-slate-400 disabled:text-slate-600">
                     Save
                 </Form.Submit>

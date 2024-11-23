@@ -21,6 +21,12 @@ public class FinAssetBankService(INoSqlRepository<FinAssetBank> repository)
     {
         return await _repository.List(x => !activeOnly || x.Enabled, cancellationToken);
     }
+    public async Task<Result<FinAssetBank>> FirstById(Guid id, CancellationToken cancellationToken)
+    {
+        var result = await _repository.First(x => x.Id.Equals(id), cancellationToken);
+        
+        return result;
+    }
 
     public async Task<Result> Disable(Guid Id, CancellationToken cancellationToken)
     {

@@ -1,9 +1,7 @@
 import { ChangeFinAssetBankInput } from "@/boundaries/change-fin-asset-bank.input";
 import { AppError, AppResult } from "@/domain/result";
 import { FinAssetBank } from "@/domain/fin-asset-bank";
-import axios, { HttpStatusCode } from "axios";
-import { config } from "process";
-import { Result } from "typescript-result";
+import axios from "axios";
 import { handleResponse } from "../common/response-handle";
 
 export class FinAssetsBankService {
@@ -19,6 +17,12 @@ export class FinAssetsBankService {
                 activeOnly
             }
         })
+
+        return handleResponse(response)
+    }
+
+    async getById(id: string): Promise<FinAssetBank> {
+        var response = await axios.get<FinAssetBank[] | AppError[]>(process.env.NEXT_PUBLIC_BASE_URL + `/FinAssetBank/${id}`)
 
         return handleResponse(response)
     }

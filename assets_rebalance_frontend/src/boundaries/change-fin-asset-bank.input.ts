@@ -1,7 +1,7 @@
 import { FinAssetBank } from "@/domain/fin-asset-bank";
 
 export class ChangeFinAssetBankInput {
-    id: string; // Required (UUID is represented as a string in TypeScript)
+    id?: string; // Required (UUID is represented as a string in TypeScript)
     name: string; // Required
     routing: string; // Required
     ispb?: string | null; // Optional
@@ -11,11 +11,12 @@ export class ChangeFinAssetBankInput {
     constructor(
         name: string,
         routing: string,
+        id?: string,
         ispb?: string | null,
         ispbName?: string | null,
         iconBase64?: string | null
     ) {
-        this.id = crypto.randomUUID(); // Generates a new UUID if not provided (similar to Guid.NewGuid())
+        this.id = id
         this.name = name;
         this.routing = routing;
         this.ispb = ispb ?? null;
@@ -25,7 +26,7 @@ export class ChangeFinAssetBankInput {
 
     toDomain(): FinAssetBank {
         const bank = new FinAssetBank(); // Initialize without parameters
-        bank.id = this.id;
+        bank.id = this.id!;
         bank.name = this.name;
         bank.routing = this.routing;
         bank.ispb = this.ispb;

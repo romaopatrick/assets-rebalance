@@ -1,5 +1,3 @@
-import { finAssetsBankService } from "@/services/fin-assets-bank/fin-assets-bank-service";
-import Image from "next/image";
 import Home from "./home/page";
-
+import { Metadata } from "next";
 export default Home

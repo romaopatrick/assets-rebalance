@@ -7,10 +7,10 @@ public class FinAsset
 {
     public required string Name { get; set; }
     public string? Tag { get; set; }
-    public required int Score { get; set; } = 1;
+    public required float Score { get; set; } = 1;
     public required decimal CurrentAmount { get; set; }
     public required Guid AccountId { get; set; }
-    public int? CurrentQuantity { get; set; }
+    public decimal? CurrentQuantity { get; set; }
     public required FinAssetCategory Category { get; set; }
     public FinAssetExternalVariableIncomeData? VariableIncomeData { get; set; }
     public FinAssetFixedIncomeData? FixedIncomeData { get; set; }

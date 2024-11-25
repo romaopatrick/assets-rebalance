@@ -7,7 +7,7 @@ import { useLoad } from '../components/hooks/use-load'
 import { FinAssetBankAccount } from '@/domain/fin-asset-bank-account'
 import AccountItem from './components/account-item'
 import RedirectPlusButton from '../components/buttons/redirect-plus-button'
-import { finAssetsBankAccountService } from '@/services/fin-assets-bank-account/fin-assets-bank-account-service'
+import { finAssetsBankAccountService } from '@/services/fin-assets-bank-account/fin-assets-bank-account.service'
 import OnlyActiveSwitch from '../components/inputs/only-active-switch'
 
 export default function Accounts() {
@@ -35,11 +35,11 @@ export default function Accounts() {
     return (
         <>
             <RedirectPlusButton href='/accounts/new' />
+            <div className='flex justify-end w-full pt-3 pr-3'>
+                <OnlyActiveSwitch onChange={handleOnlyActiveSwitchChange} checked={onlyActive} />
+            </div>
             <div className='pl-12'>
-                <div className='flex justify-end w-full py-3 pr-3'>
-                    <OnlyActiveSwitch onChange={handleOnlyActiveSwitchChange} checked={onlyActive} />
-                </div>
-                <h1 className='text-5xl self-start m-6 text-slate-50'>Accounts</h1>
+                <h1 className='text-5xl self-start text-slate-50'>Accounts</h1>
                 <div className='flex flex-wrap gap-4 p-12'>
                     {
                         accounts.map(x => <AccountItem key={x.id} refresh={fetchAccounts} account={x} />)

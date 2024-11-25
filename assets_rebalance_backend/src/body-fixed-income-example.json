@@ -1,0 +1,116 @@
+{
+    "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    "amountToInvest": 16755.48,
+    "children": [
+        {
+            "name": "Renda Fixa",
+            "score": 100,
+            "children": [
+                {
+                    "name": "CDB INTER 720 DIAS",
+                    "tag": "CDI",
+                    "score": 30,
+                    "currentAmount": 194.18,
+                    "accountId": "35f69903-2069-4b25-ae42-4fd6bafa6d43",
+                    "currentQuantity": 162,
+                    "category": 0,
+                    "fixedIncomeData": {
+                        "indexer": 0,
+                        "indexerPercent": 105,
+                        "expirationDate": "2025-01-14T00:00:00.000Z",
+                        "applicationAmount": 162,
+                        "grossValue": 201,
+                        "netValue": 194.18
+                    }
+                },
+                {
+                    "name": "CDB MERCANTIL",
+                    "tag": "CDI",
+                    "score": 30,
+                    "currentAmount": 1418.78,
+                    "accountId": "35f69903-2069-4b25-ae42-4fd6bafa6d43",
+                    "currentQuantity": 1120.69,
+                    "category": 0,
+                    "fixedIncomeData": {
+                        "indexer": 0,
+                        "indexerPercent": 120,
+                        "expirationDate": "2025-01-14T00:00:00.000Z",
+                        "applicationAmount": 1120.69,
+                        "grossValue": 1471.38,
+                        "netValue": 1418.78
+                    }
+                },
+                {
+                    "name": "Tesouro Pre 2025",
+                    "tag": "T_FIX",
+                    "score": 2.5,
+                    "currentAmount": 194.18,
+                    "accountId": "35f69903-2069-4b25-ae42-4fd6bafa6d43",
+                    "currentQuantity": 689.22,
+                    "category": 0,
+                    "fixedIncomeData": {
+                        "indexer": 2,
+                        "indexerPercent": 13.02,
+                        "expirationDate": "2025-01-14T00:00:00.000Z",
+                        "applicationAmount": 689.22,
+                        "grossValue": 899.02,
+                        "netValue": 863.98
+                    }
+                },
+                {
+                    "name": "Tesouro IPCA +2029",
+                    "tag": "T_IPCA",
+                    "score": 2.5,
+                    "currentAmount": 194.18,
+                    "accountId": "35f69903-2069-4b25-ae42-4fd6bafa6d43",
+                    "currentQuantity": 983.9,
+                    "category": 0,
+                    "fixedIncomeData": {
+                        "indexer": 1,
+                        "indexerPercent": 6.09,
+                        "expirationDate": "2025-01-14T00:00:00.000Z",
+                        "applicationAmount": 983.9,
+                        "grossValue": 999.53,
+                        "netValue": 995.34
+                    }
+                },
+                {
+                    "name": "CDB Banco Master 2",
+                    "tag": "FIX",
+                    "score": 30,
+                    "currentAmount": 2270.91,
+                    "accountId": "858776d3-acf4-4b24-b84d-16d52e4cf885",
+                    "currentQuantity": 2000,
+                    "category": 0,
+                    "fixedIncomeData": {
+                        "indexer": 2,
+                        "indexerPercent": 14.4,
+                        "expirationDate": "2029-09-03T00:00:00.000Z",
+                        "applicationAmount": 2000,
+                        "grossValue": 2328.37,
+                        "netValue": 2270.91
+                    }
+                },
+                {
+                    "name": "CDB AGIBANK",
+                    "tag": "IPCA",
+                    "score": 35,
+                    "currentAmount": 2226.32,
+                    "accountId": "af44aa66-4871-4faa-85ab-adacbeafacf7",
+                    "currentQuantity": 2000,
+                    "category": 0,
+                    "fixedIncomeData": {
+                        "indexer": 1,
+                        "indexerPercent": 7.55,
+                        "expirationDate": "2029-09-03T00:00:00.000Z",
+                        "applicationAmount": 2000,
+                        "grossValue": 2274.32,
+                        "netValue": 2226.32
+                    }
+                }
+            ],
+            "category": 0
+        }
+    ],
+    "name": "Main Panel"
+}

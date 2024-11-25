@@ -5,7 +5,7 @@ import { useErrorHandler } from "@/app/components/hooks/use-error-handler";
 import { useLoad } from "@/app/components/hooks/use-load";
 import { ChangeFinAssetBankInput } from "@/boundaries/change-fin-asset-bank.input";
 import { FinAssetBank } from "@/domain/fin-asset-bank";
-import { finAssetsBankService } from "@/services/fin-assets-bank/fin-assets-bank-service";
+import { finAssetsBankService } from "@/services/fin-assets-bank/fin-assets-bank.service";
 import * as Form from "@radix-ui/react-form";
 import dayjs from "dayjs";
 import { useRouter } from "next/navigation";
@@ -56,11 +56,11 @@ export default function BankForm({ bank: defaultBank }: Props) {
                 <div className="flex gap-12">
                     <Form.Field name="name" className="flex flex-col gap-2">
                         <Form.Label>Routing*</Form.Label>
-                        <FormControlNumeric
-                            required maxLength={3}
+                        <Form.Control
+                            required maxLength={8}
                             value={bank.routing}
-                            onChange={(e) => setBank({ ...bank, routing: e as string })}
-                            className="w-20 outline-none items-center focus:border-pink-800 border-2 text-slate-900 px-2 py-2 rounded-sm" />
+                            onChange={(e) => setBank({ ...bank, routing: e.target.value })}
+                            className="w-40 outline-none items-center focus:border-pink-800 border-2 text-slate-900 px-2 py-2 rounded-sm" />
                     </Form.Field>
                     <Form.Field name="name" className="flex flex-col gap-2">
                         <Form.Label>Name*</Form.Label>

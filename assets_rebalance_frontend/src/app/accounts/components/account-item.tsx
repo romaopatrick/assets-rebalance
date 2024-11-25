@@ -3,7 +3,7 @@ import BankItem from '@/app/banks/components/bank-item'
 import { FinAssetBankAccount } from '@/domain/fin-asset-bank-account'
 import Link from 'next/link'
 import React from 'react'
-import { finAssetsBankAccountService } from '@/services/fin-assets-bank-account/fin-assets-bank-account-service'
+import { finAssetsBankAccountService } from '@/services/fin-assets-bank-account/fin-assets-bank-account.service'
 import { useLoad } from '@/app/components/hooks/use-load'
 
 type Props = {

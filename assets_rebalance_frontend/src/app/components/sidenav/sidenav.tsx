@@ -3,6 +3,7 @@ import SidenavItem, { SidenavItemProps } from './sidenav-item'
 import { MdOutlineAccountBalance } from "react-icons/md";
 import { FaWallet } from "react-icons/fa";
 import { TbLayoutDashboardFilled } from "react-icons/tb";
+import { PiMoneyWavyFill } from "react-icons/pi";
 
 const sidenavItems: SidenavItemProps[] = [
     {
@@ -13,7 +14,7 @@ const sidenavItems: SidenavItemProps[] = [
     },
     {
         id: 'accounts',
-        icon: <FaWallet size={23}/>,
+        icon: <FaWallet size={22}/>,
         label: 'Accounts',
         path: '/accounts'
     },
@@ -22,6 +23,12 @@ const sidenavItems: SidenavItemProps[] = [
         icon: <TbLayoutDashboardFilled size={25}/>,
         label: 'Dashboard',
         path: '/dashboard'
+    },
+    {
+        id: 'assets',
+        icon: <PiMoneyWavyFill size={25}/>,
+        label: 'Rebalance Panel',
+        path: '/assetspanel'
     }
 ]
 

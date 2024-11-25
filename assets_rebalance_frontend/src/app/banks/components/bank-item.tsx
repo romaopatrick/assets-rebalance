@@ -1,7 +1,7 @@
 import { FinAssetBank } from '@/domain/fin-asset-bank'
 import Link from 'next/link'
 import React from 'react'
-import { finAssetsBankService } from '@/services/fin-assets-bank/fin-assets-bank-service'
+import { finAssetsBankService } from '@/services/fin-assets-bank/fin-assets-bank.service'
 import { useLoad } from '@/app/components/hooks/use-load'
 import ArchiveButton from '@/app/components/archive-button'
 

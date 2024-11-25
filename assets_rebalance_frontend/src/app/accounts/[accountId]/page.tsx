@@ -1,7 +1,7 @@
 import React from 'react'
 import BackButton from '@/app/components/buttons/back-button'
 import AccountForm from '../components/account-form'
-import { finAssetsBankAccountService } from '@/services/fin-assets-bank-account/fin-assets-bank-account-service'
+import { finAssetsBankAccountService } from '@/services/fin-assets-bank-account/fin-assets-bank-account.service'
 
 type Props = {
     params: {

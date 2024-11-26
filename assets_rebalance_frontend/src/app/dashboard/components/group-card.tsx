@@ -23,7 +23,7 @@ export default async function GroupCard({ group, accounts }: Props) {
             <div className='flex gap-2'>
                 <ResumeCard amount={group.currentAmount} label='Current' className='flex-1' />
                 <ResumeCard amount={group.recommendedAmount} label='Recommended' className='flex-1' />
-                <ResumeCard amount={group.adjustAmount} label='Adjust' className='flex-1' />
+                <ResumeCard amount={group.adjustAmount} useSign label='Adjust' className='flex-1' />
                 <div className='flex flex-col flex-1 items-end'>
                     <span className='text-xs'>Score</span>
                     <div className='flex items-center'>
@@ -35,7 +35,7 @@ export default async function GroupCard({ group, accounts }: Props) {
             <span className='border-b my-4 border-b-pink-700 w-full' />
             <div className='flex gap-2 flex-wrap text-xs'>
                 {
-                    group.children.map(x => <GroupCardChild finAsset={x} account={findAccount(x.accountId)} />)
+                    group.children.map(x => <GroupCardChild finAsset={x} key={x.name} account={findAccount(x.accountId)} />)
                 }
             </div>
         </div>

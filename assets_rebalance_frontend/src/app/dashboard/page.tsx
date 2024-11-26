@@ -30,7 +30,6 @@ export default async function Dashboard() {
                 <ResumeCard amount={totalAmount} label='Total' />
                 <ResumeCard amount={invested} label='Invested' />
                 <ResumeCard amount={available} label='Available' />
-                <ResumeCard amount={totalAmount - total} label='Calc Mistake' />
             </div>
             {
                 panels?.map(x => <PanelCardSession accounts={accounts} key={x.id} panel={x} />)

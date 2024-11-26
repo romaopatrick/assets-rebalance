@@ -20,7 +20,6 @@ export default function PanelCardSession({ panel, accounts }: Props) {
                 <ResumeCard amount={panel.totalAmount} label='Total' />
                 <ResumeCard amount={panel.investedAmount} label='Invested' />
                 <ResumeCard amount={panel.amountToInvest} label='Available' />
-                <ResumeCard amount={panel.totalAmount - (panel.investedAmount + panel.amountToInvest)} label='Calc Mistake' />
                 <div className='flex gap-4'>
                     {
                         panel

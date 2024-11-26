@@ -8,25 +8,25 @@ import { PiMoneyWavyFill } from "react-icons/pi";
 const sidenavItems: SidenavItemProps[] = [
     {
         id: 'banks',
-        icon: <MdOutlineAccountBalance size={25}/>,
+        icon: <MdOutlineAccountBalance size={20}/>,
         label: 'Banks',
         path: '/banks'
     },
     {
         id: 'accounts',
-        icon: <FaWallet size={22}/>,
+        icon: <FaWallet size={15}/>,
         label: 'Accounts',
         path: '/accounts'
     },
     {
         id: 'dashboard',
-        icon: <TbLayoutDashboardFilled size={25}/>,
+        icon: <TbLayoutDashboardFilled size={20}/>,
         label: 'Dashboard',
         path: '/dashboard'
     },
     {
         id: 'assets',
-        icon: <PiMoneyWavyFill size={25}/>,
+        icon: <PiMoneyWavyFill size={20}/>,
         label: 'Rebalance Panel',
         path: '/assetspanel'
     }

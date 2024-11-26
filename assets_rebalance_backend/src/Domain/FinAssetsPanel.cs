@@ -10,7 +10,7 @@ public class FinAssetsPanel : Entity
     public required decimal AmountToInvest { get; set; } = 0;
     public decimal InvestedAmount => Children.Sum(x => x.CurrentAmount);
     public decimal TotalAmount => InvestedAmount + AmountToInvest;
-    public float TotalScore => Children.Sum(x => x.Score);
+    public decimal TotalScore => Children.Sum(x => x.Score);
 
     public Result Validate()
     {

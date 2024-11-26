@@ -14,20 +14,25 @@ public class FinAssetsPanelService(
     private readonly INoSqlRepository<FinAssetBankAccount> _account_repository = account_repository;
     private readonly INoSqlRepository<FinAssetsPanel> _repository = repository;
 
-    public async Task<Result<IEnumerable<FinAssetsPanel>>> ListAll(bool activeOnly, CancellationToken ct = default)
+    public async Task<Result<IEnumerable<GetFinAssetPanelOutput>>> ListAll(bool activeOnly, CancellationToken ct = default)
     {
         var result = await _repository.List(x => !activeOnly || x.Enabled, ct);
+        if (result.IsFailed)
+            return result.ToResult<IEnumerable<GetFinAssetPanelOutput>>();
 
-        return result;
+
+        return Result.Ok(result.ValueOrDefault.Select(x => GetFinAssetPanelOutput.FromDomain(x)));
     }
 
-    public async Task<Result<FinAssetsPanel>> FirstById(Guid id, CancellationToken ct = default)
+    public async Task<Result<GetFinAssetPanelOutput>> FirstById(Guid id, CancellationToken ct = default)
     {
         var result = await _repository.First(x => x.Id.Equals(id) && x.Enabled, ct);
+        if (result.IsFailed)
+            return result.ToResult<GetFinAssetPanelOutput>();
 
-        return result;
+        return Result.Ok(GetFinAssetPanelOutput.FromDomain(result.Value));
     }
-    public async Task<Result<FinAssetsPanel>> Change(ChangeFinAssetsPanelInput input, CancellationToken ct = default)
+    public async Task<Result<GetFinAssetPanelOutput>> Change(ChangeFinAssetsPanelInput input, CancellationToken ct = default)
     {
         var fin_assets_panel = input.Domain();
         var validation = fin_assets_panel.Validate();
@@ -40,7 +45,10 @@ public class FinAssetsPanelService(
 
         var result = await _repository.Update(fin_assets_panel, ct);
 
-        return result;
+        if (result.IsFailed)
+            return result.ToResult<GetFinAssetPanelOutput>();
+
+        return Result.Ok(GetFinAssetPanelOutput.FromDomain(result.Value));
     }
 
     private async Task<Result> ValidatePanelAccounts(FinAssetsPanel fin_assets_panel, CancellationToken ct = default)
@@ -60,13 +68,13 @@ public class FinAssetsPanelService(
 
         return Result.Ok();
     }
-    public async Task<Result<FinAssetsPanel>> Disable(Guid id, CancellationToken ct = default)
+    public async Task<Result> Disable(Guid id, CancellationToken ct = default)
     {
         var result = await _repository.Disable(id, ct);
 
         return result;
     }
-    public async Task<Result<FinAssetsPanel>> Enable(Guid id, CancellationToken ct = default)
+    public async Task<Result> Enable(Guid id, CancellationToken ct = default)
     {
         var result = await _repository.Enable(id, ct);
 

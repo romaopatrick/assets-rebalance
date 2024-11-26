@@ -26,11 +26,11 @@ export default function BankItem({ bank, refresh, canArchive }: BankItemsProps) 
     <>
       <Link
         href={`/banks/${bank.id}`}
-        className='bg-slate-600 flex gap-4 items-center 
-          cursor-pointer text-slate-300 hover:bg-slate-700 transition-all duration-300 rounded-md p-4 py-6'>
+        className='bg-slate-600 flex gap-3 items-center 
+          cursor-pointer text-slate-300 hover:bg-slate-700 transition-all duration-300 rounded-md px-3 py-2'>
         {canArchive && <ArchiveButton onClick={handleArchiveClick} archived={!bank.enabled} />}
-        {bank.iconBase64 && <img className='w-12 bg-slate-200 rounded-md' src={`${bank.iconBase64}`} />}
-        <span className='text-2xl'>
+        {bank.iconBase64 && <img width={40} className='bg-slate-200 rounded-md' src={`${bank.iconBase64}`} />}
+        <span className='text-xl'>
           {bank.routing} - {bank.name}
         </span>
       </Link>

@@ -8,6 +8,8 @@ export type FinAssetsGroup = {
     children: FinAsset[]; // initialized to an empty array
     category: FinAssetCategory;
     currentAmount: number
+    recommendedAmount: number
+    adjustAmount: number
     scorePercent: number
 }
 

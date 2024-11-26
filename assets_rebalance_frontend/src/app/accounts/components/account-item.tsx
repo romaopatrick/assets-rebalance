@@ -23,12 +23,12 @@ export default function AccountItem({ account, refresh }: Props) {
     }
     return (
         <Link href={`/accounts/${account.id}`}
-            className='bg-slate-600 flex gap-4 items-center 
-          cursor-pointer text-slate-300 hover:bg-slate-700 transition-all duration-300 rounded-md p-4 py-6'>
+            className='bg-slate-600 flex gap-3 items-center 
+          cursor-pointer text-slate-300 hover:bg-slate-700 transition-all duration-300 rounded-md px-3 py-2'>
             <ArchiveBankButton onClick={handleArchiveClick} archived={!account.enabled} />
             <div className='flex gap-2 items-center'>
-                {account?.bank?.iconBase64 && <img src={account.bank.iconBase64} className='rounded-md bg-slate-200' width={50} />}
-                <span className='text-2xl'>{account.name}</span>
+                {account?.bank?.iconBase64 && <img src={account.bank.iconBase64} className='rounded-md bg-slate-200' width={40} />}
+                <span className='text-xl'>{account.name}</span>
             </div>
         </Link>
     )

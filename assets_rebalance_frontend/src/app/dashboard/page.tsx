@@ -3,8 +3,10 @@ import { finAssetsPanelService } from '@/services/fin-assets-panel/fin-assets-pa
 import React from 'react'
 import ResumeCard from './components/resume-card'
 import PanelCardSession from './components/panel-card-session'
+import { finAssetsBankAccountService } from '@/services/fin-assets-bank-account/fin-assets-bank-account.service'
 
 export default async function Dashboard() {
+    const accounts = await finAssetsBankAccountService.all()
     const panels = await finAssetsPanelService.all()
     const invested = panels?.length
         ? panels?.map((itm) => itm.investedAmount)
@@ -31,7 +33,7 @@ export default async function Dashboard() {
                 <ResumeCard amount={totalAmount - total} label='Calc Mistake' />
             </div>
             {
-                panels?.map(x => <PanelCardSession key={x.id} panel={x} />)
+                panels?.map(x => <PanelCardSession accounts={accounts} key={x.id} panel={x} />)
             }
         </div>
     )

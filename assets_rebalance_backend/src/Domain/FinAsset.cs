@@ -7,7 +7,7 @@ public class FinAsset
 {
     public required string Name { get; set; }
     public string? Tag { get; set; }
-    public required float Score { get; set; } = 1;
+    public required decimal Score { get; set; } = 1;
     public required decimal CurrentAmount { get; set; }
     public required Guid AccountId { get; set; }
     public decimal? CurrentQuantity { get; set; }

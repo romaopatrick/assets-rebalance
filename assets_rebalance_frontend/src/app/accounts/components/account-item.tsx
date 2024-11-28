@@ -1,4 +1,4 @@
-import ArchiveBankButton from '@/app/components/archive-button'
+import ArchiveBankButton from '@/app/components/buttons/archive-button'
 import BankItem from '@/app/banks/components/bank-item'
 import { FinAssetBankAccount } from '@/domain/fin-asset-bank-account'
 import Link from 'next/link'

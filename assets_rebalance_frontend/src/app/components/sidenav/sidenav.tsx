@@ -28,13 +28,13 @@ const sidenavItems: SidenavItemProps[] = [
         id: 'assets',
         icon: <PiMoneyWavyFill size={20}/>,
         label: 'Rebalance Panel',
-        path: '/assetspanel'
+        path: '/panels'
     }
 ]
 
 export default function SideNav() {
     return (
-        <div className='lg:w-[15%] h-full py-2 flex flex-col gap-2 bg-slate-800 items-center'>{
+        <div className='lg:w-[12%] h-full py-2 flex flex-col gap-2 bg-slate-800 items-center'>{
             sidenavItems.map(item =>
                 <SidenavItem key={item.id} {...item} />
             )

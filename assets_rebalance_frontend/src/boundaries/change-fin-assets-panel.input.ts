@@ -7,18 +7,19 @@ export class ChangeFinAssetsPanelInput {
     children: FinAssetsGroup[] = []; // Default to an empty array
     name: string; // Required
 
-    constructor(name: string, amountToInvest: number = 0, children: FinAssetsGroup[] = []) {
-        this.id = crypto.randomUUID(); // Generates a new UUID if not provided (similar to Guid.NewGuid())
+    constructor(name: string, amountToInvest: number = 0, children: FinAssetsGroup[] = [], id: string) {
+        this.id = id
         this.amountToInvest = amountToInvest;
         this.children = children;
         this.name = name;
     }
 
-    toDomain(): FinAssetsPanel {
-        const panel = new FinAssetsPanel(
-            this.name, this.amountToInvest, this.children);
-            
-        panel.id = this.id;
-        return panel;
+    public static fromDomain(p: FinAssetsPanel): ChangeFinAssetsPanelInput {
+        const input = new ChangeFinAssetsPanelInput(
+            p.name, p.amountToInvest, p.children, p.id!,
+        )
+        input.id
+
+        return input
     }
 }

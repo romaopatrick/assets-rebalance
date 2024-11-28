@@ -1,7 +1,7 @@
 'use client'
 
 import { FinAssetBank } from '@/domain/fin-asset-bank'
-import React, { useEffect, useState } from 'react'
+import React, { Suspense, useEffect, useState } from 'react'
 import { useQueryParam, withDefault, BooleanParam } from 'use-query-params'
 import { useLoad } from '../components/hooks/use-load'
 import { FinAssetBankAccount } from '@/domain/fin-asset-bank-account'
@@ -15,7 +15,6 @@ export default function Accounts() {
     const [onlyActive, setOnlyActive] = useQueryParam('oa', withDefault(BooleanParam, true))
 
     const load = useLoad()
-
 
     async function fetchAccounts() {
         await load.execute(async () => {
@@ -40,11 +39,13 @@ export default function Accounts() {
             </div>
             <div className='pl-12'>
                 <h1 className='text-5xl self-start text-slate-50'>Accounts</h1>
-                <div className='flex flex-wrap gap-4 p-12'>
-                    {
-                        accounts.map(x => <AccountItem key={x.id} refresh={fetchAccounts} account={x} />)
-                    }
-                </div>
+                <Suspense>
+                    <div className='flex flex-wrap gap-4 p-12'>
+                        {
+                            accounts.map(x => <AccountItem key={x.id} refresh={fetchAccounts} account={x} />)
+                        }
+                    </div>
+                </Suspense>
             </div>
         </>
     )

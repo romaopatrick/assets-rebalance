@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import BackButton from '@/app/components/buttons/back-button'
 import AccountForm from '../components/account-form'
 import { finAssetsBankAccountService } from '@/services/fin-assets-bank-account/fin-assets-bank-account.service'
@@ -15,12 +15,14 @@ export default async function EditAccount({ params: { accountId } }: Props) {
     return (
         <div>
             <BackButton />
-            <div className=''>
-                {account
-                    ? <AccountForm account={account} />
-                    : <span>Account not found</span>
-                }
-            </div>
+            <Suspense>
+                <div className=''>
+                    {account
+                        ? <AccountForm account={account} />
+                        : <span>Account not found</span>
+                    }
+                </div>
+            </Suspense>
         </div>
     )
 }

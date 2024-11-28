@@ -25,7 +25,6 @@ export class FinAssetsPanelService {
 
     async getById(id: string): Promise<FinAssetsPanel> {
         var response = await axios.get<FinAssetsPanel | AppError[]>(this.basePath + `/${id}`)
-        console.log("called", response.data)
 
         return handleResponse(response)
     }

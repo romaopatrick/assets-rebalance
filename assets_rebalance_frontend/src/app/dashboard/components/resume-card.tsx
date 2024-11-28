@@ -10,7 +10,7 @@ type Props = {
 }
 
 export default function ResumeCard({ label, amount, className, useSign }: Props) {
-    const positive = amount >= 0 
+    const positive = amount >= 0
 
     return (
         <div className={'flex w-60 h-24 bg-slate-800 flex-col gap-2 rounded-md p-2 ' + className}>
@@ -18,10 +18,10 @@ export default function ResumeCard({ label, amount, className, useSign }: Props)
             <div className='flex items-center '>
                 {useSign
                     && (positive
-                        ? <FaPlus size={8} className='text-green-300'/>
-                        : <FaMinus size={7}  className='text-red-400'/>)
+                        ? <FaPlus size={8} className='text-green-300' />
+                        : <FaMinus size={7} className='text-red-400' />)
                 }
-                <span 
+                <span
                     className={'text-2xl ' + (useSign && (positive ? 'text-green-300' : 'text-red-400'))}>
                     {currency_f(amount)}
                 </span>

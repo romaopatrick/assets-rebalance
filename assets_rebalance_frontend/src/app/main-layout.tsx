@@ -18,7 +18,7 @@ export default function MainLayout({children}: React.PropsWithChildren) {
         <Header />
         <div className="flex w-full max-w-full overflow-hidden h-[calc(100vh-60px)]">
             <SideNav />
-            <div className="w-[85%] overflow-auto">
+            <div className="w-[88%] overflow-auto">
                 {children}
             </div>
         </div>

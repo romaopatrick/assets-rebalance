@@ -34,7 +34,7 @@ const sidenavItems: SidenavItemProps[] = [
 
 export default function SideNav() {
     return (
-        <div className='lg:w-[12%] h-full py-2 flex flex-col gap-2 bg-slate-800 items-center'>{
+        <div className='lg:w-[240px] h-full py-2 flex flex-col gap-2 bg-slate-800 items-center'>{
             sidenavItems.map(item =>
                 <SidenavItem key={item.id} {...item} />
             )

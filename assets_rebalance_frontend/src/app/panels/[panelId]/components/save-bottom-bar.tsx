@@ -9,8 +9,8 @@ type Props = {
 }
 export default function SaveBottomBar({ changed, loading, valid, onReset, onSave }: Props) {
     return !changed ? <></> : (
-        <div className='flex absolute w-[88%] bottom-0 items-center justify-center h-16' >
-            <div className='flex flex-1  mx-40 rounded-t-md justify-between bg-slate-700 h-full'>
+        <div className='flex absolute  bottom-0 items-center justify-center h-16' >
+            <div className='flex flex-1 ml-2 rounded-t-md justify-between bg-slate-700 h-full'>
                 <button disabled={loading}
                     onClick={onReset}
                     className={`bg-slate-800 transition-all duration-200 w-40 

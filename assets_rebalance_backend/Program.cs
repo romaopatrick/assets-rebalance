@@ -1,10 +1,10 @@
 
 
 using assets_rebalance_backend.src.Adapters;
+using FluentResults;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
-
 builder.Services.AddApplicationDependencies(builder.Configuration);
 
 builder.Services.AddControllers();

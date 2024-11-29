@@ -10,9 +10,11 @@ import * as Form from '@radix-ui/react-form'
 import MoneyInput from '@/app/components/inputs/money-input'
 import SaveBottomBar from './components/save-bottom-bar'
 import { ChangeFinAssetsPanelInput } from '@/boundaries/change-fin-assets-panel.input'
-import GroupList from './components/group-list'
+import GroupList from './components/group/group-list'
 import RedirectPlusButton from '@/app/components/buttons/redirect-plus-button'
 import PlusButton from '@/app/components/buttons/plus-button'
+import NewGroupModal from './components/group/new-group-modal'
+import { FinAssetsGroup } from '@/domain/fin-assets-group'
 type Props = {
   params: {
     panelId: string
@@ -21,9 +23,10 @@ type Props = {
 export default function EditPainel({ params: { panelId } }: Props) {
   const [panel, setPanel] = useState<FinAssetsPanel>()
   const [changed, setChanged] = useState(false)
+  const [selectedGroup, setSelectedGroup] = useState<FinAssetsGroup | undefined>()
   const currentScore = panel?.children.map(x => x.score).reduce((v, acc) => acc + v)
-  const valid = currentScore == 100 
-  
+  const valid = currentScore == 100
+
   const load = useLoad()
 
   const fetchPanel = async () => {
@@ -57,6 +60,13 @@ export default function EditPainel({ params: { panelId } }: Props) {
     setChanged(true)
   }
 
+  const handleAddGroup = (g: FinAssetsGroup) => {
+    handleChange(p => {
+      p.children.push(g)
+      return p
+    })
+    setSelectedGroup(g)
+  }
 
   useEffect(() => { fetchPanel() }, [])
 
@@ -66,14 +76,13 @@ export default function EditPainel({ params: { panelId } }: Props) {
         <div className='flex justify-between items-center'>
           <h1 className='text-4xl'>{panel?.name}</h1>
           <div className='flex text-4xl flex-col p-2'>
-            <span className={currentScore != 100 
+            <span className={currentScore != 100
               ? 'text-red-500'
-              :'text-green-400' }>{currentScore}</span>
-              {currentScore != 100 && <span className='text-xs text-red-400'>=100</span> }
+              : 'text-green-400'}>{currentScore}</span>
+            {currentScore != 100 && <span className='text-xs text-red-400'>=100</span>}
           </div>
         </div>
         <Form.Root className='flex flex-col gap-4'>
-          
           {
             panel &&
             <div className='flex flex-col w-full'>
@@ -96,17 +105,16 @@ export default function EditPainel({ params: { panelId } }: Props) {
                 </Form.Field>
               </div>
               <span className='w-full my-6 border-b-2 border-b-pink-900' />
-              <GroupList onChange={(gps) => handleChange(p => {
+              <GroupList value={selectedGroup} onChange={(gps) => handleChange(p => {
                 p.children = gps
                 return p
               })} groups={panel.children} />
             </div>
-
           }
         </Form.Root>
       </main>
-      <PlusButton />
       <SaveBottomBar valid={valid} onSave={onSave} onReset={onReset} loading={load.loading} changed={changed} />
+      {panel && <NewGroupModal panel={panel} onAdd={handleAddGroup} />}
     </>
   )
 }

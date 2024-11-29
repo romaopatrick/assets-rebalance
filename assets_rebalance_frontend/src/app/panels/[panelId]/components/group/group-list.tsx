@@ -1,5 +1,5 @@
 import { FinAssetsGroup } from '@/domain/fin-assets-group'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import GroupItem from './group-item'
 import * as Tabs from "@radix-ui/react-tabs";
 import { StringParam, useQueryParam, withDefault } from 'use-query-params';
@@ -10,11 +10,14 @@ import { replaceAtIndex } from '@/utils/array';
 
 type Props = {
     groups: FinAssetsGroup[]
+    value?: FinAssetsGroup
     onChange?: (newValues: FinAssetsGroup[]) => void
 }
-export default function GroupList({ groups, onChange }: Props) {
+export default function GroupList({ groups, onChange, value }: Props) {
     const [selected, setSelected] = useQueryParam('s', withDefault(StringParam, '0'))
     const curGroup = groups.at(Number(selected) ?? 0)
+    const valueIdx = value && groups.findIndex(x => x.name === value.name)
+
     const onTabChange = (v: string) => {
         setSelected(v)
     }
@@ -29,6 +32,10 @@ export default function GroupList({ groups, onChange }: Props) {
         onChange?.(groups)
     }
 
+    useEffect(() => {
+        if(value) setSelected(valueIdx?.toString())
+    }, [value])
+
     return (
         <Tabs.Root className='flex flex-col gap-4' value={selected}>
             <Tabs.List className='flex justify-between items-end max-h-10'>
@@ -40,19 +47,6 @@ export default function GroupList({ groups, onChange }: Props) {
 
                             return <Tabs.Trigger onClick={() => !active && onTabChange(id)}
                                 className={`p-2 flex items-center bg-pink-700 rounded-t-sm 
-                                ${!active ? 'bg-slate-600 mt-2' : ''}
-                        `} key={id} value={id}>
-                                {x.name}
-                            </Tabs.Trigger>
-                        })
-                    }
-                    {
-                        groups.map((x, i) => {
-                            const id = (i + 1).toString()
-                            const active = selected === id
-
-                            return <Tabs.Trigger onClick={() => !active && onTabChange(id)}
-                                className={`p-2 bg-pink-700 flex items-center rounded-t-sm
                                 ${!active ? 'bg-slate-600 mt-2' : ''}
                         `} key={id} value={id}>
                                 {x.name}

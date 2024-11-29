@@ -4,8 +4,6 @@ import { configAxios } from "@/services/common/axios-default";
 import MainLayout from "./main-layout";
 import { Metadata } from "next";
 
-configAxios()
-
 export const metadata: Metadata = {
   title: "Assets Rebalance",
   description: "Your financial equalization app",

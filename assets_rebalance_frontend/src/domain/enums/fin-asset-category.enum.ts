@@ -12,6 +12,6 @@ export const finAssetCategoryDictionary = {
     [FinAssetCategory.Variable]: "Variable",
     [FinAssetCategory.Currency]: "Currency",
     [FinAssetCategory.Cripto]: "Cripto",
-    [FinAssetCategory.ExternalFixed]: "ExternalFixed",
-    [FinAssetCategory.ExternalVariable]: "ExternalVariable",
+    [FinAssetCategory.ExternalFixed]: "Ext. Fixed",
+    [FinAssetCategory.ExternalVariable]: "Ext. Variable",
 }

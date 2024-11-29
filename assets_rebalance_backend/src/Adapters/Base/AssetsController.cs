@@ -1,4 +1,5 @@
 using System.Net;
+using assets_rebalance_backend.src.Boundaries;
 using FluentResults;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -13,11 +14,11 @@ namespace assets_rebalance_backend.src.Adapters.Base
             => result.IsSuccess
                 ? result.ValueOrDefault is null
                     ? Results.NoContent()
-                    : Results.Json(result, statusCode: (int?)successCode)
-                : Results.BadRequest(result);
+                    : Results.Json(ResultOutput.FromResult(result), statusCode: (int?)successCode)
+                : Results.BadRequest(ResultOutput.FromResult(result));
         protected IResult ParseResult(Result result, HttpStatusCode? successCode = HttpStatusCode.OK)
             => result.IsSuccess
                 ? Results.NoContent()
-                : Results.BadRequest(result);
+                : Results.BadRequest(ResultOutput.FromResult(result));
     }
 }

@@ -15,7 +15,7 @@ export default async function GroupCard({ group, accounts }: Props) {
     const findAccount = (id: string) => accounts?.find(x => x.id === id)
 
     return (
-        <div className='flex  max-w-[35vw] flex-col shadow-sm rounded-md hover:shadow-md hover:shadow-pink-800 shadow-pink-900 px-4 py-3 bg-slate-900'>
+        <div className='flex  flex-col shadow-sm rounded-md hover:shadow-md hover:shadow-pink-800 shadow-pink-900 px-4 py-3 bg-slate-900'>
             <div className='flex items-start justify-between '>
                 <span className='text-2xl text-slate-50'>{group.name}</span>
                 <span className='text-xs text-slate-400'>{finAssetCategoryDictionary[group.category]}</span>

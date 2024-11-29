@@ -15,6 +15,8 @@ import RedirectPlusButton from '@/app/components/buttons/redirect-plus-button'
 import PlusButton from '@/app/components/buttons/plus-button'
 import NewGroupModal from './components/group/new-group-modal'
 import { FinAssetsGroup } from '@/domain/fin-assets-group'
+import { toast } from 'react-toastify'
+import { successSaveToast } from '@/utils/toast'
 type Props = {
   params: {
     panelId: string
@@ -36,12 +38,12 @@ export default function EditPainel({ params: { panelId } }: Props) {
     })
   }
 
-
   const onSave = async () => {
     await load.execute(async () => {
       if (!panel) return;
 
       await finAssetsPanelService.change(ChangeFinAssetsPanelInput.fromDomain(panel))
+      successSaveToast("Panel")
       onReset()
     })
   }

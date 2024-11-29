@@ -15,3 +15,12 @@ export const finAssetCategoryDictionary = {
     [FinAssetCategory.ExternalFixed]: "Ext. Fixed",
     [FinAssetCategory.ExternalVariable]: "Ext. Variable",
 }
+
+const taggedCategories = [
+    FinAssetCategory.Fixed,
+    FinAssetCategory.ExternalFixed,
+]
+
+export const isTaggedCategory = (fc : FinAssetCategory) => {
+    return taggedCategories.includes(fc)
+}

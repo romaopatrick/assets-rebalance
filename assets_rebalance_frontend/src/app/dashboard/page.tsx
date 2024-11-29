@@ -7,8 +7,7 @@ import PanelCardSession from './components/panel-card-session'
 import ResumeCard from './components/resume-card'
 import { FinAssetBankAccount } from '@/domain/fin-asset-bank-account'
 import { FinAssetsPanel } from '@/domain/fin-assets-panel'
-import { showToast } from 'react-next-toast';
-
+import { toast } from 'react-toastify'
 
 export default function Dashboard() {
     const [accounts, setAccounts] = useState<FinAssetBankAccount[]>([])
@@ -31,7 +30,7 @@ export default function Dashboard() {
             setAccounts(accounts)
             setPanels(panels)
         } catch (e: any) {
-            showToast.error(e.message)
+            toast.error(e.message)
         }
     }
 

@@ -75,7 +75,7 @@ export default function GroupList({ groups, onChange, value }: Props) {
             </Tabs.List>
             {
                 groups.map((x, i) => <Tabs.Content key={i} value={i.toString()}>
-                    <GroupItem group={x} />
+                    <GroupItem group={x} onChange={(g) => handleChange(i.toString(), _  => g)}/>
                 </Tabs.Content>)
             }
         </Tabs.Root>

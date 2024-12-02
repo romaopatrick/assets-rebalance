@@ -4,17 +4,22 @@ import { MdOutlineAccountBalance } from "react-icons/md";
 import { FaWallet } from "react-icons/fa";
 import { TbLayoutDashboardFilled } from "react-icons/tb";
 import { PiMoneyWavyFill } from "react-icons/pi";
+import { BiSolidBank } from "react-icons/bi";
+import { IoWallet } from "react-icons/io5";
+import { RiWallet2Fill } from "react-icons/ri";
+import { FaSliders } from "react-icons/fa6";
+
 
 const sidenavItems: SidenavItemProps[] = [
     {
         id: 'banks',
-        icon: <MdOutlineAccountBalance size={20}/>,
+        icon: <BiSolidBank size={20}/>,
         label: 'Banks',
         path: '/banks'
     },
     {
         id: 'accounts',
-        icon: <FaWallet size={15}/>,
+        icon: <RiWallet2Fill size={20}/>,
         label: 'Accounts',
         path: '/accounts'
     },
@@ -25,9 +30,9 @@ const sidenavItems: SidenavItemProps[] = [
         path: '/dashboard'
     },
     {
-        id: 'assets',
-        icon: <PiMoneyWavyFill size={20}/>,
-        label: 'Panel',
+        id: 'panels',
+        icon: <FaSliders size={20}/>,
+        label: 'Panels',
         path: '/panels'
     }
 ]

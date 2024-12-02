@@ -8,6 +8,7 @@ import { MdArrowRight } from 'react-icons/md'
 import FinAssetItem from './fin-asset-item'
 import { replaceAtIndex } from '@/lib/utils/array'
 import { FinAssetBankAccount } from '@/lib/domain/fin-asset-bank-account'
+import { currency_f } from '@/lib/utils/numeric'
 
 
 type Props = {
@@ -39,6 +40,8 @@ export default function FinAssetTagItem({ assets, onChange, accounts }: Props) {
                  transition-all duration-300 outline-none ${expanded ? '!bg-green-800 hover:!bg-green-800 rounded-t-md rounded-b-none' : 'rounded-md '}`}>
                 <div className='flex w-full justify-between'>
                     <span>{firstAsset?.tag}</span>
+                    <span>{currency_f(assets.map(x => x.currentAmount).reduce((a, acc) => acc + a, 0) ?? 0)}/{currency_f(firstAsset?.recommendedAmount ?? 0)}</span>
+                    <span>{currency_f(firstAsset?.adjustAmount ?? 0)}</span>
                     <span>{firstAsset?.score}%</span>
                 </div>
 

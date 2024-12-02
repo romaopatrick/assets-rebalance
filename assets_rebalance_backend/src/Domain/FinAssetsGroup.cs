@@ -15,6 +15,9 @@ public class FinAssetsGroup
     public decimal AdjustAmount(decimal total_amount)
         => RecommendedAmount(total_amount) - CurrentAmount;
 
+        public decimal TagCurrentAmount(string tag) => 
+            Children.Where(x => x.Tag == tag).Sum(x => x.CurrentAmount);
+
     public Result Validate()
     {
         var taggedScore = Children

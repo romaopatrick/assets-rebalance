@@ -43,7 +43,7 @@ export default function FinAssetItem({ asset, onChange, accounts }: Props) {
                 </span>
             </Collapsible.Trigger>
             <Collapsible.Content className='border-b border-x rounded-b-md border-green-950'>
-                <FinAssetForm account={account!} asset={asset} onChange={onChange} />
+                <FinAssetForm account={account!} asset={asset} onChange={onChange} edit />
             </Collapsible.Content>
         </Collapsible.Root>
     )

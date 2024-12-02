@@ -9,13 +9,15 @@ type Props = {
   asset: FinAsset
   account: FinAssetBankAccount
   onChange?: (fa: FinAsset) => void
+  edit?: boolean
 }
 export default function FinAssetForm({
   asset,
   onChange,
+  edit,
   account
 }: Props) {
-
+  asset.accountId = account?.id ?? ''
   const handleChange = (fnSetAsset: (fa: FinAsset) => FinAsset) => {
     onChange?.(fnSetAsset(asset))
   }
@@ -33,6 +35,18 @@ export default function FinAssetForm({
             })}
             value={asset?.name} />
         </Form.Field>
+        {
+          !edit && <Form.Field className='flex flex-col gap-2' name='name'>
+          <Form.Label className='text-sm' >Tag</Form.Label>
+          <Form.Control
+            className='text-lg px-2 py-1  rounded-md bg-slate-600'
+            onChange={v => handleChange(fa => {
+              fa.tag = v.target.value
+              return fa
+            })}
+            value={asset?.tag!} />
+        </Form.Field>
+        }
         <Form.Field className='flex flex-col gap-2' name='score'>
           <Form.Label className='text-sm'>Score</Form.Label>
           <FormControlNumeric
@@ -65,9 +79,7 @@ export default function FinAssetForm({
             })}
           />
         </Form.Field>
-      </div>
-      <div>
-       
+
       </div>
     </Form.Root>
   )

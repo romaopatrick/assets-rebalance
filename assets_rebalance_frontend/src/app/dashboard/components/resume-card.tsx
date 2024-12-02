@@ -23,7 +23,7 @@ export default function ResumeCard({ label, amount, className, useSign }: Props)
                 }
                 <span
                     className={'text-2xl ' + (useSign && (positive ? 'text-green-300' : 'text-red-400'))}>
-                    {currency_f(amount)}
+                    {currency_f(Math.abs(amount))}
                 </span>
             </div>
         </div >

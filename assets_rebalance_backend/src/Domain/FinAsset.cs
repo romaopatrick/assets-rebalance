@@ -15,10 +15,12 @@ public class FinAsset
     public FinAssetExternalVariableIncomeData? VariableIncomeData { get; set; }
     public FinAssetFixedIncomeData? FixedIncomeData { get; set; }
         
-    public decimal ScorePercent => (decimal)Score / 100;
+    public decimal ScorePercent => Score / 100;
     public decimal RecommendedAmount(FinAssetsGroup parent_group, decimal total_amount) 
         =>  total_amount * parent_group.ScorePercent * ScorePercent; 
 
+
     public decimal AdjustAmount(FinAssetsGroup parent_group, decimal total_amount) 
-        => RecommendedAmount(parent_group, total_amount) - CurrentAmount;
+        => RecommendedAmount(parent_group, total_amount) - (Category.UseTags() && Tag is not null 
+            ? parent_group.TagCurrentAmount(Tag) : CurrentAmount);
 }

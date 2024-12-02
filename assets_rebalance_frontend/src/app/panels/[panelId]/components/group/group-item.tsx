@@ -1,39 +1,61 @@
-import { FinAssetCategory, finAssetCategoryDictionary, isTaggedCategory } from '@/domain/enums/fin-asset-category.enum'
-import { FinAssetsGroup } from '@/domain/fin-assets-group'
-import { currency_f } from '@/utils/numeric'
+import { FinAssetCategory, finAssetCategoryDictionary, isTaggedCategory } from '@/lib/domain/enums/fin-asset-category.enum'
+import { FinAssetsGroup } from '@/lib/domain/fin-assets-group'
+import { currency_f } from '@/lib/utils/numeric'
 import React from 'react'
 import FinAssetItem from '../fin-asset/fin-asset-item'
-import { FinAsset } from '@/domain/fin-asset'
-import { groupByToSet, replaceAtIndex } from '@/utils/array'
+import { FinAsset } from '@/lib/domain/fin-asset'
+import { groupByToSet, replaceAtIndex } from '@/lib/utils/array'
 import FinAssetTagItem from '../fin-asset/fin-asset-tag-item'
+import { FinAssetBankAccount } from '@/lib/domain/fin-asset-bank-account'
+import NewFinAssetModal from '../fin-asset/new-fin-asset-modal'
+
+import {uuid as v4} from 'uuidv4'
+
 type Props = {
     group: FinAssetsGroup
     onChange?: (g: FinAssetsGroup) => void
+    accounts: FinAssetBankAccount[]
 }
-export default function GroupItem({ group, onChange }: Props) {
+export default function GroupItem({ group, onChange, accounts }: Props) {
+    const useTag = isTaggedCategory(group.category)
     const groupSet = groupByToSet(group.children, x => x.tag)
-    const assetsScore = groupSet.values().map((x) => {
+    const keys = groupSet.keys()
+
+
+    const assetsScore = useTag 
+    ? groupSet?.values()?.map((x) => {
         return Array.from(x)?.[0]?.score ?? 0
-    }).reduce((a, acc) => acc + a)
-    
-    
+    })?.reduce((a, acc) => acc + a, 0)
+    : group?.children?.map(x => x.score)?.reduce((a, acc) => acc + a, 0)
 
     const validScore = assetsScore == 100
-    
-    console.log(isTaggedCategory(group.category))
 
     const handleAssetChange = (idx: number, fa: FinAsset) => {
         group.children = replaceAtIndex(group.children, idx, fa)
         onChange?.({ ...group })
     }
 
+    const handleTagChange = (tag: string, assets: FinAsset[]) => {
+        group.children = group.children.map(c => {
+            const changed = assets.find(x => x.name === c.name && c.tag === tag)
+
+            return changed || c
+        })
+
+        onChange?.({ ...group })
+    }
+
+    const handleAddAsset = (asset: FinAsset) => {
+        group.children.push(asset)
+
+        onChange?.({ ...group })
+    }
+
     return (
         <>
             <div className='flex gap-4'>
-                <button formAction={() => { }} onClick={() => { }}
-                    className='w-12 h-12 hover:bg-pink-700 bg-pink-800 rounded-md
-                        transition-all duration-300'>+</button>
-                <div className='border w-fit border-pink-900 p-2 px-4 rounded-md'>
+                <NewFinAssetModal group={group} onAdd={handleAddAsset} />
+                <div className='border w-fit border-green-800 p-2 px-4 rounded-md'>
                     <div className='flex gap-12'>
                         <div className='flex flex-col'>
                             <span>Current</span>
@@ -56,11 +78,13 @@ export default function GroupItem({ group, onChange }: Props) {
             </div>
             <br />
             <br />
-            <div className='flex flex-col gap-2'>
+            <div className='flex w-full h-full flex-col gap-4'>
                 {
-                    isTaggedCategory(group.category)
-                        ? groupSet.keys().map((k) => <FinAssetTagItem assets={Array.from(groupSet.get(k)!)} key={k} />)
-                        : group.children.map((x, i) => <FinAssetItem key={x.tag} asset={x} onChange={(fa) => handleAssetChange(i, fa)} />)
+                    useTag
+                        ? keys?.toArray().map(x => <FinAssetTagItem accounts={accounts} key={x} assets={Array.from(groupSet.get(x)!)} onChange={(assets) => {
+                            x && handleTagChange(x, assets)
+                        }} />)
+                        : group.children.map((x, i) => <FinAssetItem accounts={accounts} key={x.tag} asset={x} onChange={(fa) => handleAssetChange(i, fa)} />)
                 }
             </div>
         </>

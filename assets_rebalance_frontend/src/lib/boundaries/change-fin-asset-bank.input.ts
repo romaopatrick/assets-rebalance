@@ -1,4 +1,4 @@
-import { FinAssetBank } from "@/domain/fin-asset-bank";
+import { FinAssetBank } from "@/lib/domain/fin-asset-bank";
 
 export class ChangeFinAssetBankInput {
     id?: string; // Required (UUID is represented as a string in TypeScript)

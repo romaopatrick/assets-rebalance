@@ -1,5 +1,5 @@
-import { FinAssetBank } from "@/domain/fin-asset-bank";
-import { FinAssetBankAccount } from "@/domain/fin-asset-bank-account";
+import { FinAssetBank } from "@/lib/domain/fin-asset-bank";
+import { FinAssetBankAccount } from "@/lib/domain/fin-asset-bank-account";
 
 export class ChangeFinAssetBankAccountInput {
   id?: string

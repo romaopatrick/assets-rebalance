@@ -27,7 +27,7 @@ const sidenavItems: SidenavItemProps[] = [
     {
         id: 'assets',
         icon: <PiMoneyWavyFill size={20}/>,
-        label: 'Rebalance Panel',
+        label: 'Panel',
         path: '/panels'
     }
 ]

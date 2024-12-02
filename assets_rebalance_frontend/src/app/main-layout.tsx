@@ -8,7 +8,7 @@ import Header from './components/header'
 import SideNav from './components/sidenav/sidenav'
 import 'reflect-metadata';
 import './reset.scss'
-import { configAxios } from '@/services/common/axios-default'
+import { configAxios } from '@/lib/services/common/axios-default'
 export default function MainLayout({children}: React.PropsWithChildren) {
     useEffect(() => {
         configAxios()

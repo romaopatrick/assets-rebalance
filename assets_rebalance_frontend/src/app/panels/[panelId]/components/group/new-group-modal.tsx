@@ -3,9 +3,9 @@ import * as Form from '@radix-ui/react-form'
 import * as Dialog from '@radix-ui/react-dialog'
 import PlusButton from '@/app/components/buttons/plus-button'
 import FormControlNumeric from '@/app/components/inputs/form-control-numeric'
-import { FinAssetsGroup } from '@/domain/fin-assets-group'
-import { FinAssetsPanel } from '@/domain/fin-assets-panel'
-import { FinAssetCategory, finAssetCategoryDictionary } from '@/domain/enums/fin-asset-category.enum'
+import { FinAssetsGroup } from '@/lib/domain/fin-assets-group'
+import { FinAssetsPanel } from '@/lib/domain/fin-assets-panel'
+import { FinAssetCategory, finAssetCategoryDictionary } from '@/lib/domain/enums/fin-asset-category.enum'
 import CategorySelect from '@/app/components/selects/category-select'
 type Props = {
   panel: FinAssetsPanel
@@ -29,11 +29,26 @@ export default function NewGroupModal({ panel, onAdd }: Props) {
     setGroup({ ...g })
   }
 
+  const handleAdd = () => {
+    
+    onAdd?.(group)
+    setGroup({
+      adjustAmount: 0,
+      category: 0,
+      children: [],
+      currentAmount: 0,
+      name: '',
+      recommendedAmount: 0,
+      score: 0,
+      scorePercent: 0
+    })
+  }
+
 
   return (
     <Dialog.Root>
-      <Dialog.Trigger asChild>
-        <PlusButton />
+      <Dialog.Trigger>
+        <PlusButton entity='Group'/>
       </Dialog.Trigger>
       <Dialog.Portal>
         <Dialog.Overlay className='fixed inset-0 bg-black opacity-50 data-[state=open]:animate-overlayShow' />
@@ -82,8 +97,8 @@ export default function NewGroupModal({ panel, onAdd }: Props) {
           </Form.Root>
           <Dialog.Close asChild>
 
-            <button onClick={_ => onAdd?.(group)}
-              className='w-full mt-12 bg-pink-700 p-2 rounded-md hover:bg-pink-600 transition-colors duration-200'
+            <button onClick={handleAdd}
+              className='w-full mt-12 bg-green-800 p-2 rounded-md hover:bg-green-600 transition-colors duration-200'
             >Add</button>
           </Dialog.Close>
         </Dialog.Content>

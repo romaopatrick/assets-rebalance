@@ -17,10 +17,17 @@ public class FinAssetsGroup
 
     public Result Validate()
     {
-        if (Children
+        var taggedScore = Children
             .GroupBy(x => new { x.Tag, x.Score })
-            .Sum(x => x.First().Score) != 100)
-            return Result.Fail("group children score must sum 100");
+            .Sum(x => x.First().Score);
+
+        if (taggedScore != 100 && Category.UseTags())
+            return Result.Fail($"tagged group {Name} children score must sum 100 but sums {taggedScore}");
+
+
+        var score = Children.Sum(x => x.Score);
+        if (score != 100 && !Category.UseTags())
+            return Result.Fail($"group {Name} children  score must sum 100 but sums {score}");
 
         return Result.Ok();
     }

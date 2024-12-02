@@ -1,8 +1,8 @@
-import { ChangeFinAssetBankInput } from "@/boundaries/change-fin-asset-bank.input";
-import { AppError, AppResult } from "@/domain/result";
-import { FinAssetBank } from "@/domain/fin-asset-bank";
+import { ChangeFinAssetBankInput } from "@/lib/boundaries/change-fin-asset-bank.input";
 import axios from "axios";
 import { handleResponse } from "../common/response-handle";
+import { FinAssetBank } from "@/lib/domain/fin-asset-bank";
+import { AppResult, AppError } from "@/lib/domain/result";
 
 export class FinAssetsBankService {
     private get basePath() { return process.env.NEXT_PUBLIC_BASE_URL + '/FinAssetBank' }

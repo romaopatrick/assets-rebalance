@@ -1,8 +1,8 @@
-import { ChangeFinAssetsPanelInput } from "@/boundaries/change-fin-assets-panel.input"
-import { FinAssetsPanel } from "@/domain/fin-assets-panel"
-import { AppError, AppResult } from "@/domain/result"
+import { ChangeFinAssetsPanelInput } from "@/lib/boundaries/change-fin-assets-panel.input"
 import axios from "axios"
 import { handleResponse } from "../common/response-handle"
+import { FinAssetsPanel } from "@/lib/domain/fin-assets-panel"
+import { AppResult, AppError } from "@/lib/domain/result"
 
 export class FinAssetsPanelService {
     private get basePath() { return process.env.NEXT_PUBLIC_BASE_URL + '/FinAssetsPanel' }

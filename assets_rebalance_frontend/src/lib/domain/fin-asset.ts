@@ -58,10 +58,10 @@ class FinAssetFixedIncomeData {
     }
 }
 
-export class FinAsset {
+export type FinAsset = {
     name: string; // required
     tag?: string | null; // optional
-    score: number = 1; // required with a default value
+    score: number; // required with a default value
     currentAmount: number; // required
     accountId: string; // required (UUIDs are represented as strings in TypeScript)
     currentQuantity?: number | null; // optional
@@ -69,37 +69,9 @@ export class FinAsset {
     variableIncomeData?: FinAssetExternalVariableIncomeData | null; // optional
     fixedIncomeData?: FinAssetFixedIncomeData | null; // optional
 
-    constructor(
-        name: string,
-        score: number,
-        currentAmount: number,
-        accountId: string,
-        category: FinAssetCategory,
-        tag?: string | null,
-        currentQuantity?: number | null,
-        variableIncomeData?: FinAssetExternalVariableIncomeData | null,
-        fixedIncomeData?: FinAssetFixedIncomeData | null
-    ) {
-        this.name = name;
-        this.tag = tag ?? null;
-        this.score = score;
-        this.currentAmount = currentAmount;
-        this.accountId = accountId;
-        this.currentQuantity = currentQuantity ?? null;
-        this.category = category;
-        this.variableIncomeData = variableIncomeData ?? null;
-        this.fixedIncomeData = fixedIncomeData ?? null;
-    }
+    scorePercent?: number
 
-    get scorePercent(): number {
-        return this.score / 100;
-    }
+    recommendedAmount?: number
 
-    recommendedAmount(parentGroup: FinAssetsGroup, totalAmount: number): number {
-        return totalAmount * parentGroup.scorePercent * this.scorePercent;
-    }
-
-    adjustAmount(parentGroup: FinAssetsGroup, totalAmount: number): number {
-        return this.recommendedAmount(parentGroup, totalAmount) - this.currentAmount;
-    }
+    adjustAmount?: number
 }

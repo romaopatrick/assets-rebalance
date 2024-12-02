@@ -1,16 +1,16 @@
 'use client'
 import React, { useState } from 'react'
 import * as Form from '@radix-ui/react-form'
-import BanksSelect from '@/app/banks/components/banks-select'
-import { FinAssetBankAccount } from '@/domain/fin-asset-bank-account'
+import BanksSelect from '@/app/components/inputs/banks-select'
+import { FinAssetBankAccount } from '@/lib/domain/fin-asset-bank-account'
 import FormSubmit from '@/app/components/buttons/form-submit'
 import { useLoad } from '@/app/components/hooks/use-load'
-import { finAssetsBankAccountService } from '@/services/fin-assets-bank-account/fin-assets-bank-account.service'
-import { ChangeFinAssetBankAccountInput } from '@/boundaries/change-fin-asset-bank-account.input'
+import { finAssetsBankAccountService } from '@/lib/services/fin-assets-bank-account/fin-assets-bank-account.service'
+import { ChangeFinAssetBankAccountInput } from '@/lib/boundaries/change-fin-asset-bank-account.input'
 import { useRouter } from 'next/navigation'
-import { FinAssetBank } from '@/domain/fin-asset-bank'
+import { FinAssetBank } from '@/lib/domain/fin-asset-bank'
 import { toast } from 'react-toastify'
-import { successSaveToast } from '@/utils/toast'
+import { successSaveToast } from '@/lib/utils/toast'
 
 type Props = {
     account?: FinAssetBankAccount
@@ -60,7 +60,7 @@ export default function AccountForm({ account }: Props) {
                             value={form.name}
                             onChange={(e) => setForm({ ...form, name: e.target.value })}
                             required
-                            className="w-60 outline-none focus:border-pink-800 border-2 text-slate-900 px-2 py-2 rounded-sm" />
+                            className="w-60 outline-none focus:border-green-800 border-2 text-slate-900 px-2 py-2 rounded-sm" />
                     </Form.Field>
                 </div>
 

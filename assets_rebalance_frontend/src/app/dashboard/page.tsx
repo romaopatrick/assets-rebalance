@@ -1,12 +1,12 @@
 'use client'
 
 import React, { Suspense, useEffect, useState } from 'react'
-import { finAssetsBankAccountService } from '@/services/fin-assets-bank-account/fin-assets-bank-account.service'
-import { finAssetsPanelService } from '@/services/fin-assets-panel/fin-assets-panel.service'
+import { finAssetsBankAccountService } from '@/lib/services/fin-assets-bank-account/fin-assets-bank-account.service'
+import { finAssetsPanelService } from '@/lib/services/fin-assets-panel/fin-assets-panel.service'
 import PanelCardSession from './components/panel-card-session'
 import ResumeCard from './components/resume-card'
-import { FinAssetBankAccount } from '@/domain/fin-asset-bank-account'
-import { FinAssetsPanel } from '@/domain/fin-assets-panel'
+import { FinAssetBankAccount } from '@/lib/domain/fin-asset-bank-account'
+import { FinAssetsPanel } from '@/lib/domain/fin-assets-panel'
 import { toast } from 'react-toastify'
 
 export default function Dashboard() {

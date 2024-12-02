@@ -1,13 +1,13 @@
 'use client'
 
-import { FinAssetBank } from '@/domain/fin-asset-bank'
+import { FinAssetBank } from '@/lib/domain/fin-asset-bank'
 import React, { Suspense, useEffect, useState } from 'react'
 import { useQueryParam, withDefault, BooleanParam } from 'use-query-params'
 import { useLoad } from '../components/hooks/use-load'
-import { FinAssetBankAccount } from '@/domain/fin-asset-bank-account'
+import { FinAssetBankAccount } from '@/lib/domain/fin-asset-bank-account'
 import AccountItem from './components/account-item'
 import RedirectPlusButton from '../components/buttons/redirect-plus-button'
-import { finAssetsBankAccountService } from '@/services/fin-assets-bank-account/fin-assets-bank-account.service'
+import { finAssetsBankAccountService } from '@/lib/services/fin-assets-bank-account/fin-assets-bank-account.service'
 import OnlyActiveSwitch from '../components/inputs/only-active-switch'
 
 export default function Accounts() {

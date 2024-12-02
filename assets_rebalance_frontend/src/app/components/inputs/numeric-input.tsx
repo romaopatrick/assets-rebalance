@@ -1,4 +1,4 @@
-import { extractNumbers } from '@/utils/numeric'
+import { extractNumbers } from '@/lib/utils/numeric'
 import React, { DetailedHTMLProps, HTMLInputTypeAttribute, InputHTMLAttributes } from 'react'
 
 type Props = DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> & {

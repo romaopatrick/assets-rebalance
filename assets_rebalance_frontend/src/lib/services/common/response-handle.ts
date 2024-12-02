@@ -1,5 +1,5 @@
-import { AppResult } from '@/domain/result';
-import { capitalizeFirstLetter } from '@/utils/text';
+import { AppResult } from '@/lib/domain/result';
+import { capitalizeFirstLetter } from '@/lib/utils/text';
 import { AxiosResponse } from 'axios';
 
 export function handleResponse<T>(res: AxiosResponse<AppResult<T> | any>): T | PromiseLike<T> {

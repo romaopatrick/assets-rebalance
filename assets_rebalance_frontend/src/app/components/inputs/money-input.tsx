@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 
 type Props = {
+    id?: string
     value: number;
     onChange: (n: number) => void;
     addonBefore?: string;
@@ -36,7 +37,7 @@ const MoneyInput = ({ value, onChange, addonBefore = 'R$', ...props }: Props) =>
     return (
         <div className={"flex gap-2 w-fit items-center " + props.className}>
             <span>{addonBefore}</span>
-            <input maxLength={9} className={"px-1 max-w-[130px] rounded-sm outline-none " + props.inputClassName} value={currentValue} onChange={handleOnChange} />
+            <input id={props.id} maxLength={9} className={"px-1 max-w-[130px] rounded-sm outline-none " + props.inputClassName} value={currentValue} onChange={handleOnChange} />
         </div>
     );
 };

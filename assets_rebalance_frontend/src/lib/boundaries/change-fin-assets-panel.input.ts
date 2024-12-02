@@ -1,5 +1,5 @@
-import { FinAssetsGroup } from "@/domain/fin-assets-group";
-import { FinAssetsPanel } from "@/domain/fin-assets-panel";
+import { FinAssetsGroup } from "@/lib/domain/fin-assets-group";
+import { FinAssetsPanel } from "@/lib/domain/fin-assets-panel";
 
 export class ChangeFinAssetsPanelInput {
     id: string; // Required (UUID represented as a string in TypeScript)

@@ -1,15 +1,18 @@
 import React from 'react'
 type Props = {
   onClick?: () => void
+  entity: string
 }
 
-export default function PlusButton({ onClick }: Props) {
+export default function PlusButton({ onClick, entity: text }: Props) {
   return (
-    <button className='absolute flex text-slate-100 hover:bg-slate-700 bg-slate-800 w-14 h-14 items-center justify-center right-0 bottom-0 m-5
-      rounded-md transition-all duration-300
+    <div className='absolute flex text-slate-100 hover:bg-green-700 bg-slate-800 w-20 h-14 items-center justify-center right-0 bottom-0 m-5
+      rounded-md transition-all duration-300 cursor-pointer
+      flex-col
     '
       onClick={onClick}>
-      +
-    </button>
+      <span className='text-xs'>New</span>
+      <span>{text}</span>
+    </div>
   )
 }

@@ -1,4 +1,4 @@
-import { currency_f } from '@/utils/numeric'
+import { currency_f } from '@/lib/utils/numeric'
 import React from 'react'
 import { FaArrowDown, FaArrowUp, FaMinus, FaPlus } from 'react-icons/fa'
 

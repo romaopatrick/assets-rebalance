@@ -3,9 +3,9 @@
 import React, { Suspense, useEffect, useState } from 'react'
 import RedirectPlusButton from '../components/buttons/redirect-plus-button'
 import OnlyActiveSwitch from '../components/inputs/only-active-switch'
-import { finAssetsBankService } from '@/services/fin-assets-bank/fin-assets-bank.service'
+import { finAssetsBankService } from '@/lib/services/fin-assets-bank/fin-assets-bank.service'
 import BankItem from './components/bank-item'
-import { FinAssetBank } from '@/domain/fin-asset-bank'
+import { FinAssetBank } from '@/lib/domain/fin-asset-bank'
 import { useLoad } from '../components/hooks/use-load'
 import { BooleanParam, useQueryParam, withDefault } from 'use-query-params'
 

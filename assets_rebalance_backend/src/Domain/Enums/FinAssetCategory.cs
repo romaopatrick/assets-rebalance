@@ -9,3 +9,9 @@ public enum FinAssetCategory
     ExternalFixed,
     ExternalVariable
 }
+
+public static class FinAssetCategoryExtensions {
+    public static bool UseTags(this FinAssetCategory category) {
+        return category == FinAssetCategory.Fixed;
+    }
+}

@@ -1,5 +1,4 @@
 import ArchiveBankButton from '@/app/components/buttons/archive-button'
-import BankItem from '@/app/banks/components/bank-item'
 import { FinAssetBankAccount } from '@/lib/domain/fin-asset-bank-account'
 import Link from 'next/link'
 import React from 'react'

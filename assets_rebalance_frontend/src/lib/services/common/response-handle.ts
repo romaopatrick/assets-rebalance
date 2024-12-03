@@ -1,17 +1,23 @@
 import { AppResult } from '@/lib/domain/result';
 import { capitalizeFirstLetter } from '@/lib/utils/text';
-import { AxiosResponse } from 'axios';
+import { HttpStatusCode } from 'axios';
 
-export function handleResponse<T>(res: AxiosResponse<AppResult<T> | any>): T | PromiseLike<T> {
-    if (res.data?.errors?.length > 0) {
-        throw new Error((res.data as AppResult<T>).errors.map((x) => capitalizeFirstLetter(x.message)).join(' | '));
+export async function handleResponse<T>(response: Response): Promise<T> {
+    if(response.status === Number(HttpStatusCode.NoContent))
+        return {} as T
+    
+    const data: AppResult<T> | any = await response.json();
+
+    if (data?.errors?.length > 0) {
+        throw new Error(
+            data.errors.map((x: { message: string }) => capitalizeFirstLetter(x.message)).join(' | ')
+        );
     }
 
-    if (res.status > 299) {
-        throw new Error("We're in maintenance. Please, try again later");
+    if (!response.ok) {
+        throw new Error("We're in maintenance. Please, try again later " + JSON.stringify(data.errors));
     }
 
-    const value = res.data?.value;
-
+    const value = data?.value;
     return value as T;
 }

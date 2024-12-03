@@ -61,15 +61,15 @@ export default function AccountsSelect({ onSelect, account, preLoadAccounts }: P
             value={selectedOpt!}
             unstyled
             classNames={{
-                control: c => `max-h-2`,
-                container: (c) => `!text-slate-100 !bg-slate-600  outline-none`,
-                group: (c) => `!text-slate-100 !bg-slate-600  `,
-                valueContainer: (c) => ` !text-slate-100 !bg-slate-600  !outline-none !border-none px-2`,
-                menu: (c) => `max-h-2 !text-slate-100 !bg-slate-600  !outline-none !border-none cursor-pointer`,
-                menuList: (c) => ` !text-slate-100 !bg-slate-600  !outline-none !border-none`,
-                singleValue: (c) => `!text-slate-100 !bg-slate-600  !outline-none !border-none`,
-                input: (c) => `!text-slate-100 !cursor-text `,
-                option: (c) => `!cursor-pointer p-2 font-arial hover:!bg-slate-900 data-[selected=true]:bg-green-400`,
+                control: _ => `max-h-2`,
+                container: () => `!text-slate-100 !bg-slate-600  outline-none`,
+                group: () => `!text-slate-100 !bg-slate-600  `,
+                valueContainer: () => ` !text-slate-100 !bg-slate-600  !outline-none !border-none px-2`,
+                menu: () => `max-h-2 !text-slate-100 !bg-slate-600  !outline-none !border-none cursor-pointer`,
+                menuList: () => ` !text-slate-100 !bg-slate-600  !outline-none !border-none`,
+                singleValue: () => `!text-slate-100 !bg-slate-600  !outline-none !border-none`,
+                input: () => `!text-slate-100 !cursor-text `,
+                option: () => `!cursor-pointer p-2 font-arial hover:!bg-slate-900 data-[selected=true]:bg-green-400`,
             }}
             placeholder={''}
             onChange={

@@ -38,7 +38,7 @@ export default function FormControlImageBase64({ base64, onChange }: Props) {
                     onChange={(e) => e?.[0]?.file && handleChange(e?.[0]?.file)}
                 />
             </Form.Control>
-            {base64 && <Image height={40} alt='base64 selected' className='w-10 bg-slate-200 rounded-md' src={`${base64}`} />}
+            {base64 && <Image height={40}  width={40} alt='base64 selected' className='w-10 bg-slate-200 rounded-md' src={`${base64}`} />}
         </div>
     )
 }

@@ -1,6 +1,4 @@
 import "./globals.css";
-import 'react-toastify/dist/ReactToastify.css';
-import { configAxios } from "@/lib/services/common/axios-default";
 import MainLayout from "./main-layout";
 import { Metadata } from "next";
 

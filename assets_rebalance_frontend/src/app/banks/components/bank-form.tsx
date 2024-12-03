@@ -1,16 +1,12 @@
 'use client'
 
-import FormControlNumeric from "@/app/components/inputs/form-control-numeric";
-import { useErrorHandler } from "@/app/components/hooks/use-error-handler";
 import { useLoad } from "@/app/components/hooks/use-load";
 import { ChangeFinAssetBankInput } from "@/lib/boundaries/change-fin-asset-bank.input";
 import { FinAssetBank } from "@/lib/domain/fin-asset-bank";
 import { finAssetsBankService } from "@/lib/services/fin-assets-bank/fin-assets-bank.service";
 import * as Form from "@radix-ui/react-form";
-import dayjs from "dayjs";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { toast } from "react-toastify";
 import FormControlImageBase64 from "@/app/components/inputs/form-control-image-base64";
 import FormSubmit from "@/app/components/buttons/form-submit";
 import { successSaveToast } from "@/lib/utils/toast";

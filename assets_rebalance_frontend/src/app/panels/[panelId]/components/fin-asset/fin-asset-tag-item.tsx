@@ -26,7 +26,7 @@ export default function FinAssetTagItem({ assets, onChange, accounts }: Props) {
     }
 
     const handleChange = (i: number, a: FinAsset) => {
-        let r = replaceAtIndex(assets, i, a).map(x => {
+        const r = replaceAtIndex(assets, i, a).map(x => {
             x.score = a.score
             return x
         })

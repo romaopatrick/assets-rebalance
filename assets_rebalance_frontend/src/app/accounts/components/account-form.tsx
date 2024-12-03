@@ -9,7 +9,6 @@ import { finAssetsBankAccountService } from '@/lib/services/fin-assets-bank-acco
 import { ChangeFinAssetBankAccountInput } from '@/lib/boundaries/change-fin-asset-bank-account.input'
 import { useRouter } from 'next/navigation'
 import { FinAssetBank } from '@/lib/domain/fin-asset-bank'
-import { toast } from 'react-toastify'
 import { successSaveToast } from '@/lib/utils/toast'
 
 type Props = {

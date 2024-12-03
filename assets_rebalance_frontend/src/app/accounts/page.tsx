@@ -1,6 +1,5 @@
 'use client'
 
-import { FinAssetBank } from '@/lib/domain/fin-asset-bank'
 import React, { Suspense, useEffect, useState } from 'react'
 import { useQueryParam, withDefault, BooleanParam } from 'use-query-params'
 import { useLoad } from '../components/hooks/use-load'
@@ -10,32 +9,28 @@ import RedirectPlusButton from '../components/buttons/redirect-plus-button'
 import { finAssetsBankAccountService } from '@/lib/services/fin-assets-bank-account/fin-assets-bank-account.service'
 import OnlyActiveSwitch from '../components/inputs/only-active-switch'
 
-export default function Accounts() {
-    const [accounts, setAccounts] = useState<FinAssetBankAccount[]>([])
-    const [onlyActive, setOnlyActive] = useQueryParam('oa', withDefault(BooleanParam, true))
-
-    const load = useLoad()
-
-    async function fetchAccounts() {
-        await load.execute(async () => {
-            const accs = await finAssetsBankAccountService.all(onlyActive)
-            setAccounts(accs)
-        })
+type Props = {
+    searchParams: {
+        oa: boolean
     }
+}
 
-    useEffect(() => {
-        fetchAccounts()
-    }, [onlyActive])
-
-    const handleOnlyActiveSwitchChange = (v: boolean) => {
-        setOnlyActive(v, 'replaceIn')
+export default async function Accounts({
+    searchParams: {
+        oa = true,
+    }
+}: Props) {
+    const accounts = await fetchAccounts()
+    async function fetchAccounts() {
+        const accs = await finAssetsBankAccountService.all(oa)
+        return accs
     }
 
     return (
-        <>
+        <Suspense>
             <RedirectPlusButton href='/accounts/new' />
             <div className='flex justify-end w-full pt-3 pr-3'>
-                <OnlyActiveSwitch onChange={handleOnlyActiveSwitchChange} checked={onlyActive} />
+                <OnlyActiveSwitch />
             </div>
             <div className='pl-12'>
                 <h1 className='text-5xl self-start text-slate-50'>Accounts</h1>
@@ -47,6 +42,6 @@ export default function Accounts() {
                     </div>
                 </Suspense>
             </div>
-        </>
+        </Suspense>
     )
 }

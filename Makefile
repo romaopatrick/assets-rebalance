@@ -1,4 +1,15 @@
+.PHONY: dev bk-run-dev fr-run-dev
+
+BACK_PATH=./assets_rebalance_backend/assets_rebalance_backend.csproj
+FRONT_PATH=./assets_rebalance_frontend
+
 bk-run-dev: 
-	${shell dotnet run -p ./assets_rebalance_backend/assets_rebalance_backend.csproj}
+	@echo "Starting backend..."
+	dotnet run -p $(BACK_PATH)
+
 fr-run-dev: 
-	$(shell cd ./assets_rebalance_frontend && yarn dev)
+	@echo "Starting frontend..."
+	cd $(FRONT_PATH) && yarn dev
+
+dev:
+	$(MAKE) -j bk-run-dev fr-run-dev

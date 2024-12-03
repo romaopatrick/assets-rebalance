@@ -1,3 +1,5 @@
+'use client'
+
 import { FinAssetBank } from '@/lib/domain/fin-asset-bank'
 import Link from 'next/link'
 import React from 'react'
@@ -16,7 +18,7 @@ export default function BankItem({ bank, refresh, canArchive }: BankItemsProps) 
   const load = useLoad()
 
   const handleArchiveClick = async () => {
-    load.execute(async () => {
+    await load.execute(async () => {
       if (bank.enabled) await finAssetsBankService.disable(bank.id!)
       else await finAssetsBankService.enable(bank.id!)
       refresh?.()

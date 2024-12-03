@@ -1,5 +1,5 @@
 import { FinAssetsGroup } from '@/lib/domain/fin-assets-group'
-import React, { useEffect, useState } from 'react'
+import React, { Suspense, useEffect, useState } from 'react'
 import GroupItem from './group-item'
 import * as Tabs from "@radix-ui/react-tabs";
 import { StringParam, useQueryParam, withDefault } from 'use-query-params';
@@ -18,7 +18,7 @@ type Props = {
 export default function GroupList({ groups, onChange, value, accounts }: Props) {
     const [selected, setSelected] = useQueryParam('s', withDefault(StringParam, '0'))
     const curGroup = groups.at(Number(selected) ?? 0)
-    if(!curGroup)
+    if (!curGroup)
         setSelected('0')
     const valueIdx = value && groups.findIndex(x => x.name === value.name)
 
@@ -37,52 +37,54 @@ export default function GroupList({ groups, onChange, value, accounts }: Props) 
     }
 
     useEffect(() => {
-        if(value) setSelected(valueIdx?.toString())
+        if (value) setSelected(valueIdx?.toString())
     }, [value])
 
     return (
-        <Tabs.Root className='flex flex-col gap-4' value={selected}>
-            <Tabs.List className='flex justify-between items-end max-h-10'>
-                <div className='flex'>
-                    {
-                        groups.map((x, i) => {
-                            const id = i.toString()
-                            const active = selected === id
+        <Suspense>
+            <Tabs.Root className='flex flex-col gap-4' value={selected}>
+                <Tabs.List className='flex justify-between items-end max-h-10'>
+                    <div className='flex'>
+                        {
+                            groups.map((x, i) => {
+                                const id = i.toString()
+                                const active = selected === id
 
-                            return <Tabs.Trigger onClick={() => !active && onTabChange(id)}
-                                className={`p-2 flex items-center bg-green-800 rounded-t-sm 
-                                ${!active ? '!bg-transparent border border-green-800 mt-2' : ''}
+                                return <Tabs.Trigger onClick={() => !active && onTabChange(id)}
+                                    className={`p-2 flex items-center bg-green-800 rounded-t-sm 
+                                ${!active ? '!bg-transparent border-r border-t border-green-800 mt-2' : ''}
                         `} key={id} value={id}>
-                                {x.name}
-                            </Tabs.Trigger>
-                        })
-                    }
-                </div>
-                <div className='flex items-end gap-4'>
-                    <div className='flex gap-2'>
-                        <div className='relative flex flex-col items-center'>
-                            <span className='absolute -top-3 text-slate-400 z-10 text-[0.6rem]'>Score</span>
-                            <NumericInput
-                                id='score'
-                                maxLength={3}
-                                min={1}
-                                max={100}
-                                value={curGroup?.score}
-                                onChange={v => handleChange(selected, g => {
-                                    g.score = v as number
-                                    return g
-                                })}
-                                className='outline-none bg-slate-600 rounded-md px-2 text-xl w-14' />
-                        </div>
+                                    {x.name}
+                                </Tabs.Trigger>
+                            })
+                        }
                     </div>
-                    <span className='italic text-green-700'>{finAssetCategoryDictionary[curGroup?.category ?? 0]}</span>
-                </div>
-            </Tabs.List>
-            {
-                groups.map((x, i) => <Tabs.Content key={i} value={i.toString()}>
-                    <GroupItem group={x} accounts={accounts} onChange={(g) => handleChange(i.toString(), _  => g)}/>
-                </Tabs.Content>)
-            }
-        </Tabs.Root>
+                    <div className='flex items-end gap-4'>
+                        <div className='flex gap-2'>
+                            <div className='relative flex flex-col items-center'>
+                                <span className='absolute -top-3 text-slate-400 z-10 text-[0.6rem]'>Score</span>
+                                <NumericInput
+                                    id='score'
+                                    maxLength={3}
+                                    min={1}
+                                    max={100}
+                                    value={curGroup?.score}
+                                    onChange={v => handleChange(selected, g => {
+                                        g.score = v as number
+                                        return g
+                                    })}
+                                    className='outline-none bg-slate-600 rounded-md px-2 text-xl w-14' />
+                            </div>
+                        </div>
+                        <span className='italic text-green-700'>{finAssetCategoryDictionary[curGroup?.category ?? 0]}</span>
+                    </div>
+                </Tabs.List>
+                {
+                    groups.map((x, i) => <Tabs.Content key={i} value={i.toString()}>
+                        <GroupItem group={x} accounts={accounts} onChange={(g) => handleChange(i.toString(), _ => g)} />
+                    </Tabs.Content>)
+                }
+            </Tabs.Root>
+        </Suspense>
     )
 }

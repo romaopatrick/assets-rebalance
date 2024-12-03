@@ -9,16 +9,20 @@ import SideNav from './components/sidenav/sidenav'
 import 'reflect-metadata';
 import './reset.scss'
 import { configAxios } from '@/lib/services/common/axios-default'
-export default function MainLayout({children}: React.PropsWithChildren) {
+import 'react-toastify/dist/ReactToastify.css';
+
+export default function MainLayout({ children }: React.PropsWithChildren) {
+
     useEffect(() => {
         configAxios()
     }, [])
-    return <QueryParamProvider adapter={NextAdapterApp}>
+
+    return <>
         <ToastContainer
             position="top-center"
             autoClose={3000}
         />
-        
+
         <Header />
         <div className="flex w-full max-w-full overflow-hidden h-[calc(100vh-60px)]">
             <SideNav />
@@ -26,5 +30,5 @@ export default function MainLayout({children}: React.PropsWithChildren) {
                 {children}
             </div>
         </div>
-    </QueryParamProvider>
+    </>
 }

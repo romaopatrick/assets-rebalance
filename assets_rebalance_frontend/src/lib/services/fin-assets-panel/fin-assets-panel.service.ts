@@ -8,13 +8,13 @@ export class FinAssetsPanelService {
     private get basePath() { return process.env.NEXT_PUBLIC_BASE_URL + '/FinAssetsPanel' }
 
     async change(input: ChangeFinAssetsPanelInput): Promise<FinAssetsPanel> {
-        var response = await axios.put<AppResult<FinAssetsPanel> | any>(this.basePath, input)
+        const response = await axios.put<AppResult<FinAssetsPanel> | AppError[]>(this.basePath, input)
 
         return handleResponse(response)
     }
 
     async all(activeOnly = false): Promise<FinAssetsPanel[]> {
-        var response = await axios.get<FinAssetsPanel[] | AppError[]>(this.basePath + '/all', {
+        const response = await axios.get<FinAssetsPanel[] | AppError[]>(this.basePath + '/all', {
             params: {
                 activeOnly
             }
@@ -24,19 +24,19 @@ export class FinAssetsPanelService {
     }
 
     async getById(id: string): Promise<FinAssetsPanel> {
-        var response = await axios.get<FinAssetsPanel | AppError[]>(this.basePath + `/${id}`)
+        const response = await axios.get<FinAssetsPanel | AppError[]>(this.basePath + `/${id}`)
 
         return handleResponse(response)
     }
 
     async disable(id: string): Promise<void> {
-        var response = await axios.patch<void | AppError[]>(this.basePath + `/d/${id}`)
+        const response = await axios.patch<void | AppError[]>(this.basePath + `/d/${id}`)
 
         return handleResponse(response)
     }
 
     async enable(id: string): Promise<void> {
-        var response = await axios.patch<void | AppError[]>(this.basePath + `/e/${id}`)
+        const response = await axios.patch<void | AppError[]>(this.basePath + `/e/${id}`)
 
         return handleResponse(response)
     }

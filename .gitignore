@@ -15,7 +15,6 @@
 
 # Mono auto generated files
 mono_crash.*
-appsettings.Production.json
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/
@@ -396,4 +395,4 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
-assets_rebalance_backend/appsettings.Production.json
+./assets_rebalance_backend/appsettings.Production.json

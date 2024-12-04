@@ -1,6 +1,6 @@
 'use client'
 
-import { finAssetsBankService } from '@/lib/services/fin-assets-bank/fin-assets-bank.service'
+import * as finAssetsBankService from '@/lib/api/fin-assets-bank/fin-assets-bank.service'
 import React, { useEffect, useState } from 'react'
 import { FinAssetBank } from '@/lib/domain/fin-asset-bank'
 import { useLoad } from '@/app/components/hooks/use-load'
@@ -31,7 +31,7 @@ export default function BanksSelect({ onSelect, bank }: Props) {
 
     async function fetchBanks() {
         await load.execute(async () => {
-            const fetchedBanks = await finAssetsBankService.all(true)
+            const fetchedBanks = await finAssetsBankService.getAllBanks(true)
             setBanks(fetchedBanks)
             if (fetchedBanks.length && !bank) 
                 onSelect?.(fetchedBanks[0])

@@ -9,6 +9,10 @@
     "lint": "next lint .",
     "lint:fix": "next lint . --fix"
   },
+  "peerDependencies": {
+    "react": "^18",
+    "react-dom": "^18"
+  },
   "dependencies": {
     "@files-ui/react": "^1.2.4",
     "@radix-ui/react-collapsible": "^1.1.1",
@@ -29,7 +33,7 @@
     "react-select": "^5.8.3",
     "react-toastify": "^10.0.6",
     "reflect-metadata": "^0.2.2",
-    "sass": "^1.81.0",
+    "sass": "^1.82.0",
     "typescript-result": "^3.1.0",
     "use-query-params": "^2.2.1",
     "uuidv4": "^6.2.13"

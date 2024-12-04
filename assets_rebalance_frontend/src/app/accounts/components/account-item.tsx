@@ -1,8 +1,10 @@
+'use client'
+
 import ArchiveBankButton from '@/app/components/buttons/archive-button'
 import { FinAssetBankAccount } from '@/lib/domain/fin-asset-bank-account'
 import Link from 'next/link'
 import React from 'react'
-import { finAssetsBankAccountService } from '@/lib/services/fin-assets-bank-account/fin-assets-bank-account.service'
+import * as finAssetsBankAccountService  from '@/lib/api/fin-assets-bank-account/fin-assets-bank-account.service'
 import { useLoad } from '@/app/components/hooks/use-load'
 import Image from 'next/image'
 
@@ -16,8 +18,8 @@ export default function AccountItem({ account, refresh }: Props) {
 
     const handleArchiveClick = async () => {
         await load.execute(async () => {
-            if (account.enabled) await finAssetsBankAccountService.disable(account.id!)
-            else await finAssetsBankAccountService.enable(account.id!)
+            if (account.enabled) await finAssetsBankAccountService.disableBankAccount(account.id!)
+            else await finAssetsBankAccountService.enableBankAccount(account.id!)
             refresh?.()
         })
     }

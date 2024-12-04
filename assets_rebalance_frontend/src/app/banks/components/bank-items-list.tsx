@@ -1,7 +1,8 @@
-import { finAssetsBankService } from '@/lib/services/fin-assets-bank/fin-assets-bank.service'
+import * as finAssetBankActions  from '@/lib/api/fin-assets-bank/fin-assets-bank.service'
 import React, {  } from 'react'
 import BankItem from './bank-item'
 import { revalidateTag } from 'next/cache';
+import { tags } from '@/lib/api/common/tags';
 
 type Props = {
     searchParams: {
@@ -10,10 +11,10 @@ type Props = {
 }
 
 export default async function BankItemsList({searchParams: {oa}}: Props) {
-    const banks = await finAssetsBankService.all(oa)
+    const banks = await finAssetBankActions.getAllBanks(oa)
     const handleRefresh = async () => {
         'use server'
-        await revalidateTag('FinAssetsBankService.all')
+        revalidateTag(tags.bank)
     }
     return (
         <div className='flex flex-wrap gap-4 p-12'>

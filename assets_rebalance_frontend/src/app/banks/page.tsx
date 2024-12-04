@@ -1,10 +1,15 @@
 import React, { Suspense } from 'react'
 import RedirectPlusButton from '../components/buttons/redirect-plus-button'
-import OnlyActiveSwitch from '../components/inputs/only-active-switch'
 import BankItemsList from './components/bank-items-list'
+import dynamic from 'next/dynamic'
+
+const OnlyActiveSwitch = dynamic(() => import('../components/inputs/only-active-switch'))
+
 type Props = {
     searchParams: any
 }
+
+
 export default function Banks({searchParams}: Props) {
     return (
         <>

@@ -3,7 +3,7 @@
 import { FinAssetBank } from '@/lib/domain/fin-asset-bank'
 import Link from 'next/link'
 import React from 'react'
-import { finAssetsBankService } from '@/lib/services/fin-assets-bank/fin-assets-bank.service'
+  import * as finAssetsBankService  from '@/lib/api/fin-assets-bank/fin-assets-bank.service'
 import { useLoad } from '@/app/components/hooks/use-load'
 import ArchiveButton from '@/app/components/buttons/archive-button'
 import Image from 'next/image'
@@ -19,8 +19,8 @@ export default function BankItem({ bank, refresh, canArchive }: BankItemsProps) 
 
   const handleArchiveClick = async () => {
     await load.execute(async () => {
-      if (bank.enabled) await finAssetsBankService.disable(bank.id!)
-      else await finAssetsBankService.enable(bank.id!)
+      if (bank.enabled) await finAssetsBankService.disableBank(bank.id!)
+      else await finAssetsBankService.enableBank(bank.id!)
       refresh?.()
     })
   }

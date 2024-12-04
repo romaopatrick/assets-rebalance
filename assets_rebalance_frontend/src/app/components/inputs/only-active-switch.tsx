@@ -1,4 +1,5 @@
 'use client'
+
 import React from "react";
 import * as Switch from "@radix-ui/react-switch";
 import { BooleanParam, QueryParamProvider, useQueryParam, withDefault } from "use-query-params";
@@ -15,6 +16,7 @@ const ButtonWrap = ({action}: Props) => {
     setChecked(d)
     action?.(d)
   }
+
   return (
       <div className="flex gap-2 items-center">
         <label htmlFor="only-active-switch" className="flex text-sm font-medium">

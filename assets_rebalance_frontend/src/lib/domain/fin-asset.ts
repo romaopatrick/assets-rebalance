@@ -1,6 +1,6 @@
 import { FinAssetCategory } from "./enums/fin-asset-category.enum";
 import { FixedIncomeIndexer } from "./enums/fixed-income-indexer.enum";
-import { FinAssetsGroup } from "./fin-assets-group";
+
 export class FinAssetExternalVariableIncomeData {
     dolarPrice: number; // required
 

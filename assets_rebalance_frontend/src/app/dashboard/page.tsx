@@ -1,8 +1,8 @@
 'use client'
 
 import React, { Suspense, useEffect, useState } from 'react'
-import { finAssetsBankAccountService } from '@/lib/services/fin-assets-bank-account/fin-assets-bank-account.service'
-import { finAssetsPanelService } from '@/lib/services/fin-assets-panel/fin-assets-panel.service'
+import * as finAssetsBankAccountService from '@/lib/api/fin-assets-bank-account/fin-assets-bank-account.service'
+import * as finAssetsPanelService  from '@/lib/api/fin-assets-panel/fin-assets-panel.service'
 import PanelCardSession from './components/panel-card-session'
 import ResumeCard from './components/resume-card'
 import { FinAssetBankAccount } from '@/lib/domain/fin-asset-bank-account'
@@ -25,8 +25,8 @@ export default function Dashboard() {
 
     const fetchDashboard = async () => {
         try {
-            const accounts = await finAssetsBankAccountService.all()
-            const panels = await finAssetsPanelService.all()
+            const accounts = await finAssetsBankAccountService.getAllBankAccounts()
+            const panels = await finAssetsPanelService.getAllPanels()
             setAccounts(accounts)
             setPanels(panels)
         } catch (e: any) {

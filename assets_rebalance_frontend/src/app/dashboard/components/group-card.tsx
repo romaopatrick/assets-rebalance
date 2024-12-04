@@ -2,7 +2,6 @@ import { FinAssetsGroup } from '@/lib/domain/fin-assets-group'
 import React from 'react'
 import ResumeCard from './resume-card'
 import { finAssetCategoryDictionary } from '@/lib/domain/enums/fin-asset-category.enum'
-import { finAssetsBankAccountService } from '@/lib/services/fin-assets-bank-account/fin-assets-bank-account.service'
 import GroupCardChild from './group-card-child'
 import { FinAssetBankAccount } from '@/lib/domain/fin-asset-bank-account'
 

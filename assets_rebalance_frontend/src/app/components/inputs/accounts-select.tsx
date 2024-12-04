@@ -1,11 +1,10 @@
 'use client'
 
-import { finAssetsBankService } from '@/lib/services/fin-assets-bank/fin-assets-bank.service'
 import React, { useEffect, useState } from 'react'
 import { useLoad } from '@/app/components/hooks/use-load'
 import Select from 'react-select'
 import { FinAssetBankAccount } from '@/lib/domain/fin-asset-bank-account'
-import { finAssetsBankAccountService } from '@/lib/services/fin-assets-bank-account/fin-assets-bank-account.service'
+import * as finAssetsBankAccountService from '@/lib/api/fin-assets-bank-account/fin-assets-bank-account.service'
 type Props = {
     preLoadAccounts?: FinAssetBankAccount[]
     account?: FinAssetBankAccount
@@ -38,7 +37,7 @@ export default function AccountsSelect({ onSelect, account, preLoadAccounts }: P
         }
         
         await load.execute(async () => {
-            const accs = await finAssetsBankAccountService.all(true)
+            const accs = await finAssetsBankAccountService.getAllBankAccounts(true)
             setAccounts(accs)
             if (accs.length && !account) onSelect?.(accs[0])
         })

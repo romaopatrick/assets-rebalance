@@ -6,7 +6,7 @@ import { FinAssetCategory } from '@/lib/domain/enums/fin-asset-category.enum'
 import { FinAssetsGroup } from '@/lib/domain/fin-assets-group'
 import { FinAssetBankAccount } from '@/lib/domain/fin-asset-bank-account'
 import { useLoad } from '@/app/components/hooks/use-load'
-import { finAssetsBankAccountService } from '@/lib/services/fin-assets-bank-account/fin-assets-bank-account.service'
+import * as finAssetsBankAccountService from '@/lib/api/fin-assets-bank-account/fin-assets-bank-account.service'
 import FinAssetForm from './fin-asset-form'
 import { uuid as v4} from 'uuidv4'
 type Props = {
@@ -31,7 +31,7 @@ export default function NewFinAssetModal({ group, onAdd }: Props) {
 
     const fetchAccounts = async () => {
         await loadAccounts.execute(async () => {
-            const accs = await finAssetsBankAccountService.all(true)
+            const accs = await finAssetsBankAccountService.getAllBankAccounts(true)
             setAccounts(accs)
         })
     }

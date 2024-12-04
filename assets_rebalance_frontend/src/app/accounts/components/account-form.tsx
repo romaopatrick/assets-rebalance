@@ -1,11 +1,11 @@
 'use client'
 import React, { useState } from 'react'
 import * as Form from '@radix-ui/react-form'
-import BanksSelect from '@/app/components/inputs/banks-select'
+import BanksSelect from '@/app/components/selects/banks-select'
 import { FinAssetBankAccount } from '@/lib/domain/fin-asset-bank-account'
 import FormSubmit from '@/app/components/buttons/form-submit'
 import { useLoad } from '@/app/components/hooks/use-load'
-import { finAssetsBankAccountService } from '@/lib/services/fin-assets-bank-account/fin-assets-bank-account.service'
+import * as finAssetsBankAccountService from '@/lib/api/fin-assets-bank-account/fin-assets-bank-account.service'
 import { ChangeFinAssetBankAccountInput } from '@/lib/boundaries/change-fin-asset-bank-account.input'
 import { useRouter } from 'next/navigation'
 import { FinAssetBank } from '@/lib/domain/fin-asset-bank'
@@ -32,7 +32,7 @@ export default function AccountForm({ account }: Props) {
     const onSave = async () => {
         await load.execute(async () => {
             const input = new ChangeFinAssetBankAccountInput(form.bank?.id ?? '', form.name ?? '', [], account?.id ?? '')
-            await finAssetsBankAccountService.change(input)
+            await finAssetsBankAccountService.changeBankAccount(input)
             successSaveToast('Account')
         })
 

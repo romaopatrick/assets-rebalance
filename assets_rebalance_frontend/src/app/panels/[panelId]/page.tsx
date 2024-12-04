@@ -2,22 +2,18 @@
 
 import { useLoad } from '@/app/components/hooks/use-load'
 import { FinAssetsPanel } from '@/lib/domain/fin-assets-panel'
-import { finAssetsPanelService } from '@/lib/services/fin-assets-panel/fin-assets-panel.service'
+import * as finAssetsPanelService from '@/lib/api/fin-assets-panel/fin-assets-panel.service'
 import React, { useEffect, useState } from 'react'
 import ResumeCard from '@/app/dashboard/components/resume-card'
-import FormControlNumeric from '@/app/components/inputs/form-control-numeric'
 import * as Form from '@radix-ui/react-form'
 import MoneyInput from '@/app/components/inputs/money-input'
 import SaveBottomBar from './components/save-bottom-bar'
 import { ChangeFinAssetsPanelInput } from '@/lib/boundaries/change-fin-assets-panel.input'
 import GroupList from './components/group/group-list'
-import RedirectPlusButton from '@/app/components/buttons/redirect-plus-button'
-import PlusButton from '@/app/components/buttons/plus-button'
 import NewGroupModal from './components/group/new-group-modal'
 import { FinAssetsGroup } from '@/lib/domain/fin-assets-group'
-import { toast } from 'react-toastify'
 import { successSaveToast } from '@/lib/utils/toast'
-import { finAssetsBankAccountService } from '@/lib/services/fin-assets-bank-account/fin-assets-bank-account.service'
+import * as finAssetsBankAccountService from '@/lib/api/fin-assets-bank-account/fin-assets-bank-account.service'
 import { FinAssetBankAccount } from '@/lib/domain/fin-asset-bank-account'
 type Props = {
   params: {
@@ -37,14 +33,14 @@ export default function EditPainel({ params: { panelId } }: Props) {
 
   const fetchPanel = async () => {
     await load.execute(async () => {
-      const panel = await finAssetsPanelService.getById(panelId)
+      const panel = await finAssetsPanelService.getPanelById(panelId)
       setPanel(panel)
     })
   }
 
   const fetchAccounts = async () => {
     await loadAccs.execute(async () => {
-      const accs = await finAssetsBankAccountService.all()
+      const accs = await finAssetsBankAccountService.getAllBankAccounts()
       setAccounts(accs)
     })
   }
@@ -53,7 +49,7 @@ export default function EditPainel({ params: { panelId } }: Props) {
     await load.execute(async () => {
       if (!panel) return;
 
-      await finAssetsPanelService.change(ChangeFinAssetsPanelInput.fromDomain(panel))
+      await finAssetsPanelService.changePanel(ChangeFinAssetsPanelInput.fromDomain(panel))
       successSaveToast("Panel")
       onReset()
     })

@@ -1,4 +1,3 @@
-import { Expose } from "class-transformer";
 import { Entity } from "./entity";
 
 export type FinAssetBank =  Entity & {

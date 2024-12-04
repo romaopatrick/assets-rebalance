@@ -3,7 +3,7 @@
 import { useLoad } from "@/app/components/hooks/use-load";
 import { ChangeFinAssetBankInput } from "@/lib/boundaries/change-fin-asset-bank.input";
 import { FinAssetBank } from "@/lib/domain/fin-asset-bank";
-import { finAssetsBankService } from "@/lib/services/fin-assets-bank/fin-assets-bank.service";
+import * as finAssetsBankService from "@/lib/api/fin-assets-bank/fin-assets-bank.service";
 import * as Form from "@radix-ui/react-form";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -39,7 +39,7 @@ export default function BankForm({ bank: defaultBank }: Props) {
                 null,
                 bank.iconBase64)
 
-            await finAssetsBankService.change(input)
+            await finAssetsBankService.changeBank(input)
             successSaveToast('Bank')
         })
 

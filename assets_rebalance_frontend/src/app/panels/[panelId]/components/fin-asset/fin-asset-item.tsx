@@ -1,6 +1,5 @@
 import { FinAsset } from '@/lib/domain/fin-asset'
 import React, { useState } from 'react'
-import { FaArrowRight, FaEdit } from 'react-icons/fa'
 import * as Collapsible from '@radix-ui/react-collapsible'
 import { MdArrowRight } from 'react-icons/md'
 import FinAssetForm from './fin-asset-form'

@@ -1,7 +1,6 @@
 import { FinAssetsGroup, finAssetsGroupManager } from './fin-assets-group';
 import { Entity } from './entity';
 import { Result } from 'typescript-result';
-import { AppError, AppResult } from './result';
 
 export type FinAssetsPanel = Entity & {
   children: FinAssetsGroup[]; // Initialized to an empty array

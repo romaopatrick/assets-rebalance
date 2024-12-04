@@ -1,0 +1,1478 @@
+[{
+  "_id": {
+    "$binary": {
+      "base64": "P6hfZFcXRWKz/CyWP2avpg==",
+      "subType": "04"
+    }
+  },
+  "CreatedAt": {
+    "$date": "2024-12-02T16:33:02.536Z"
+  },
+  "UpdatedAt": {
+    "$date": "2024-12-02T16:33:06.327Z"
+  },
+  "Enabled": true,
+  "DisabledAt": null,
+  "Children": [
+    {
+      "Name": "Renda Fixa",
+      "Score": {
+        "$numberDecimal": "30"
+      },
+      "Children": [
+        {
+          "Name": "CDB INTER 760 DIAS",
+          "Tag": "CDI",
+          "Score": {
+            "$numberDecimal": "30"
+          },
+          "CurrentAmount": {
+            "$numberDecimal": "3212.33"
+          },
+          "AccountId": {
+            "$binary": {
+              "base64": "NfaZAyBpSyWuQk/WuvptQw==",
+              "subType": "04"
+            }
+          },
+          "CurrentQuantity": {
+            "$numberDecimal": "162"
+          },
+          "Category": 0,
+          "VariableIncomeData": null,
+          "FixedIncomeData": {
+            "Indexer": 0,
+            "IndexerPercent": {
+              "$numberDecimal": "105"
+            },
+            "ExpirationDate": {
+              "$date": "2025-01-14T00:00:00.000Z"
+            },
+            "ApplicationAmount": {
+              "$numberDecimal": "162"
+            },
+            "GrossValue": {
+              "$numberDecimal": "201"
+            },
+            "NetValue": {
+              "$numberDecimal": "194.18"
+            }
+          }
+        },
+        {
+          "Name": "CDB MERCANTIL",
+          "Tag": "CDI",
+          "Score": {
+            "$numberDecimal": "30"
+          },
+          "CurrentAmount": {
+            "$numberDecimal": "1418.78"
+          },
+          "AccountId": {
+            "$binary": {
+              "base64": "NfaZAyBpSyWuQk/WuvptQw==",
+              "subType": "04"
+            }
+          },
+          "CurrentQuantity": {
+            "$numberDecimal": "1120.69"
+          },
+          "Category": 0,
+          "VariableIncomeData": null,
+          "FixedIncomeData": {
+            "Indexer": 0,
+            "IndexerPercent": {
+              "$numberDecimal": "120"
+            },
+            "ExpirationDate": {
+              "$date": "2025-01-14T00:00:00.000Z"
+            },
+            "ApplicationAmount": {
+              "$numberDecimal": "1120.69"
+            },
+            "GrossValue": {
+              "$numberDecimal": "1471.38"
+            },
+            "NetValue": {
+              "$numberDecimal": "1418.78"
+            }
+          }
+        },
+        {
+          "Name": "Tesouro Pre 2025",
+          "Tag": "T_FIX",
+          "Score": {
+            "$numberDecimal": "3"
+          },
+          "CurrentAmount": {
+            "$numberDecimal": "194.18"
+          },
+          "AccountId": {
+            "$binary": {
+              "base64": "NfaZAyBpSyWuQk/WuvptQw==",
+              "subType": "04"
+            }
+          },
+          "CurrentQuantity": {
+            "$numberDecimal": "689.22"
+          },
+          "Category": 0,
+          "VariableIncomeData": null,
+          "FixedIncomeData": {
+            "Indexer": 2,
+            "IndexerPercent": {
+              "$numberDecimal": "13.02"
+            },
+            "ExpirationDate": {
+              "$date": "2025-01-14T00:00:00.000Z"
+            },
+            "ApplicationAmount": {
+              "$numberDecimal": "689.22"
+            },
+            "GrossValue": {
+              "$numberDecimal": "899.02"
+            },
+            "NetValue": {
+              "$numberDecimal": "863.98"
+            }
+          }
+        },
+        {
+          "Name": "Tesouro IPCA +2029",
+          "Tag": "T_IPCA",
+          "Score": {
+            "$numberDecimal": "2"
+          },
+          "CurrentAmount": {
+            "$numberDecimal": "194.18"
+          },
+          "AccountId": {
+            "$binary": {
+              "base64": "NfaZAyBpSyWuQk/WuvptQw==",
+              "subType": "04"
+            }
+          },
+          "CurrentQuantity": {
+            "$numberDecimal": "983.9"
+          },
+          "Category": 0,
+          "VariableIncomeData": null,
+          "FixedIncomeData": {
+            "Indexer": 1,
+            "IndexerPercent": {
+              "$numberDecimal": "6.09"
+            },
+            "ExpirationDate": {
+              "$date": "2025-01-14T00:00:00.000Z"
+            },
+            "ApplicationAmount": {
+              "$numberDecimal": "983.9"
+            },
+            "GrossValue": {
+              "$numberDecimal": "999.53"
+            },
+            "NetValue": {
+              "$numberDecimal": "995.34"
+            }
+          }
+        },
+        {
+          "Name": "CDB Banco Master 2",
+          "Tag": "FIX",
+          "Score": {
+            "$numberDecimal": "30"
+          },
+          "CurrentAmount": {
+            "$numberDecimal": "2270.91"
+          },
+          "AccountId": {
+            "$binary": {
+              "base64": "r0SqZkhxT6qFq62svq+s9w==",
+              "subType": "04"
+            }
+          },
+          "CurrentQuantity": {
+            "$numberDecimal": "2000"
+          },
+          "Category": 0,
+          "VariableIncomeData": null,
+          "FixedIncomeData": {
+            "Indexer": 2,
+            "IndexerPercent": {
+              "$numberDecimal": "14.4"
+            },
+            "ExpirationDate": {
+              "$date": "2029-09-03T00:00:00.000Z"
+            },
+            "ApplicationAmount": {
+              "$numberDecimal": "2000"
+            },
+            "GrossValue": {
+              "$numberDecimal": "2328.37"
+            },
+            "NetValue": {
+              "$numberDecimal": "2270.91"
+            }
+          }
+        },
+        {
+          "Name": "CDB AGIBANK",
+          "Tag": "IPCA",
+          "Score": {
+            "$numberDecimal": "35"
+          },
+          "CurrentAmount": {
+            "$numberDecimal": "2226.32"
+          },
+          "AccountId": {
+            "$binary": {
+              "base64": "r0SqZkhxT6qFq62svq+s9w==",
+              "subType": "04"
+            }
+          },
+          "CurrentQuantity": {
+            "$numberDecimal": "2000"
+          },
+          "Category": 0,
+          "VariableIncomeData": null,
+          "FixedIncomeData": {
+            "Indexer": 1,
+            "IndexerPercent": {
+              "$numberDecimal": "7.55"
+            },
+            "ExpirationDate": {
+              "$date": "2029-09-03T00:00:00.000Z"
+            },
+            "ApplicationAmount": {
+              "$numberDecimal": "2000"
+            },
+            "GrossValue": {
+              "$numberDecimal": "2274.32"
+            },
+            "NetValue": {
+              "$numberDecimal": "2226.32"
+            }
+          }
+        },
+        {
+          "Name": "CDB VOITER",
+          "Tag": "IPCA",
+          "Score": {
+            "$numberDecimal": "35"
+          },
+          "CurrentAmount": {
+            "$numberDecimal": "1124.32"
+          },
+          "AccountId": {
+            "$binary": {
+              "base64": "NfaZAyBpSyWuQk/WuvptQw==",
+              "subType": "04"
+            }
+          },
+          "CurrentQuantity": null,
+          "Category": 0,
+          "VariableIncomeData": null,
+          "FixedIncomeData": null
+        },
+        {
+          "Name": "CDB C6",
+          "Tag": "FIX",
+          "Score": {
+            "$numberDecimal": "30"
+          },
+          "CurrentAmount": {
+            "$numberDecimal": "1126.19"
+          },
+          "AccountId": {
+            "$binary": {
+              "base64": "NfaZAyBpSyWuQk/WuvptQw==",
+              "subType": "04"
+            }
+          },
+          "CurrentQuantity": null,
+          "Category": 0,
+          "VariableIncomeData": null,
+          "FixedIncomeData": null
+        },
+        {
+          "Name": "CDB DIGIMAIS",
+          "Tag": "CDI",
+          "Score": {
+            "$numberDecimal": "30"
+          },
+          "CurrentAmount": {
+            "$numberDecimal": "1106.35"
+          },
+          "AccountId": {
+            "$binary": {
+              "base64": "NfaZAyBpSyWuQk/WuvptQw==",
+              "subType": "04"
+            }
+          },
+          "CurrentQuantity": null,
+          "Category": 0,
+          "VariableIncomeData": null,
+          "FixedIncomeData": null
+        },
+        {
+          "Name": "CDB DIGIMAIS 2",
+          "Tag": "CDI",
+          "Score": {
+            "$numberDecimal": "30"
+          },
+          "CurrentAmount": {
+            "$numberDecimal": "489.86"
+          },
+          "AccountId": {
+            "$binary": {
+              "base64": "NfaZAyBpSyWuQk/WuvptQw==",
+              "subType": "04"
+            }
+          },
+          "CurrentQuantity": null,
+          "Category": 0,
+          "VariableIncomeData": null,
+          "FixedIncomeData": null
+        },
+        {
+          "Name": "CDB BTG",
+          "Tag": "IPCA",
+          "Score": {
+            "$numberDecimal": "35"
+          },
+          "CurrentAmount": {
+            "$numberDecimal": "2170.04"
+          },
+          "AccountId": {
+            "$binary": {
+              "base64": "NfaZAyBpSyWuQk/WuvptQw==",
+              "subType": "04"
+            }
+          },
+          "CurrentQuantity": null,
+          "Category": 0,
+          "VariableIncomeData": null,
+          "FixedIncomeData": null
+        },
+        {
+          "Name": "CDB BTG 2",
+          "Tag": "IPCA",
+          "Score": {
+            "$numberDecimal": "35"
+          },
+          "CurrentAmount": {
+            "$numberDecimal": "1081.4"
+          },
+          "AccountId": {
+            "$binary": {
+              "base64": "NfaZAyBpSyWuQk/WuvptQw==",
+              "subType": "04"
+            }
+          },
+          "CurrentQuantity": null,
+          "Category": 0,
+          "VariableIncomeData": null,
+          "FixedIncomeData": null
+        },
+        {
+          "Name": "CDB GUANABARA",
+          "Tag": "CDI",
+          "Score": {
+            "$numberDecimal": "30"
+          },
+          "CurrentAmount": {
+            "$numberDecimal": "1063.83"
+          },
+          "AccountId": {
+            "$binary": {
+              "base64": "NfaZAyBpSyWuQk/WuvptQw==",
+              "subType": "04"
+            }
+          },
+          "CurrentQuantity": null,
+          "Category": 0,
+          "VariableIncomeData": null,
+          "FixedIncomeData": null
+        },
+        {
+          "Name": "CDB GUANABARA 2",
+          "Tag": "CDI",
+          "Score": {
+            "$numberDecimal": "30"
+          },
+          "CurrentAmount": {
+            "$numberDecimal": "1088"
+          },
+          "AccountId": {
+            "$binary": {
+              "base64": "NfaZAyBpSyWuQk/WuvptQw==",
+              "subType": "04"
+            }
+          },
+          "CurrentQuantity": null,
+          "Category": 0,
+          "VariableIncomeData": null,
+          "FixedIncomeData": null
+        },
+        {
+          "Name": "CDB CARUANA",
+          "Tag": "CDI",
+          "Score": {
+            "$numberDecimal": "30"
+          },
+          "CurrentAmount": {
+            "$numberDecimal": "2168.33"
+          },
+          "AccountId": {
+            "$binary": {
+              "base64": "NfaZAyBpSyWuQk/WuvptQw==",
+              "subType": "04"
+            }
+          },
+          "CurrentQuantity": null,
+          "Category": 0,
+          "VariableIncomeData": null,
+          "FixedIncomeData": null
+        },
+        {
+          "Name": "CDB ORIGINAL",
+          "Tag": "IPCA",
+          "Score": {
+            "$numberDecimal": "35"
+          },
+          "CurrentAmount": {
+            "$numberDecimal": "1465.66"
+          },
+          "AccountId": {
+            "$binary": {
+              "base64": "NfaZAyBpSyWuQk/WuvptQw==",
+              "subType": "04"
+            }
+          },
+          "CurrentQuantity": null,
+          "Category": 0,
+          "VariableIncomeData": null,
+          "FixedIncomeData": null
+        },
+        {
+          "Name": "CDB BS2",
+          "Tag": "IPCA",
+          "Score": {
+            "$numberDecimal": "35"
+          },
+          "CurrentAmount": {
+            "$numberDecimal": "1448.15"
+          },
+          "AccountId": {
+            "$binary": {
+              "base64": "NfaZAyBpSyWuQk/WuvptQw==",
+              "subType": "04"
+            }
+          },
+          "CurrentQuantity": null,
+          "Category": 0,
+          "VariableIncomeData": null,
+          "FixedIncomeData": null
+        },
+        {
+          "Name": "LCI PRE 360",
+          "Tag": "FIX",
+          "Score": {
+            "$numberDecimal": "30"
+          },
+          "CurrentAmount": {
+            "$numberDecimal": "1059.69"
+          },
+          "AccountId": {
+            "$binary": {
+              "base64": "NfaZAyBpSyWuQk/WuvptQw==",
+              "subType": "04"
+            }
+          },
+          "CurrentQuantity": null,
+          "Category": 0,
+          "VariableIncomeData": null,
+          "FixedIncomeData": null
+        },
+        {
+          "Name": "LCA BTG PACTUAL",
+          "Tag": "FIX",
+          "Score": {
+            "$numberDecimal": "30"
+          },
+          "CurrentAmount": {
+            "$numberDecimal": "1315.63"
+          },
+          "AccountId": {
+            "$binary": {
+              "base64": "NfaZAyBpSyWuQk/WuvptQw==",
+              "subType": "04"
+            }
+          },
+          "CurrentQuantity": null,
+          "Category": 0,
+          "VariableIncomeData": null,
+          "FixedIncomeData": null
+        },
+        {
+          "Name": "LCA BOCOM",
+          "Tag": "IPCA",
+          "Score": {
+            "$numberDecimal": "35"
+          },
+          "CurrentAmount": {
+            "$numberDecimal": "1107.68"
+          },
+          "AccountId": {
+            "$binary": {
+              "base64": "NfaZAyBpSyWuQk/WuvptQw==",
+              "subType": "04"
+            }
+          },
+          "CurrentQuantity": null,
+          "Category": 0,
+          "VariableIncomeData": null,
+          "FixedIncomeData": null
+        },
+        {
+          "Name": "Tesouro Pre 2025",
+          "Tag": "T_FIX",
+          "Score": {
+            "$numberDecimal": "3"
+          },
+          "CurrentAmount": {
+            "$numberDecimal": "863.98"
+          },
+          "AccountId": {
+            "$binary": {
+              "base64": "NfaZAyBpSyWuQk/WuvptQw==",
+              "subType": "04"
+            }
+          },
+          "CurrentQuantity": null,
+          "Category": 0,
+          "VariableIncomeData": null,
+          "FixedIncomeData": null
+        },
+        {
+          "Name": "Tesouro Pre 2026",
+          "Tag": "T_FIX",
+          "Score": {
+            "$numberDecimal": "3"
+          },
+          "CurrentAmount": {
+            "$numberDecimal": "359.56"
+          },
+          "AccountId": {
+            "$binary": {
+              "base64": "NfaZAyBpSyWuQk/WuvptQw==",
+              "subType": "04"
+            }
+          },
+          "CurrentQuantity": null,
+          "Category": 0,
+          "VariableIncomeData": null,
+          "FixedIncomeData": null
+        },
+        {
+          "Name": "Tesouro IPCA +2029",
+          "Tag": "T_IPCA",
+          "Score": {
+            "$numberDecimal": "2"
+          },
+          "CurrentAmount": {
+            "$numberDecimal": "995.34"
+          },
+          "AccountId": {
+            "$binary": {
+              "base64": "NfaZAyBpSyWuQk/WuvptQw==",
+              "subType": "04"
+            }
+          },
+          "CurrentQuantity": null,
+          "Category": 0,
+          "VariableIncomeData": null,
+          "FixedIncomeData": null
+        },
+        {
+          "Name": "CDB Banco Master 2",
+          "Tag": "FIX",
+          "Score": {
+            "$numberDecimal": "30"
+          },
+          "CurrentAmount": {
+            "$numberDecimal": "2270.91"
+          },
+          "AccountId": {
+            "$binary": {
+              "base64": "r0SqZkhxT6qFq62svq+s9w==",
+              "subType": "04"
+            }
+          },
+          "CurrentQuantity": {
+            "$numberDecimal": "2000"
+          },
+          "Category": 0,
+          "VariableIncomeData": null,
+          "FixedIncomeData": {
+            "Indexer": 2,
+            "IndexerPercent": {
+              "$numberDecimal": "14.4"
+            },
+            "ExpirationDate": {
+              "$date": "2029-09-03T00:00:00.000Z"
+            },
+            "ApplicationAmount": {
+              "$numberDecimal": "2000"
+            },
+            "GrossValue": {
+              "$numberDecimal": "2328.37"
+            },
+            "NetValue": {
+              "$numberDecimal": "2270.91"
+            }
+          }
+        },
+        {
+          "Name": "CDB Zema Financeira",
+          "Tag": "CDI",
+          "Score": {
+            "$numberDecimal": "30"
+          },
+          "CurrentAmount": {
+            "$numberDecimal": "1108.27"
+          },
+          "AccountId": {
+            "$binary": {
+              "base64": "hYd206z0SyS4TRbVLkz4hQ==",
+              "subType": "04"
+            }
+          },
+          "CurrentQuantity": null,
+          "Category": 0,
+          "VariableIncomeData": null,
+          "FixedIncomeData": null
+        },
+        {
+          "Name": "CDB Banco RXN S.A",
+          "Tag": "FIX",
+          "Score": {
+            "$numberDecimal": "30"
+          },
+          "CurrentAmount": {
+            "$numberDecimal": "1107.51"
+          },
+          "AccountId": {
+            "$binary": {
+              "base64": "hYd206z0SyS4TRbVLkz4hQ==",
+              "subType": "04"
+            }
+          },
+          "CurrentQuantity": null,
+          "Category": 0,
+          "VariableIncomeData": null,
+          "FixedIncomeData": null
+        },
+        {
+          "Name": "CDB Zema Financeira",
+          "Tag": "CDI",
+          "Score": {
+            "$numberDecimal": "30"
+          },
+          "CurrentAmount": {
+            "$numberDecimal": "1052.71"
+          },
+          "AccountId": {
+            "$binary": {
+              "base64": "hYd206z0SyS4TRbVLkz4hQ==",
+              "subType": "04"
+            }
+          },
+          "CurrentQuantity": null,
+          "Category": 0,
+          "VariableIncomeData": null,
+          "FixedIncomeData": null
+        },
+        {
+          "Name": "CDB SENFF",
+          "Tag": "CDI",
+          "Score": {
+            "$numberDecimal": "30"
+          },
+          "CurrentAmount": {
+            "$numberDecimal": "1403.66"
+          },
+          "AccountId": {
+            "$binary": {
+              "base64": "r0SqZkhxT6qFq62svq+s9w==",
+              "subType": "04"
+            }
+          },
+          "CurrentQuantity": null,
+          "Category": 0,
+          "VariableIncomeData": null,
+          "FixedIncomeData": null
+        },
+        {
+          "Name": "CDB AGIBANK",
+          "Tag": "IPCA",
+          "Score": {
+            "$numberDecimal": "35"
+          },
+          "CurrentAmount": {
+            "$numberDecimal": "2226.32"
+          },
+          "AccountId": {
+            "$binary": {
+              "base64": "r0SqZkhxT6qFq62svq+s9w==",
+              "subType": "04"
+            }
+          },
+          "CurrentQuantity": null,
+          "Category": 0,
+          "VariableIncomeData": null,
+          "FixedIncomeData": null
+        },
+        {
+          "Name": "CDB CARUANA",
+          "Tag": "CDI",
+          "Score": {
+            "$numberDecimal": "30"
+          },
+          "CurrentAmount": {
+            "$numberDecimal": "1109.72"
+          },
+          "AccountId": {
+            "$binary": {
+              "base64": "r0SqZkhxT6qFq62svq+s9w==",
+              "subType": "04"
+            }
+          },
+          "CurrentQuantity": null,
+          "Category": 0,
+          "VariableIncomeData": null,
+          "FixedIncomeData": null
+        },
+        {
+          "Name": "CDB FACTA FINANCEIRA",
+          "Tag": "FIX",
+          "Score": {
+            "$numberDecimal": "30"
+          },
+          "CurrentAmount": {
+            "$numberDecimal": "2189.18"
+          },
+          "AccountId": {
+            "$binary": {
+              "base64": "r0SqZkhxT6qFq62svq+s9w==",
+              "subType": "04"
+            }
+          },
+          "CurrentQuantity": null,
+          "Category": 0,
+          "VariableIncomeData": null,
+          "FixedIncomeData": null
+        },
+        {
+          "Name": "CDB CARUANA",
+          "Tag": "CDI",
+          "Score": {
+            "$numberDecimal": "30"
+          },
+          "CurrentAmount": {
+            "$numberDecimal": "1097.29"
+          },
+          "AccountId": {
+            "$binary": {
+              "base64": "r0SqZkhxT6qFq62svq+s9w==",
+              "subType": "04"
+            }
+          },
+          "CurrentQuantity": null,
+          "Category": 0,
+          "VariableIncomeData": null,
+          "FixedIncomeData": null
+        },
+        {
+          "Name": "CDB CARUANA",
+          "Tag": "CDI",
+          "Score": {
+            "$numberDecimal": "30"
+          },
+          "CurrentAmount": {
+            "$numberDecimal": "1078.85"
+          },
+          "AccountId": {
+            "$binary": {
+              "base64": "r0SqZkhxT6qFq62svq+s9w==",
+              "subType": "04"
+            }
+          },
+          "CurrentQuantity": null,
+          "Category": 0,
+          "VariableIncomeData": null,
+          "FixedIncomeData": null
+        },
+        {
+          "Name": "CDB BANCO VOITER S.A",
+          "Tag": "IPCA",
+          "Score": {
+            "$numberDecimal": "35"
+          },
+          "CurrentAmount": {
+            "$numberDecimal": "2100.84"
+          },
+          "AccountId": {
+            "$binary": {
+              "base64": "r0SqZkhxT6qFq62svq+s9w==",
+              "subType": "04"
+            }
+          },
+          "CurrentQuantity": null,
+          "Category": 0,
+          "VariableIncomeData": null,
+          "FixedIncomeData": null
+        }
+      ],
+      "Category": 0
+    },
+    {
+      "Name": "P. Cambial",
+      "Score": {
+        "$numberDecimal": "3"
+      },
+      "Children": [
+        {
+          "Name": "Dolar",
+          "Tag": "",
+          "Score": {
+            "$numberDecimal": "70"
+          },
+          "CurrentAmount": {
+            "$numberDecimal": "3153.3"
+          },
+          "AccountId": {
+            "$binary": {
+              "base64": "9lvBaYXcTk+wISUPxdOq5A==",
+              "subType": "04"
+            }
+          },
+          "CurrentQuantity": null,
+          "Category": 2,
+          "VariableIncomeData": null,
+          "FixedIncomeData": null
+        },
+        {
+          "Name": "Euro",
+          "Tag": "",
+          "Score": {
+            "$numberDecimal": "30"
+          },
+          "CurrentAmount": {
+            "$numberDecimal": "1343.3"
+          },
+          "AccountId": {
+            "$binary": {
+              "base64": "9lvBaYXcTk+wISUPxdOq5A==",
+              "subType": "04"
+            }
+          },
+          "CurrentQuantity": null,
+          "Category": 2,
+          "VariableIncomeData": null,
+          "FixedIncomeData": null
+        }
+      ],
+      "Category": 2
+    },
+    {
+      "Name": "Ações",
+      "Score": {
+        "$numberDecimal": "21"
+      },
+      "Children": [
+        {
+          "Name": "BBDC3",
+          "Tag": null,
+          "Score": {
+            "$numberDecimal": "3"
+          },
+          "CurrentAmount": {
+            "$numberDecimal": "1764.65"
+          },
+          "AccountId": {
+            "$binary": {
+              "base64": "l70eXM9mQAuIdK3UefRjBw==",
+              "subType": "04"
+            }
+          },
+          "CurrentQuantity": null,
+          "Category": 1,
+          "VariableIncomeData": null,
+          "FixedIncomeData": null
+        },
+        {
+          "Name": "ITUB4",
+          "Tag": null,
+          "Score": {
+            "$numberDecimal": "12"
+          },
+          "CurrentAmount": {
+            "$numberDecimal": "3461"
+          },
+          "AccountId": {
+            "$binary": {
+              "base64": "l70eXM9mQAuIdK3UefRjBw==",
+              "subType": "04"
+            }
+          },
+          "CurrentQuantity": null,
+          "Category": 1,
+          "VariableIncomeData": null,
+          "FixedIncomeData": null
+        },
+        {
+          "Name": "TAEE(3-4)",
+          "Tag": null,
+          "Score": {
+            "$numberDecimal": "10"
+          },
+          "CurrentAmount": {
+            "$numberDecimal": "2281.1"
+          },
+          "AccountId": {
+            "$binary": {
+              "base64": "l70eXM9mQAuIdK3UefRjBw==",
+              "subType": "04"
+            }
+          },
+          "CurrentQuantity": null,
+          "Category": 1,
+          "VariableIncomeData": null,
+          "FixedIncomeData": null
+        },
+        {
+          "Name": "WEGE3",
+          "Tag": null,
+          "Score": {
+            "$numberDecimal": "15"
+          },
+          "CurrentAmount": {
+            "$numberDecimal": "3843.23"
+          },
+          "AccountId": {
+            "$binary": {
+              "base64": "l70eXM9mQAuIdK3UefRjBw==",
+              "subType": "04"
+            }
+          },
+          "CurrentQuantity": null,
+          "Category": 1,
+          "VariableIncomeData": null,
+          "FixedIncomeData": null
+        },
+        {
+          "Name": "EGIE3",
+          "Tag": null,
+          "Score": {
+            "$numberDecimal": "19"
+          },
+          "CurrentAmount": {
+            "$numberDecimal": "1961.5"
+          },
+          "AccountId": {
+            "$binary": {
+              "base64": "l70eXM9mQAuIdK3UefRjBw==",
+              "subType": "04"
+            }
+          },
+          "CurrentQuantity": null,
+          "Category": 1,
+          "VariableIncomeData": null,
+          "FixedIncomeData": null
+        },
+        {
+          "Name": "ITSA4",
+          "Tag": null,
+          "Score": {
+            "$numberDecimal": "18"
+          },
+          "CurrentAmount": {
+            "$numberDecimal": "2080"
+          },
+          "AccountId": {
+            "$binary": {
+              "base64": "l70eXM9mQAuIdK3UefRjBw==",
+              "subType": "04"
+            }
+          },
+          "CurrentQuantity": null,
+          "Category": 1,
+          "VariableIncomeData": null,
+          "FixedIncomeData": null
+        },
+        {
+          "Name": "BBSE3",
+          "Tag": null,
+          "Score": {
+            "$numberDecimal": "12"
+          },
+          "CurrentAmount": {
+            "$numberDecimal": "1094.4"
+          },
+          "AccountId": {
+            "$binary": {
+              "base64": "l70eXM9mQAuIdK3UefRjBw==",
+              "subType": "04"
+            }
+          },
+          "CurrentQuantity": null,
+          "Category": 1,
+          "VariableIncomeData": null,
+          "FixedIncomeData": null
+        },
+        {
+          "Name": "KLBN4",
+          "Tag": null,
+          "Score": {
+            "$numberDecimal": "9"
+          },
+          "CurrentAmount": {
+            "$numberDecimal": "997.04"
+          },
+          "AccountId": {
+            "$binary": {
+              "base64": "l70eXM9mQAuIdK3UefRjBw==",
+              "subType": "04"
+            }
+          },
+          "CurrentQuantity": null,
+          "Category": 1,
+          "VariableIncomeData": null,
+          "FixedIncomeData": null
+        },
+        {
+          "Name": "VIVA3",
+          "Tag": null,
+          "Score": {
+            "$numberDecimal": "2"
+          },
+          "CurrentAmount": {
+            "$numberDecimal": "167.58"
+          },
+          "AccountId": {
+            "$binary": {
+              "base64": "l70eXM9mQAuIdK3UefRjBw==",
+              "subType": "04"
+            }
+          },
+          "CurrentQuantity": null,
+          "Category": 1,
+          "VariableIncomeData": null,
+          "FixedIncomeData": null
+        }
+      ],
+      "Category": 1
+    },
+    {
+      "Name": "FIIs",
+      "Score": {
+        "$numberDecimal": "35"
+      },
+      "Children": [
+        {
+          "Name": "XPLG11",
+          "Tag": null,
+          "Score": {
+            "$numberDecimal": "15"
+          },
+          "CurrentAmount": {
+            "$numberDecimal": "3657.5"
+          },
+          "AccountId": {
+            "$binary": {
+              "base64": "l70eXM9mQAuIdK3UefRjBw==",
+              "subType": "04"
+            }
+          },
+          "CurrentQuantity": null,
+          "Category": 1,
+          "VariableIncomeData": null,
+          "FixedIncomeData": null
+        },
+        {
+          "Name": "XPML11",
+          "Tag": null,
+          "Score": {
+            "$numberDecimal": "10"
+          },
+          "CurrentAmount": {
+            "$numberDecimal": "2795.85"
+          },
+          "AccountId": {
+            "$binary": {
+              "base64": "l70eXM9mQAuIdK3UefRjBw==",
+              "subType": "04"
+            }
+          },
+          "CurrentQuantity": null,
+          "Category": 1,
+          "VariableIncomeData": null,
+          "FixedIncomeData": null
+        },
+        {
+          "Name": "TRBL11",
+          "Tag": null,
+          "Score": {
+            "$numberDecimal": "2"
+          },
+          "CurrentAmount": {
+            "$numberDecimal": "386"
+          },
+          "AccountId": {
+            "$binary": {
+              "base64": "l70eXM9mQAuIdK3UefRjBw==",
+              "subType": "04"
+            }
+          },
+          "CurrentQuantity": null,
+          "Category": 1,
+          "VariableIncomeData": null,
+          "FixedIncomeData": null
+        },
+        {
+          "Name": "GGRC11",
+          "Tag": null,
+          "Score": {
+            "$numberDecimal": "15"
+          },
+          "CurrentAmount": {
+            "$numberDecimal": "3587.16"
+          },
+          "AccountId": {
+            "$binary": {
+              "base64": "l70eXM9mQAuIdK3UefRjBw==",
+              "subType": "04"
+            }
+          },
+          "CurrentQuantity": null,
+          "Category": 1,
+          "VariableIncomeData": null,
+          "FixedIncomeData": null
+        },
+        {
+          "Name": "HGRE11",
+          "Tag": null,
+          "Score": {
+            "$numberDecimal": "12"
+          },
+          "CurrentAmount": {
+            "$numberDecimal": "2662.4"
+          },
+          "AccountId": {
+            "$binary": {
+              "base64": "l70eXM9mQAuIdK3UefRjBw==",
+              "subType": "04"
+            }
+          },
+          "CurrentQuantity": null,
+          "Category": 1,
+          "VariableIncomeData": null,
+          "FixedIncomeData": null
+        },
+        {
+          "Name": "HGLG11",
+          "Tag": null,
+          "Score": {
+            "$numberDecimal": "15"
+          },
+          "CurrentAmount": {
+            "$numberDecimal": "3702"
+          },
+          "AccountId": {
+            "$binary": {
+              "base64": "l70eXM9mQAuIdK3UefRjBw==",
+              "subType": "04"
+            }
+          },
+          "CurrentQuantity": null,
+          "Category": 1,
+          "VariableIncomeData": null,
+          "FixedIncomeData": null
+        },
+        {
+          "Name": "LVBI11",
+          "Tag": null,
+          "Score": {
+            "$numberDecimal": "20"
+          },
+          "CurrentAmount": {
+            "$numberDecimal": "4659.8"
+          },
+          "AccountId": {
+            "$binary": {
+              "base64": "l70eXM9mQAuIdK3UefRjBw==",
+              "subType": "04"
+            }
+          },
+          "CurrentQuantity": null,
+          "Category": 1,
+          "VariableIncomeData": null,
+          "FixedIncomeData": null
+        },
+        {
+          "Name": "KNCA11",
+          "Tag": null,
+          "Score": {
+            "$numberDecimal": "2"
+          },
+          "CurrentAmount": {
+            "$numberDecimal": "472.55"
+          },
+          "AccountId": {
+            "$binary": {
+              "base64": "l70eXM9mQAuIdK3UefRjBw==",
+              "subType": "04"
+            }
+          },
+          "CurrentQuantity": null,
+          "Category": 1,
+          "VariableIncomeData": null,
+          "FixedIncomeData": null
+        },
+        {
+          "Name": "TRXF11",
+          "Tag": null,
+          "Score": {
+            "$numberDecimal": "6"
+          },
+          "CurrentAmount": {
+            "$numberDecimal": "1412.04"
+          },
+          "AccountId": {
+            "$binary": {
+              "base64": "l70eXM9mQAuIdK3UefRjBw==",
+              "subType": "04"
+            }
+          },
+          "CurrentQuantity": null,
+          "Category": 1,
+          "VariableIncomeData": null,
+          "FixedIncomeData": null
+        },
+        {
+          "Name": "HGPO11",
+          "Tag": null,
+          "Score": {
+            "$numberDecimal": "3"
+          },
+          "CurrentAmount": {
+            "$numberDecimal": "245.6"
+          },
+          "AccountId": {
+            "$binary": {
+              "base64": "l70eXM9mQAuIdK3UefRjBw==",
+              "subType": "04"
+            }
+          },
+          "CurrentQuantity": null,
+          "Category": 1,
+          "VariableIncomeData": null,
+          "FixedIncomeData": null
+        }
+      ],
+      "Category": 1
+    },
+    {
+      "Name": "Criptos",
+      "Score": {
+        "$numberDecimal": "3"
+      },
+      "Children": [
+        {
+          "Name": "BTC",
+          "Tag": null,
+          "Score": {
+            "$numberDecimal": "60"
+          },
+          "CurrentAmount": {
+            "$numberDecimal": "3032.55"
+          },
+          "AccountId": {
+            "$binary": {
+              "base64": "gNDe9zetSUyMba/SEAq2eQ==",
+              "subType": "04"
+            }
+          },
+          "CurrentQuantity": null,
+          "Category": 3,
+          "VariableIncomeData": null,
+          "FixedIncomeData": null
+        },
+        {
+          "Name": "ETH",
+          "Tag": null,
+          "Score": {
+            "$numberDecimal": "40"
+          },
+          "CurrentAmount": {
+            "$numberDecimal": "1580"
+          },
+          "AccountId": {
+            "$binary": {
+              "base64": "l70eXM9mQAuIdK3UefRjBw==",
+              "subType": "04"
+            }
+          },
+          "CurrentQuantity": null,
+          "Category": 3,
+          "VariableIncomeData": null,
+          "FixedIncomeData": null
+        }
+      ],
+      "Category": 3
+    },
+    {
+      "Name": "Foreign FIIs",
+      "Score": {
+        "$numberDecimal": "8"
+      },
+      "Children": [
+        {
+          "Name": "EQIX",
+          "Tag": null,
+          "Score": {
+            "$numberDecimal": "30"
+          },
+          "CurrentAmount": {
+            "$numberDecimal": "3677.98"
+          },
+          "AccountId": {
+            "$binary": {
+              "base64": "9+T08tpwSCSv8svQw6G/Kw==",
+              "subType": "04"
+            }
+          },
+          "CurrentQuantity": null,
+          "Category": 5,
+          "VariableIncomeData": null,
+          "FixedIncomeData": null
+        },
+        {
+          "Name": "O",
+          "Tag": null,
+          "Score": {
+            "$numberDecimal": "15"
+          },
+          "CurrentAmount": {
+            "$numberDecimal": "1468.25"
+          },
+          "AccountId": {
+            "$binary": {
+              "base64": "9+T08tpwSCSv8svQw6G/Kw==",
+              "subType": "04"
+            }
+          },
+          "CurrentQuantity": null,
+          "Category": 5,
+          "VariableIncomeData": null,
+          "FixedIncomeData": null
+        },
+        {
+          "Name": "CCI",
+          "Tag": null,
+          "Score": {
+            "$numberDecimal": "20"
+          },
+          "CurrentAmount": {
+            "$numberDecimal": "2027.74"
+          },
+          "AccountId": {
+            "$binary": {
+              "base64": "9+T08tpwSCSv8svQw6G/Kw==",
+              "subType": "04"
+            }
+          },
+          "CurrentQuantity": null,
+          "Category": 5,
+          "VariableIncomeData": null,
+          "FixedIncomeData": null
+        },
+        {
+          "Name": "SVC",
+          "Tag": null,
+          "Score": {
+            "$numberDecimal": "20"
+          },
+          "CurrentAmount": {
+            "$numberDecimal": "796.72"
+          },
+          "AccountId": {
+            "$binary": {
+              "base64": "9+T08tpwSCSv8svQw6G/Kw==",
+              "subType": "04"
+            }
+          },
+          "CurrentQuantity": null,
+          "Category": 5,
+          "VariableIncomeData": null,
+          "FixedIncomeData": null
+        },
+        {
+          "Name": "IRM",
+          "Tag": null,
+          "Score": {
+            "$numberDecimal": "15"
+          },
+          "CurrentAmount": {
+            "$numberDecimal": "2101.56"
+          },
+          "AccountId": {
+            "$binary": {
+              "base64": "9+T08tpwSCSv8svQw6G/Kw==",
+              "subType": "04"
+            }
+          },
+          "CurrentQuantity": null,
+          "Category": 5,
+          "VariableIncomeData": null,
+          "FixedIncomeData": null
+        }
+      ],
+      "Category": 5
+    },
+    {
+      "Name": "Ações Ext.",
+      "Score": {
+        "$numberDecimal": "0"
+      },
+      "Children": [
+        {
+          "Name": "EMPTY",
+          "Tag": null,
+          "Score": {
+            "$numberDecimal": "100"
+          },
+          "CurrentAmount": {
+            "$numberDecimal": "0"
+          },
+          "AccountId": {
+            "$binary": {
+              "base64": "NfaZAyBpSyWuQk/WuvptQw==",
+              "subType": "04"
+            }
+          },
+          "CurrentQuantity": null,
+          "Category": 5,
+          "VariableIncomeData": null,
+          "FixedIncomeData": null
+        }
+      ],
+      "Category": 5
+    }
+  ],
+  "Name": "Main",
+  "AmountToInvest": {
+    "$numberDecimal": "0"
+  }
+}]

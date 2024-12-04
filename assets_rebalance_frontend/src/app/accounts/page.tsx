@@ -1,13 +1,10 @@
-'use client'
-
-import React, { Suspense, useEffect, useState } from 'react'
-import { useQueryParam, withDefault, BooleanParam } from 'use-query-params'
-import { useLoad } from '../components/hooks/use-load'
-import { FinAssetBankAccount } from '@/lib/domain/fin-asset-bank-account'
+import React, { Suspense } from 'react'
 import AccountItem from './components/account-item'
 import RedirectPlusButton from '../components/buttons/redirect-plus-button'
-import { finAssetsBankAccountService } from '@/lib/services/fin-assets-bank-account/fin-assets-bank-account.service'
-import OnlyActiveSwitch from '../components/inputs/only-active-switch'
+import * as finAssetsBankAccountService  from '@/lib/api/fin-assets-bank-account/fin-assets-bank-account.service'
+import dynamic from 'next/dynamic'
+const OnlyActiveSwitch = dynamic(() => import('../components/inputs/only-active-switch'))
+
 
 type Props = {
     searchParams: {
@@ -22,7 +19,12 @@ export default async function Accounts({
 }: Props) {
     const accounts = await fetchAccounts()
     async function fetchAccounts() {
-        const accs = await finAssetsBankAccountService.all(oa)
+        const accs = await finAssetsBankAccountService.getAllBankAccounts(oa)
+        return accs
+    }
+    async function fetchAccountsServer() {
+        'use server'
+        const accs = await finAssetsBankAccountService.getAllBankAccounts(oa)
         return accs
     }
 
@@ -37,7 +39,7 @@ export default async function Accounts({
                 <Suspense>
                     <div className='flex flex-wrap gap-4 p-12'>
                         {
-                            accounts.map(x => <AccountItem key={x.id} refresh={fetchAccounts} account={x} />)
+                            accounts.map(x => <AccountItem key={x.id} refresh={fetchAccountsServer} account={x} />)
                         }
                     </div>
                 </Suspense>

@@ -1,12 +1,12 @@
 'use server';
 
 import { handleResponse } from "../common/response-handle";
-import { ChangeFinAssetBankAccountInput } from "@/lib/boundaries/change-fin-asset-bank-account.input";
+import { ChangeFinAssetBankAccountInput } from "@/lib/boundaries/change-fin-asset-bank-account-input";
 import { FinAssetBankAccount } from "@/lib/domain/fin-asset-bank-account";
 import { revalidateTag } from "next/cache";
 
 const tag = 'accounts';
-const basePath = process.env.NEXT_PUBLIC_BASE_URL + '/FinAssetBankAccount';
+const basePath = process.env.API_URL + '/FinAssetBankAccount';
 
 export async function changeBankAccount(input: ChangeFinAssetBankAccountInput): Promise<FinAssetBankAccount> {
     const response = await fetch(basePath, {

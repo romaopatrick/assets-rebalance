@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react'
 import AccountItem from './components/account-item'
 import RedirectPlusButton from '../components/buttons/redirect-plus-button'
-import * as finAssetsBankAccountService  from '@/lib/api/fin-assets-bank-account/fin-assets-bank-account.service'
+import * as finAssetsBankAccountService  from '@/lib/api/fin-assets-bank-account/fin-assets-bank-account-actions'
 import dynamic from 'next/dynamic'
 const OnlyActiveSwitch = dynamic(() => import('../components/inputs/only-active-switch'))
 

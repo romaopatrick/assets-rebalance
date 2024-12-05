@@ -1,9 +1,9 @@
 'use client'
 
 import { useLoad } from "@/app/components/hooks/use-load";
-import { ChangeFinAssetBankInput } from "@/lib/boundaries/change-fin-asset-bank.input";
+import { ChangeFinAssetBankInput } from "@/lib/boundaries/change-fin-asset-bank-input";
 import { FinAssetBank } from "@/lib/domain/fin-asset-bank";
-import * as finAssetsBankService from "@/lib/api/fin-assets-bank/fin-assets-bank.service";
+import * as finAssetsBankService from "@/lib/api/fin-assets-bank/fin-assets-bank-actions";
 import * as Form from "@radix-ui/react-form";
 import { useRouter } from "next/navigation";
 import { useState } from "react";

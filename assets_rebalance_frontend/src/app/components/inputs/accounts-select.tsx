@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 import { useLoad } from '@/app/components/hooks/use-load'
 import Select from 'react-select'
 import { FinAssetBankAccount } from '@/lib/domain/fin-asset-bank-account'
-import * as finAssetsBankAccountService from '@/lib/api/fin-assets-bank-account/fin-assets-bank-account.service'
+import * as finAssetsBankAccountService from '@/lib/api/fin-assets-bank-account/fin-assets-bank-account-actions'
 type Props = {
     preLoadAccounts?: FinAssetBankAccount[]
     account?: FinAssetBankAccount

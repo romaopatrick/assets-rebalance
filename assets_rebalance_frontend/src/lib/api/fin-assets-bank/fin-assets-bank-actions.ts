@@ -1,12 +1,12 @@
 'use server';
 
-import { ChangeFinAssetBankInput } from "@/lib/boundaries/change-fin-asset-bank.input";
+import { ChangeFinAssetBankInput } from "@/lib/boundaries/change-fin-asset-bank-input";
 import { handleResponse } from "../common/response-handle";
 import { FinAssetBank } from "@/lib/domain/fin-asset-bank";
 import { revalidateTag } from "next/cache";
 
 const tag = 'banks';
-const basePath = process.env.NEXT_PUBLIC_BASE_URL + '/FinAssetBank';
+const basePath = process.env.API_URL + '/FinAssetBank';
 
 export async function changeBank(input: ChangeFinAssetBankInput): Promise<FinAssetBank> {
     const response = await fetch(basePath, {

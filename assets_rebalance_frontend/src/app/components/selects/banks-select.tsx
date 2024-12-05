@@ -1,6 +1,6 @@
 'use client'
 
-import * as finAssetsBankService from '@/lib/api/fin-assets-bank/fin-assets-bank.service'
+import * as finAssetsBankService from '@/lib/api/fin-assets-bank/fin-assets-bank-actions'
 import React, { useEffect, useState } from 'react'
 import { FinAssetBank } from '@/lib/domain/fin-asset-bank'
 import { useLoad } from '@/app/components/hooks/use-load'

@@ -1,0 +1,17 @@
+services:
+  back:
+    image: assets_rebalance_backend:latest
+    build: 
+      context: .
+      dockerfile: ./assets_rebalance_backend/Dockerfile
+    ports:
+      - "8080:8080"
+  front:
+    image: assets_rebalance_frontend:latest
+    build: 
+      context: .
+      dockerfile: ./assets_rebalance_frontend/Dockerfile
+    environment:
+      - API_URL=http://back:8080
+    ports: 
+      - "3000:3000"

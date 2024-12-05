@@ -1,12 +1,12 @@
 'use server';
 
-import { ChangeFinAssetsPanelInput } from "@/lib/boundaries/change-fin-assets-panel.input";
+import { ChangeFinAssetsPanelInput } from "@/lib/boundaries/change-fin-assets-panel-input";
 import { handleResponse } from "../common/response-handle";
 import { FinAssetsPanel } from "@/lib/domain/fin-assets-panel";
 import { revalidateTag } from "next/cache";
 
 const tag = 'panels';
-const basePath = process.env.NEXT_PUBLIC_BASE_URL + '/FinAssetsPanel';
+const basePath = process.env.API_URL + '/FinAssetsPanel';
 
 export async function changePanel(input: ChangeFinAssetsPanelInput): Promise<FinAssetsPanel> {
     const response = await fetch(basePath, {

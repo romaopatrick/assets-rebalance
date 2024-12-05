@@ -6,7 +6,7 @@ import { FinAssetCategory } from '@/lib/domain/enums/fin-asset-category.enum'
 import { FinAssetsGroup } from '@/lib/domain/fin-assets-group'
 import { FinAssetBankAccount } from '@/lib/domain/fin-asset-bank-account'
 import { useLoad } from '@/app/components/hooks/use-load'
-import * as finAssetsBankAccountService from '@/lib/api/fin-assets-bank-account/fin-assets-bank-account.service'
+import * as finAssetsBankAccountService from '@/lib/api/fin-assets-bank-account/fin-assets-bank-account-actions'
 import FinAssetForm from './fin-asset-form'
 import { uuid as v4} from 'uuidv4'
 type Props = {

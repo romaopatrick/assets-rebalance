@@ -1,24 +1,21 @@
 import { FinAssetsGroup } from "@/lib/domain/fin-assets-group";
 import { FinAssetsPanel } from "@/lib/domain/fin-assets-panel";
 
-export class ChangeFinAssetsPanelInput {
+export type ChangeFinAssetsPanelInput = {
     id: string; // Required (UUID represented as a string in TypeScript)
-    amountToInvest: number = 0; // Default to 0
-    children: FinAssetsGroup[] = []; // Default to an empty array
+    amountToInvest: number; // Default to 0
+    children: FinAssetsGroup[] // Default to an empty array
     name: string; // Required
+}
 
-    constructor(name: string, amountToInvest: number = 0, children: FinAssetsGroup[] = [], id: string) {
-        this.id = id
-        this.amountToInvest = amountToInvest;
-        this.children = children;
-        this.name = name;
-    }
-
+export class ChangeFinAssetsPanelInputManager {
     public static fromDomain(p: FinAssetsPanel): ChangeFinAssetsPanelInput {
-        const input = new ChangeFinAssetsPanelInput(
-            p.name, p.amountToInvest, p.children, p.id!,
-        )
-        input.id
+        const input: ChangeFinAssetsPanelInput = {
+            amountToInvest: p.amountToInvest,
+            children: p.children,
+            id: p.id!,
+            name: p.name,
+        }
 
         return input
     }

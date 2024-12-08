@@ -18,7 +18,7 @@ export default function SaveBottomBar({ changed, loading, valid, onReset, onSave
                     ${loading && 'text-slate-500 hover:bg-slate-800 cursor-default'}`}>Reset</button>
                 <button disabled={loading || !valid} 
                     onClick={onSave}
-                    className={`bg-slate-800 hover:bg-green-600 transition-all 
+                    className={`bg-green-800 hover:bg-green-600 transition-all 
                     duration-200 w-40 rounded-md m-2 
                      ${loading || !valid && 'text-slate-500 bg-slate-800 hover:!bg-slate-800 cursor-default'}`}>Save</button>
             </div>

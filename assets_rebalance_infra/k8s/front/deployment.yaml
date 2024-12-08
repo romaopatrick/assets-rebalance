@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: assetsrebalancefront
+  namespace: assetsrebalance
+  labels:
+    app: assetsrebalancefront
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: assetsrebalancefront
+  template:
+    metadata:
+      labels:
+        app: assetsrebalancefront
+    spec:
+      containers:
+        - name: assetsrebalancefront
+          image: patrickromao/assetsrebalancefrontend:1.0.0-rcs-3
+          ports:
+            - containerPort: 3000
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "250m"
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          env:
+            - name: NODE_ENV
+              value: "production"

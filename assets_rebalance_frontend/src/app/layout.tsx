@@ -5,17 +5,20 @@ import { Metadata } from "next";
 import Header from "./components/header";
 import ToastProvider from "./components/providers/toast-provider";
 import SideNav from "./components/sidenav/sidenav";
+import { useEffect } from 'react';
 
 export const metadata: Metadata = {
   title: "Assets Rebalance",
   description: "Your financial equalization app",
 };
 
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
   return (
     <html lang="en" className="h-full w-full">
       <body className="h-full  w-full max-w-full max-h-full font-arial">

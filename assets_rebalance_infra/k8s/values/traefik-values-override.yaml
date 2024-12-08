@@ -1,0 +1,9 @@
+ports:
+  web:
+    port: 8000 
+  websecure:
+    port: 8443
+
+ingressClass:
+  enabled: true
+  isDefaultClass: true

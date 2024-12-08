@@ -11,7 +11,9 @@ type Props = {
 
 
 export default function Banks({searchParams}: Props) {
-    return (
+    console.info("running pointing to api: ", process.env.API_URL)
+    
+    return ( 
         <>
             <RedirectPlusButton href='/banks/new' />
             <div className='flex justify-end w-full pt-3 pr-3'>

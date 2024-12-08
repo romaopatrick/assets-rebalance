@@ -8,7 +8,7 @@ import ResumeCard from '@/app/dashboard/components/resume-card'
 import * as Form from '@radix-ui/react-form'
 import MoneyInput from '@/app/components/inputs/money-input'
 import SaveBottomBar from './components/save-bottom-bar'
-import { ChangeFinAssetsPanelInput } from '@/lib/boundaries/change-fin-assets-panel-input'
+import { ChangeFinAssetsPanelInputManager } from '@/lib/boundaries/change-fin-assets-panel-input'
 import GroupList from './components/group/group-list'
 import NewGroupModal from './components/group/new-group-modal'
 import { FinAssetsGroup } from '@/lib/domain/fin-assets-group'
@@ -49,7 +49,7 @@ export default function EditPainel({ params: { panelId } }: Props) {
     await load.execute(async () => {
       if (!panel) return;
 
-      await finAssetsPanelService.changePanel(ChangeFinAssetsPanelInput.fromDomain(panel))
+      await finAssetsPanelService.changePanel(ChangeFinAssetsPanelInputManager.fromDomain(panel))
       successSaveToast("Panel")
       onReset()
     })

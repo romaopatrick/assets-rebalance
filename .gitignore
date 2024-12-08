@@ -395,4 +395,5 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
-./assets_rebalance_backend/appsettings.Production.json
+/assets_rebalance_backend/Properties
+assets_rebalance_backend/Properties/launchSettings.json

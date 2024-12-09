@@ -24,6 +24,11 @@ spec:
                 secretKeyRef:
                   name: assetsrebalanceback
                   key: mongodb_connstr
+            - name: ApplicationKey
+              valueFrom:
+                secretKeyRef:
+                  name: assetsrebalanceback
+                  key: api_key
           ports:
             - containerPort: 8080
           resources:

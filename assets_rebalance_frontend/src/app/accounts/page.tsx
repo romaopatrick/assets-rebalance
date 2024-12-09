@@ -36,7 +36,7 @@ export default async function Accounts({
             </div>
             <div className='pl-12'>
                 <h1 className='text-5xl self-start text-slate-50'>Accounts</h1>
-                <Suspense>
+                <Suspense fallback={'Loading...'}>
                     <div className='flex flex-wrap gap-4 p-12'>
                         {
                             accounts.map(x => <AccountItem key={x.id} refresh={fetchAccountsServer} account={x} />)

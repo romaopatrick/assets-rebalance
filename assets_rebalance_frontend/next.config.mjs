@@ -10,6 +10,11 @@ const nextConfig = {
     config.resolve.alias['@'] = path.join(__dirname, 'src');
     return config;
   },
+  experimental: {
+    serverActions: {
+      allowedOrigins: ['localhost', 'localhost:80', 'g15v88lr-80.brs.devtunnels.ms']
+    },
+  }
 };
 
 export default nextConfig;

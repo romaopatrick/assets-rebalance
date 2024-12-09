@@ -15,7 +15,7 @@ export default async function EditAccount({ params: { accountId } }: Props) {
     return (
         <div>
             <BackButton />
-            <Suspense>
+            <Suspense fallback={"Loading..."}>
                 <div className=''>
                     {account
                         ? <AccountForm account={account} />

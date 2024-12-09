@@ -10,21 +10,19 @@ type Props = {
 }
 
 
-export default function Banks({searchParams}: Props) {
+export default function Banks({ searchParams }: Props) {
     console.info("running pointing to api: ", process.env.API_URL)
-    
-    return ( 
+
+    return (
         <>
             <RedirectPlusButton href='/banks/new' />
             <div className='flex justify-end w-full pt-3 pr-3'>
-                <Suspense>
-                    <OnlyActiveSwitch />
-                </Suspense>
+                <OnlyActiveSwitch />
             </div>
             <div className='flex pl-12 flex-col items-center'>
                 <h1 className='text-5xl self-start text-slate-50'>Banks</h1>
-                <Suspense fallback={<span>Loading...</span>}>
-                    <BankItemsList searchParams={searchParams}/>
+                <Suspense fallback={'Loading...'}>
+                    <BankItemsList searchParams={searchParams} />
                 </Suspense>
             </div>
         </>

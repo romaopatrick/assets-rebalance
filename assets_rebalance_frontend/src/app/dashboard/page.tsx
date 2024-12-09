@@ -37,9 +37,9 @@ export default function Dashboard() {
     useEffect(() => { fetchDashboard() }, [])
 
     return (
-        <div className='flex flex-col pt-12 gap-12 pl-12'>
+        <div className='flex flex-col py-12 gap-12 pl-12'>
             <span className='text-5xl'>Dashboard</span>
-            <Suspense>
+            <Suspense fallback={'Loading...'}>
                 <div className='flex gap-4 flex-wrap px-12'>
                     <ResumeCard amount={totalAmount} label='Total' />
                     <ResumeCard amount={invested} label='Invested' />

@@ -3,10 +3,10 @@
 import { FinAssetBank } from '@/lib/domain/fin-asset-bank'
 import Link from 'next/link'
 import React from 'react'
-  import * as finAssetsBankService  from '@/lib/api/fin-assets-bank/fin-assets-bank-actions'
-import { useLoad } from '@/app/components/hooks/use-load'
+  import * as finAssetsBankService  from '@/app/banks/actions'
 import ArchiveButton from '@/app/components/buttons/archive-button'
 import Image from 'next/image'
+import { useLoad } from '@/lib/hooks/use-load'
 
 export type BankItemsProps = {
   bank: FinAssetBank

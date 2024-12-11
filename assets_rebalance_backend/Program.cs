@@ -1,12 +1,9 @@
-
-
 using System.Threading.RateLimiting;
 using assets_rebalance_backend.src.Adapters;
 using assets_rebalance_backend.src.Adapters.Middlewares;
-using FluentResults;
-using Microsoft.AspNetCore.RateLimiting;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.OpenApi.Models;
-using ZstdSharp.Unsafe;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddApplicationDependencies(builder.Configuration);
@@ -20,8 +17,8 @@ builder.Services.AddRateLimiter(cfg =>
             partitionKey: ctx.Connection.RemoteIpAddress?.ToString(),
             factory: _ => new FixedWindowRateLimiterOptions
             {
-                PermitLimit = 5,
-                Window = TimeSpan.FromSeconds(5),
+                PermitLimit = 100,
+                Window = TimeSpan.FromSeconds(1),
                 QueueProcessingOrder = QueueProcessingOrder.OldestFirst,
                 QueueLimit = 0,
             }));
@@ -59,6 +56,9 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
+builder.Services.AddHealthChecks()
+    .AddCheck("health", () => HealthCheckResult.Healthy());
+
 var app = builder.Build();
 
 app
@@ -74,6 +74,8 @@ app
             .AllowAnyOrigin();
     })
     .UseApplicationMiddlewares();
+
+app.MapHealthChecks("/health");
 
 app.MapControllers().RequireRateLimiting("default");
 app.Run();

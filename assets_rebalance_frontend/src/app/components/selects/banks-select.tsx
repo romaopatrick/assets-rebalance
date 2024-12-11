@@ -1,10 +1,10 @@
 'use client'
 
-import * as finAssetsBankService from '@/lib/api/fin-assets-bank/fin-assets-bank-actions'
+import * as finAssetsBankService from '@/app/banks/actions'
 import React, { useEffect, useState } from 'react'
 import { FinAssetBank } from '@/lib/domain/fin-asset-bank'
-import { useLoad } from '@/app/components/hooks/use-load'
 import Select from 'react-select'
+import { useLoad } from '@/lib/hooks/use-load'
 type Props = {
     bank?: FinAssetBank
     onSelect?: (v: FinAssetBank) => void

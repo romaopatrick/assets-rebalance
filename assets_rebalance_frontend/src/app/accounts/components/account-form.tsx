@@ -4,12 +4,12 @@ import * as Form from '@radix-ui/react-form'
 import BanksSelect from '@/app/components/selects/banks-select'
 import { FinAssetBankAccount } from '@/lib/domain/fin-asset-bank-account'
 import FormSubmit from '@/app/components/buttons/form-submit'
-import { useLoad } from '@/app/components/hooks/use-load'
-import * as finAssetsBankAccountService from '@/lib/api/fin-assets-bank-account/fin-assets-bank-account-actions'
-import { ChangeFinAssetBankAccountInput } from '@/lib/boundaries/change-fin-asset-bank-account-input'
+import * as finAssetsBankAccountService from '@/app/accounts/actions'
 import { useRouter } from 'next/navigation'
 import { FinAssetBank } from '@/lib/domain/fin-asset-bank'
 import { successSaveToast } from '@/lib/utils/toast'
+import { useLoad } from '@/lib/hooks/use-load'
+import { ChangeFinAssetBankAccountInput } from '../types'
 
 type Props = {
     account?: FinAssetBankAccount

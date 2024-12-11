@@ -5,7 +5,7 @@ import { Metadata } from "next";
 import Header from "./components/header";
 import ToastProvider from "./components/providers/toast-provider";
 import SideNav from "./components/sidenav/sidenav";
-import { useEffect } from 'react';
+import Auth from './auth/auth-wall';
 
 export const metadata: Metadata = {
   title: "Assets Rebalance",
@@ -27,7 +27,9 @@ export default function RootLayout({
           <div className="flex w-full max-w-full overflow-hidden h-[calc(100vh-60px)]">
             <SideNav />
             <div className="flex-1 overflow-auto">
-              {children}
+              <Auth>
+                {children}
+              </Auth>
             </div>
           </div>
         </ToastProvider>

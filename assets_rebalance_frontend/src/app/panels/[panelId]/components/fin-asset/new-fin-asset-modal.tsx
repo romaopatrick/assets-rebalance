@@ -5,10 +5,10 @@ import { FinAsset } from '@/lib/domain/fin-asset'
 import { FinAssetCategory } from '@/lib/domain/enums/fin-asset-category.enum'
 import { FinAssetsGroup } from '@/lib/domain/fin-assets-group'
 import { FinAssetBankAccount } from '@/lib/domain/fin-asset-bank-account'
-import { useLoad } from '@/app/components/hooks/use-load'
-import * as finAssetsBankAccountService from '@/lib/api/fin-assets-bank-account/fin-assets-bank-account-actions'
+import * as finAssetsBankAccountService from '@/app/accounts/actions'
 import FinAssetForm from './fin-asset-form'
 import { uuid as v4} from 'uuidv4'
+import { useLoad } from '@/lib/hooks/use-load'
 type Props = {
     group: FinAssetsGroup
     onAdd: (fa: FinAsset) => void

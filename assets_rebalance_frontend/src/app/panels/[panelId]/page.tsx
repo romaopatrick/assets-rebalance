@@ -1,20 +1,20 @@
 'use client'
 
-import { useLoad } from '@/app/components/hooks/use-load'
 import { FinAssetsPanel } from '@/lib/domain/fin-assets-panel'
-import * as finAssetsPanelService from '@/lib/api/fin-assets-panel/fin-assets-panel-actions'
+import * as finAssetsPanelService from '@/app/panels/actions'
 import React, { useEffect, useState } from 'react'
 import ResumeCard from '@/app/dashboard/components/resume-card'
 import * as Form from '@radix-ui/react-form'
 import MoneyInput from '@/app/components/inputs/money-input'
 import SaveBottomBar from './components/save-bottom-bar'
-import { ChangeFinAssetsPanelInputManager } from '@/lib/boundaries/change-fin-assets-panel-input'
+import { ChangeFinAssetsPanelInputManager } from '@/app/panels/types'
 import GroupList from './components/group/group-list'
 import NewGroupModal from './components/group/new-group-modal'
 import { FinAssetsGroup } from '@/lib/domain/fin-assets-group'
 import { successSaveToast } from '@/lib/utils/toast'
-import * as finAssetsBankAccountService from '@/lib/api/fin-assets-bank-account/fin-assets-bank-account-actions'
+import * as finAssetsBankAccountService from '@/app/accounts/actions'
 import { FinAssetBankAccount } from '@/lib/domain/fin-asset-bank-account'
+import { useLoad } from '@/lib/hooks/use-load'
 type Props = {
   params: {
     panelId: string

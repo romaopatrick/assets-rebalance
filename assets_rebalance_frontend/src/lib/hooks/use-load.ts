@@ -20,7 +20,6 @@ export function useLoad() {
             start()
             await fn()
         } catch (e) {
-            console.log(e)
             handleError(e as Error)
         } finally {
             stop()

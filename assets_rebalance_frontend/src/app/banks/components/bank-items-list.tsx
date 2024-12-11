@@ -1,4 +1,4 @@
-import * as finAssetBankActions  from '@/lib/api/fin-assets-bank/fin-assets-bank-actions'
+import * as finAssetBankActions  from '@/app/banks/actions'
 import React, {  } from 'react'
 import BankItem from './bank-item'
 import { revalidateTag } from 'next/cache';

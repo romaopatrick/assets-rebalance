@@ -4,9 +4,9 @@ import ArchiveBankButton from '@/app/components/buttons/archive-button'
 import { FinAssetBankAccount } from '@/lib/domain/fin-asset-bank-account'
 import Link from 'next/link'
 import React from 'react'
-import * as finAssetsBankAccountService  from '@/lib/api/fin-assets-bank-account/fin-assets-bank-account-actions'
-import { useLoad } from '@/app/components/hooks/use-load'
+import * as finAssetsBankAccountService  from '@/app/accounts/actions'
 import Image from 'next/image'
+import { useLoad } from '@/lib/hooks/use-load'
 
 type Props = {
     account: FinAssetBankAccount

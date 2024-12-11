@@ -1,8 +1,8 @@
 'use client'
 
 import React, { Suspense, useEffect, useState } from 'react'
-import * as finAssetsBankAccountService from '@/lib/api/fin-assets-bank-account/fin-assets-bank-account-actions'
-import * as finAssetsPanelService  from '@/lib/api/fin-assets-panel/fin-assets-panel-actions'
+import * as finAssetsBankAccountService from '@/app/accounts/actions'
+import * as finAssetsPanelService  from '@/app/panels/actions'
 import PanelCardSession from './components/panel-card-session'
 import ResumeCard from './components/resume-card'
 import { FinAssetBankAccount } from '@/lib/domain/fin-asset-bank-account'

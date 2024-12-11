@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react'
 import BackButton from '@/app/components/buttons/back-button'
 import AccountForm from '../components/account-form'
-import * as finAssetsBankAccountService  from '@/lib/api/fin-assets-bank-account/fin-assets-bank-account-actions'
+import * as finAssetsBankAccountService  from '@/app/accounts/actions'
 
 type Props = {
     params: {

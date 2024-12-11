@@ -11,7 +11,6 @@ type Props = {
 
 
 export default function Banks({ searchParams }: Props) {
-    console.info("running pointing to api: ", process.env.API_URL)
 
     return (
         <>

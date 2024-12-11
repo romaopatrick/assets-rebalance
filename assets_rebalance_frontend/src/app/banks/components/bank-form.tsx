@@ -1,15 +1,15 @@
 'use client'
 
-import { useLoad } from "@/app/components/hooks/use-load";
-import { ChangeFinAssetBankInput } from "@/lib/boundaries/change-fin-asset-bank-input";
+import { ChangeFinAssetBankInput } from "@/app/banks/types";
 import { FinAssetBank } from "@/lib/domain/fin-asset-bank";
-import * as finAssetsBankService from "@/lib/api/fin-assets-bank/fin-assets-bank-actions";
+import * as finAssetsBankService from "@/app/banks/actions";
 import * as Form from "@radix-ui/react-form";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import FormControlImageBase64 from "@/app/components/inputs/form-control-image-base64";
 import FormSubmit from "@/app/components/buttons/form-submit";
 import { successSaveToast } from "@/lib/utils/toast";
+import { useLoad } from "@/lib/hooks/use-load";
 
 type Props = {
     bank?: FinAssetBank

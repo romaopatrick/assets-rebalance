@@ -1,15 +1,16 @@
 'use server';
 
-import { handleResponse } from "../common/response-handle";
-import { ChangeFinAssetBankAccountInput } from "@/lib/boundaries/change-fin-asset-bank-account-input";
+import { handleResponse } from "../../lib/api/common/response-handle";
 import { FinAssetBankAccount } from "@/lib/domain/fin-asset-bank-account";
 import { revalidateTag } from "next/cache";
+import { ChangeFinAssetBankAccountInput } from "./types";
+import authfetch from "@/lib/api/common/auth-fetch";
 
 const tag = 'accounts';
 const basePath = process.env.API_URL + '/FinAssetBankAccount';
 
 export async function changeBankAccount(input: ChangeFinAssetBankAccountInput): Promise<FinAssetBankAccount> {
-    const response = await fetch(basePath, {
+    const response = await authfetch(basePath, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -24,7 +25,7 @@ export async function changeBankAccount(input: ChangeFinAssetBankAccountInput): 
 
 export async function getAllBankAccounts(activeOnly = false): Promise<FinAssetBankAccount[]> {
     const url = `${basePath}/all?activeOnly=${activeOnly}`;
-    const response = await fetch(url, {
+    const response = await authfetch(url, {
         method: "GET",
         next: {
             tags: [tag],
@@ -36,7 +37,7 @@ export async function getAllBankAccounts(activeOnly = false): Promise<FinAssetBa
 
 export async function getBankAccountById(id: string): Promise<FinAssetBankAccount> {
     const url = `${basePath}/${id}`;
-    const response = await fetch(url, {
+    const response = await authfetch(url, {
         method: "GET",
         next: {
             tags: [tag],
@@ -48,7 +49,7 @@ export async function getBankAccountById(id: string): Promise<FinAssetBankAccoun
 
 export async function disableBankAccount(id: string): Promise<void> {
     const url = `${basePath}/d/${id}`;
-    const response = await fetch(url, {
+    const response = await authfetch(url, {
         method: "PATCH",
     });
 
@@ -59,7 +60,7 @@ export async function disableBankAccount(id: string): Promise<void> {
 
 export async function enableBankAccount(id: string): Promise<void> {
     const url = `${basePath}/e/${id}`;
-    const response = await fetch(url, {
+    const response = await authfetch(url, {
         method: "PATCH",
     });
 

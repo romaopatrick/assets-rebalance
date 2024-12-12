@@ -2,11 +2,17 @@ using System.Threading.RateLimiting;
 using assets_rebalance_backend.src.Adapters;
 using assets_rebalance_backend.src.Adapters.Middlewares;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddApplicationDependencies(builder.Configuration);
+
+Console.BackgroundColor = ConsoleColor.Black;
+Console.ForegroundColor = ConsoleColor.DarkCyan;
+Console.WriteLine(Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT"));
+Console.ResetColor();
 
 builder.Services.AddControllers();
 builder.Services.AddRateLimiter(cfg =>
@@ -57,13 +63,19 @@ builder.Services.AddSwaggerGen(c =>
 });
 
 builder.Services.AddHealthChecks()
-    .AddCheck("health", () => HealthCheckResult.Healthy());
+    .AddCheck("ready", () => HealthCheckResult.Healthy());
 
 var app = builder.Build();
 
 app
     .UseSwagger()
     .UseSwaggerUI();
+
+app
+    .UseHealthChecks("/ready", new HealthCheckOptions
+    {
+        Predicate = x => x.Name == "ready"
+    });
 
 app
     .UseRateLimiter()
@@ -75,7 +87,7 @@ app
     })
     .UseApplicationMiddlewares();
 
-app.MapHealthChecks("/health");
 
+app.MapGet("/apikeycheck", ([FromHeader(Name = "x-api-key")] string apiKey) => Results.Ok(apiKey));
 app.MapControllers().RequireRateLimiting("default");
 app.Run();

@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: assetsrebalancefront
-          image: patrickromao/assetsrebalancefrontend:1.0.0-rcs-6
+          image: patrickromao/assetsrebalancefrontend:1.0.0-rcs-9
           ports:
             - containerPort: 3000
           resources:

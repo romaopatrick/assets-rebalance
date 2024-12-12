@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: assetsrebalanceback
-          image: patrickromao/assetsrebalancebackend:1.0.0-rcs-2
+          image: patrickromao/assetsrebalancebackend:1.0.0-rcs-4
           env:
             - name: MongoDbSettings__ConnectionString
               valueFrom:
@@ -38,3 +38,9 @@ spec:
             limits:
               memory: "128Mi"
               cpu: "500m"
+          readinessProbe:
+            httpGet:
+              path: /ready
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 10

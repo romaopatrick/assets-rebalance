@@ -8,7 +8,7 @@
             "name": "C#: assets_rebalance_backend Debug",
             "type": "dotnet",
             "request": "launch",
-            "projectPath": "${workspaceFolder}/assets_rebalance_backend/assets_rebalance_backend.csproj",
+            "projectPath": "${workspaceFolder}/assets_rebalance_backend/src/assets_rebalance_backend.csproj",
         }
     ]
 }

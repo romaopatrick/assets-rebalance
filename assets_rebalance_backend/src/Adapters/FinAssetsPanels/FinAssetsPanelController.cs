@@ -1,9 +1,9 @@
-using assets_rebalance_backend.src.Adapters.Base;
-using assets_rebalance_backend.src.Boundaries;
+using assets_rebalance_backend.Adapters.Base;
+using assets_rebalance_backend.Boundaries;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace assets_rebalance_backend.src.Adapters.FinAssetsPanels
+namespace assets_rebalance_backend.Adapters.FinAssetsPanels
 {
     public class FinAssetsPanelController (FinAssetsPanelService service) : AssetsController
     {
@@ -12,8 +12,12 @@ namespace assets_rebalance_backend.src.Adapters.FinAssetsPanels
         [HttpGet("{id:Guid}")]
         public async Task<IResult> FirstById(
             [FromRoute] Guid id,
+            [FromQuery] bool removeDebitAdjusts,
             CancellationToken cancellationToken = default)
-            => ParseResult(await _service.FirstById(id, cancellationToken));
+            => ParseResult(await _service.FirstById(new(){
+                Id = id,
+                RemoveDebitAdjusts = removeDebitAdjusts,
+            }, cancellationToken));
             
         [HttpGet("all")]
         public async Task<IResult> All(

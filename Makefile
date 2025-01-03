@@ -1,6 +1,6 @@
 .PHONY: dev bk-run-dev fr-run-dev
 TAG=latest
-BACK_PATH=./assets_rebalance_backend/assets_rebalance_backend.csproj
+BACK_PATH=./assets_rebalance_backend/src/assets_rebalance_backend.csproj
 FRONT_PATH=./assets_rebalance_frontend
 
 bk-run-dev: 

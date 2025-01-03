@@ -5,6 +5,9 @@ import { HttpStatusCode } from "axios"
 import { revalidateTag } from "next/cache"
 
 export async function validateApiKey() {
+    console.log("validating api key")
+
+    
     const res = await authfetch(process.env.APIKEYCHECK_URL, {
         method: 'GET',
     })

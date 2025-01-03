@@ -1,4 +1,4 @@
-namespace assets_rebalance_backend.src.Adapters.Middlewares;
+namespace assets_rebalance_backend.Adapters.Middlewares;
 
 public static class ApplicationMiddlewareExtensions
 {

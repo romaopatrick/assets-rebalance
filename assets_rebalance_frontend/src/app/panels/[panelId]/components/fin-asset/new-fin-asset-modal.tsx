@@ -6,9 +6,11 @@ import { FinAssetCategory } from '@/lib/domain/enums/fin-asset-category.enum'
 import { FinAssetsGroup } from '@/lib/domain/fin-assets-group'
 import { FinAssetBankAccount } from '@/lib/domain/fin-asset-bank-account'
 import * as finAssetsBankAccountService from '@/app/accounts/actions'
-import FinAssetForm from './fin-asset-form'
-import { uuid as v4} from 'uuidv4'
+import FinAssetForm from './forms/fin-asset-form'
+import { uuid as v4 } from 'uuidv4'
 import { useLoad } from '@/lib/hooks/use-load'
+import FinAssetFormByCategory from './forms/fin-asset-form-by-category'
+import { FinAssetStatus } from '@/lib/domain/enums/fin-asset-status.enum'
 type Props = {
     group: FinAssetsGroup
     onAdd: (fa: FinAsset) => void
@@ -20,6 +22,7 @@ export default function NewFinAssetModal({ group, onAdd }: Props) {
     const loadAccounts = useLoad()
 
     const [newAsset, setNewAsset] = useState<FinAsset>({
+        status: FinAssetStatus.Active,
         accountId: '',
         category: group.category,
         currentAmount: 0,
@@ -37,19 +40,20 @@ export default function NewFinAssetModal({ group, onAdd }: Props) {
     }
 
     const handleChange = (fa: FinAsset) => {
-        setNewAsset({...fa})
+        setNewAsset({ ...fa })
     }
 
     const handleAdd = () => {
         onAdd?.(newAsset)
         setNewAsset({
+            status: FinAssetStatus.Active,
             accountId: '',
             category: group.category,
             currentAmount: 0,
             name: '',
             score: 0
         })
-    } 
+    }
 
     useEffect(() => {
         fetchAccounts()
@@ -64,10 +68,10 @@ export default function NewFinAssetModal({ group, onAdd }: Props) {
                 <span>Asset</span></Dialog.Trigger>
             <Dialog.Portal>
                 <Dialog.Overlay className='fixed inset-0 bg-black opacity-50 data-[state=open]:animate-overlayShow' />
-                <Dialog.Content className='fixed left-1/2 top-1/2 max-h-[85vh] w-[90vw] max-w-[450px] -translate-x-1/2 -translate-y-1/2 rounded-md bg-slate-800 p-[25px] shadow-[hsl(206_22%_7%_/_35%)_0px_10px_38px_-10px,_hsl(206_22%_7%_/_20%)_0px_10px_20px_-15px] focus:outline-none data-[state=open]:animate-contentShow'>
+                <Dialog.Content className='fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-md bg-slate-800 p-[25px] shadow-[hsl(206_22%_7%_/_35%)_0px_10px_38px_-10px,_hsl(206_22%_7%_/_20%)_0px_10px_20px_-15px] focus:outline-none data-[state=open]:animate-contentShow'>
                     <Dialog.Title className='text-3xl'>Asset {newAsset.name}</Dialog.Title>
                     <br />
-                    <FinAssetForm account={selectedAccount} asset={newAsset} onChange={handleChange} />
+                    <FinAssetFormByCategory account={selectedAccount} asset={newAsset} onChange={handleChange} />
                     <Dialog.Close asChild>
                         <button onClick={handleAdd}
                             className='w-full mt-12 bg-green-800 p-2 rounded-md hover:bg-green-600 transition-colors duration-200'

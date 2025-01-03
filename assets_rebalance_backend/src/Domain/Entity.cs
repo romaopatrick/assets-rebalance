@@ -1,7 +1,7 @@
 using System;
 using MongoDB.Bson.Serialization.Attributes;
 
-namespace assets_rebalance_backend.src.Domain;
+namespace assets_rebalance_backend.Domain;
 
 public class Entity
 {

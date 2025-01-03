@@ -21,12 +21,11 @@ export default function GroupItem({ group, onChange, accounts }: Props) {
     const groupSet = groupByToSet(group.children, x => x.tag)
     const keys = groupSet.keys()
 
-
     const assetsScore = useTag 
-    ? groupSet?.values()?.map((x) => {
-        return Array.from(x)?.[0]?.score ?? 0
-    })?.reduce((a, acc) => acc + a, 0)
-    : group?.children?.map(x => x.score)?.reduce((a, acc) => acc + a, 0)
+                            ? groupSet?.values()?.map((x) => {
+                                return Array.from(x)?.[0]?.score ?? 0
+                            })?.reduce((a, acc) => acc + a, 0)
+                            : group?.children?.map(x => x.score)?.reduce((a, acc) => acc + a, 0)
 
     const validScore = assetsScore == 100
 
@@ -68,6 +67,10 @@ export default function GroupItem({ group, onChange, accounts }: Props) {
                         <div className='flex flex-col'>
                             <span>Adjust</span>
                             <span className='text-xl'>{currency_f(group.adjustAmount)}</span>
+                        </div>
+                        <div className='flex flex-col'>
+                            <span>Buy Adjust</span>
+                            <span className='text-xl'>{currency_f(group.buyAdjustAmount)}</span>
                         </div>
                         <div className='flex flex-col'>
                             <span>Assets Score</span>

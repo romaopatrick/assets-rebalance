@@ -1,10 +1,10 @@
 using System.Runtime.CompilerServices;
-using assets_rebalance_backend.src.Boundaries;
-using assets_rebalance_backend.src.Domain;
-using assets_rebalance_backend.src.Ports;
+using assets_rebalance_backend.Boundaries;
+using assets_rebalance_backend.Domain;
+using assets_rebalance_backend.Ports;
 using FluentResults;
 
-namespace assets_rebalance_backend.src.Adapters.FinAssetBanks;
+namespace assets_rebalance_backend.Adapters.FinAssetBanks;
 
 public class FinAssetBankService(INoSqlRepository<FinAssetBank> repository)
 {

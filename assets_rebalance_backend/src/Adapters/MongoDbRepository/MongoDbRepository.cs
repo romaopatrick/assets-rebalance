@@ -1,10 +1,10 @@
 using System.Linq.Expressions;
-using assets_rebalance_backend.src.Domain;
-using assets_rebalance_backend.src.Ports;
+using assets_rebalance_backend.Domain;
+using assets_rebalance_backend.Ports;
 using FluentResults;
 using MongoDB.Driver;
 
-namespace assets_rebalance_backend.src.Adapters.MongoDbRepository;
+namespace assets_rebalance_backend.Adapters.MongoDbRepository;
 
 public class MongoDbRepository<T>(IMongoDatabase db) : INoSqlRepository<T> where T : Entity
 {

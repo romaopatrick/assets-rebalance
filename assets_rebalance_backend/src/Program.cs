@@ -1,6 +1,6 @@
 using System.Threading.RateLimiting;
-using assets_rebalance_backend.src.Adapters;
-using assets_rebalance_backend.src.Adapters.Middlewares;
+using assets_rebalance_backend.Adapters;
+using assets_rebalance_backend.Adapters.Middlewares;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Diagnostics.HealthChecks;

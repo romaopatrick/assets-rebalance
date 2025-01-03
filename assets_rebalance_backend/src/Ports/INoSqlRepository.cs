@@ -1,8 +1,8 @@
 using System.Linq.Expressions;
-using assets_rebalance_backend.src.Domain;
+using assets_rebalance_backend.Domain;
 using FluentResults;
 
-namespace assets_rebalance_backend.src.Ports;
+namespace assets_rebalance_backend.Ports;
 
 public interface INoSqlRepository<T> where T : Entity
 {

@@ -12,10 +12,12 @@ export default async function authfetch(url: string, options: FetchWrapperOption
 
     const headers = {
         'Content-Type': 'application/json',
+        'accept': '*/*',
         'x-api-key': apiKey,
         ...options.headers,
     };
 
+    
     const fetchOptions: RequestInit = {
         ...options,
         headers,
@@ -25,6 +27,7 @@ export default async function authfetch(url: string, options: FetchWrapperOption
             ...options.next,
         }
     };
-
+    
+    console.log("request", url, fetchOptions)
     return await fetch(url, fetchOptions); // Return the fetch result
 }

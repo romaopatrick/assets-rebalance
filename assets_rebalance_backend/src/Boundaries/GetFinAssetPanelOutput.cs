@@ -1,7 +1,7 @@
 using System;
-using assets_rebalance_backend.src.Domain;
+using assets_rebalance_backend.Domain;
 
-namespace assets_rebalance_backend.src.Boundaries;
+namespace assets_rebalance_backend.Boundaries;
 
 public class GetFinAssetPanelOutput
 {

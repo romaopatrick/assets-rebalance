@@ -1,6 +1,6 @@
 using System;
 
-namespace assets_rebalance_backend.src.Adapters.MongoDbRepository;
+namespace assets_rebalance_backend.Adapters.MongoDbRepository;
 
 public class MongoDbSettings
 {

@@ -38,10 +38,29 @@ export default function FinAssetTagItem({ assets, onChange, accounts }: Props) {
             <Collapsible.Trigger value={Number(expanded)} onClick={toggle}
                 className={`flex w-full px-4 py-3 justify-between items-center cursor-pointer bg-slate-900 hover:bg-green-800 hover:text-white 
                  transition-all duration-300 outline-none ${expanded ? '!bg-green-800 hover:!bg-green-800 rounded-t-md rounded-b-none' : 'rounded-md '}`}>
-                <div className='flex w-full justify-between'>
-                    <span>{firstAsset?.tag}</span>
-                    <span>{currency_f(assets.map(x => x.currentAmount).reduce((a, acc) => acc + a, 0) ?? 0)}/{currency_f(firstAsset?.recommendedAmount ?? 0)}</span>
-                    <span>{currency_f(firstAsset?.adjustAmount ?? 0)}</span>
+                <div className='flex w-full'>
+                    <div className='flex flex-1'>
+                        <span>{firstAsset?.tag}</span>
+                    </div>
+                    <div className='flex items-start gap-2 flex-col flex-1'>
+                        <label className='text-xs'>Current</label>
+                        <span>{currency_f(assets.map(x => x.currentAmount).reduce((a, acc) => acc + a, 0) ?? 0)}</span>
+                    </div>
+
+                    <div className='flex items-start gap-2 flex-col flex-1'>
+                        <label className='text-xs'>Recommended</label>
+                        <span>{currency_f(assets.map(x => x.recommendedAmount ?? 0).reduce((a, acc) => acc + a, 0) ?? 0)}</span>
+                    </div>
+
+                    <div className='flex items-start gap-2 flex-col flex-1'>
+                        <label className='text-xs'>Adjust</label>
+                        <span>{currency_f(assets.map(x => x.adjustAmount ?? 0).reduce((a, acc) => acc + a, 0) ?? 0)}</span>
+                    </div>
+
+                    <div className='flex items-start gap-2 flex-col flex-1'>
+                        <label className='text-xs'>Buy Adjust</label>
+                        <span>{currency_f(assets.map(x => x.buyAdjustAmount ?? 0).reduce((a, acc) => acc + a, 0) ?? 0)}</span>
+                    </div>
                     <span>{firstAsset?.score}%</span>
                 </div>
 
@@ -50,11 +69,11 @@ export default function FinAssetTagItem({ assets, onChange, accounts }: Props) {
                     <MdArrowRight />
                 </span>
             </Collapsible.Trigger>
-            <Collapsible.Content className='border-b border-x rounded-b-md border-green-800'>
+            <Collapsible.Content className='border-b border-x rounded-b-md border-green-800 overflow-hidden'>
                 {
                     assets.map((x, i) => <FinAssetItem accounts={accounts} asset={x} onChange={a => handleChange(i, x)} />)
                 }
             </Collapsible.Content>
-        </Collapsible.Root>
+        </Collapsible.Root >
     )
 }

@@ -1,9 +1,9 @@
-using assets_rebalance_backend.src.Adapters.Base;
-using assets_rebalance_backend.src.Boundaries;
+using assets_rebalance_backend.Adapters.Base;
+using assets_rebalance_backend.Boundaries;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.RateLimiting;
 
-namespace assets_rebalance_backend.src.Adapters.FinAssetBanks
+namespace assets_rebalance_backend.Adapters.FinAssetBanks
 {
     
     public class FinAssetBankController(FinAssetBankService service) : AssetsController

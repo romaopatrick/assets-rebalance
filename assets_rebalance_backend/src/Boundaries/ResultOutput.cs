@@ -1,7 +1,7 @@
 using System;
 using FluentResults;
 
-namespace assets_rebalance_backend.src.Boundaries;
+namespace assets_rebalance_backend.Boundaries;
 
 public class ResultOutput<T> : ResultOutput
 {

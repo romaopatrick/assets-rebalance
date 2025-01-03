@@ -1,4 +1,6 @@
+import { Entity } from "./entity";
 import { FinAssetCategory } from "./enums/fin-asset-category.enum";
+import { FinAssetStatus } from "./enums/fin-asset-status.enum";
 import { FixedIncomeIndexer } from "./enums/fixed-income-indexer.enum";
 
 export class FinAssetExternalVariableIncomeData {
@@ -58,20 +60,22 @@ class FinAssetFixedIncomeData {
     }
 }
 
-export type FinAsset = {
-    name: string; // required
-    tag?: string | null; // optional
-    score: number; // required with a default value
-    currentAmount: number; // required
-    accountId: string; // required (UUIDs are represented as strings in TypeScript)
-    currentQuantity?: number | null; // optional
-    category: FinAssetCategory; // required
-    variableIncomeData?: FinAssetExternalVariableIncomeData | null; // optional
-    fixedIncomeData?: FinAssetFixedIncomeData | null; // optional
+export type FinAsset = Entity & {
+    name: string;
+    tag?: string | null;
+    score: number;
+    status: FinAssetStatus;
+    currentAmount: number;
+    accountId: string;
+    currentQuantity?: number | null;
+    category: FinAssetCategory;
+    variableIncomeData?: FinAssetExternalVariableIncomeData | null;
+    fixedIncomeData?: Partial<FinAssetFixedIncomeData> | null;
 
     scorePercent?: number
 
     recommendedAmount?: number
 
     adjustAmount?: number
+    buyAdjustAmount?: number
 }

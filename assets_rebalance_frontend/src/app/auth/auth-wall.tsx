@@ -28,10 +28,10 @@ export default function Auth({ children }: Props) {
     }
 
     const validate = async () => {
+        
         try {
             await validateApiKey()
             setValid(true)
-
         } catch (e) {
             setValid(false)
         }

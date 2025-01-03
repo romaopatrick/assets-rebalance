@@ -1,8 +1,9 @@
 import { Result } from "typescript-result";
 import { FinAssetCategory } from "./enums/fin-asset-category.enum";
 import { FinAsset } from "./fin-asset";
+import { Entity } from "./entity";
 
-export type FinAssetsGroup = {
+export type FinAssetsGroup = Entity & {
     name: string; // required
     score: number; // required
     children: FinAsset[]; // initialized to an empty array
@@ -10,6 +11,7 @@ export type FinAssetsGroup = {
     currentAmount: number
     recommendedAmount: number
     adjustAmount: number
+    buyAdjustAmount: number
     scorePercent: number
 }
 

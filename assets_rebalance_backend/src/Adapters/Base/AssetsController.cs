@@ -1,10 +1,9 @@
 using System.Net;
-using assets_rebalance_backend.src.Boundaries;
+using assets_rebalance_backend.Boundaries;
 using FluentResults;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace assets_rebalance_backend.src.Adapters.Base
+namespace assets_rebalance_backend.Adapters.Base
 {
     [Route("api/[controller]")]
     [ApiController]

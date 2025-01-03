@@ -1,9 +1,9 @@
-using assets_rebalance_backend.src.Boundaries;
-using assets_rebalance_backend.src.Domain;
-using assets_rebalance_backend.src.Ports;
+using assets_rebalance_backend.Boundaries;
+using assets_rebalance_backend.Domain;
+using assets_rebalance_backend.Ports;
 using FluentResults;
 
-namespace assets_rebalance_backend.src.Adapters.FinAssetBankAccounts;
+namespace assets_rebalance_backend.Adapters.FinAssetBankAccounts;
 
 public class FinAssetBankAccountService(
     INoSqlRepository<FinAssetBank> bank_repository,

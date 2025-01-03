@@ -41,7 +41,7 @@ export default async function Accounts({
                 <Suspense fallback={'Loading...'}>
                     <div className='flex flex-wrap gap-4 p-12'>
                         {
-                            accounts.map(x => <AccountItem key={x.id} refresh={fetchAccountsServer} account={x} />)
+                            accounts?.map(x => <AccountItem key={x.id} refresh={fetchAccountsServer} account={x} />)
                         }
                     </div>
                 </Suspense>

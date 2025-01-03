@@ -1,6 +1,6 @@
 using System;
 
-namespace assets_rebalance_backend.src.Adapters.Middlewares;
+namespace assets_rebalance_backend.Adapters.Middlewares;
 
 public class ApiKeyMiddleware(RequestDelegate next, IConfiguration configuration)
 {

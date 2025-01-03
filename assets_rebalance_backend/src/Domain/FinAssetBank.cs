@@ -1,6 +1,6 @@
 using System;
 
-namespace assets_rebalance_backend.src.Domain;
+namespace assets_rebalance_backend.Domain;
 
 public class FinAssetBank : Entity
 {

@@ -1,3 +1,5 @@
+import zIndex from "@mui/material/styles/zIndex"
+
 export enum FinAssetCategory {
     Fixed,
     Variable,
@@ -6,6 +8,7 @@ export enum FinAssetCategory {
     ExternalFixed,
     ExternalVariable
 }
+
 
 export const finAssetCategoryDictionary = {
     [FinAssetCategory.Fixed]: "Fixed",
@@ -24,3 +27,4 @@ const taggedCategories = [
 export const isTaggedCategory = (fc : FinAssetCategory) => {
     return taggedCategories.includes(fc)
 }
+export const categories = Object.keys(FinAssetCategory).map((x: any) => finAssetCategoryDictionary[x as keyof typeof finAssetCategoryDictionary])

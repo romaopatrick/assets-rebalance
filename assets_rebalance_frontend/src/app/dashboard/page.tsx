@@ -8,6 +8,7 @@ import ResumeCard from './components/resume-card'
 import { FinAssetBankAccount } from '@/lib/domain/fin-asset-bank-account'
 import { FinAssetsPanel } from '@/lib/domain/fin-assets-panel'
 import { toast } from 'react-toastify'
+import ChartsSession from './components/charts-session'
 
 export default function Dashboard() {
     const [accounts, setAccounts] = useState<FinAssetBankAccount[]>([])
@@ -45,6 +46,7 @@ export default function Dashboard() {
                     <ResumeCard amount={invested} label='Invested' />
                     <ResumeCard amount={available} label='Available' />
                 </div>
+                {panels && panels.length && <ChartsSession panel={panels[0]}/>}
                 {
                     panels?.map(x => <PanelCardSession accounts={accounts} key={x.id} panel={x} />)
                 }

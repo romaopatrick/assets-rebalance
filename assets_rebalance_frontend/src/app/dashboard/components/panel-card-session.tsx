@@ -4,6 +4,7 @@ import ResumeCard from './resume-card'
 import GroupCard from './group-card'
 import Link from 'next/link'
 import { FinAssetBankAccount } from '@/lib/domain/fin-asset-bank-account'
+import ChartsSession from './charts-session'
 type Props = {
     panel: FinAssetsPanel
     accounts: FinAssetBankAccount[]
@@ -22,6 +23,9 @@ export default function PanelCardSession({ panel, accounts }: Props) {
                     <ResumeCard amount={panel.investedAmount} label='Invested' />
                     <ResumeCard amount={panel.amountToInvest} label='Available' useSign/>
                 </div>
+
+                <ChartsSession panel={panel} />
+                
                 <div className='flex gap-4 flex-wrap'>
                     {
                         panel

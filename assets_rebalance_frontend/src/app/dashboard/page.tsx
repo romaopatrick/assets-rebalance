@@ -2,7 +2,7 @@
 
 import React, { Suspense, useEffect, useState } from 'react'
 import * as finAssetsBankAccountService from '@/app/accounts/actions'
-import * as finAssetsPanelService  from '@/app/panels/actions'
+import * as finAssetsPanelService from '@/app/panels/actions'
 import PanelCardSession from './components/panel-card-session'
 import ResumeCard from './components/resume-card'
 import { FinAssetBankAccount } from '@/lib/domain/fin-asset-bank-account'
@@ -46,9 +46,10 @@ export default function Dashboard() {
                     <ResumeCard amount={invested} label='Invested' />
                     <ResumeCard amount={available} label='Available' />
                 </div>
-                {panels && panels.length && <ChartsSession panel={panels[0]}/>}
                 {
-                    panels?.map(x => <PanelCardSession accounts={accounts} key={x.id} panel={x} />)
+                    panels?.map(x => (<>
+                        <PanelCardSession accounts={accounts} key={x.id} panel={x} />
+                    </>))
                 }
             </Suspense>
         </div>

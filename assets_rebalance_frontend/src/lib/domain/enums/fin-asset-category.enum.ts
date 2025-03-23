@@ -1,5 +1,3 @@
-import zIndex from "@mui/material/styles/zIndex"
-
 export enum FinAssetCategory {
     Fixed,
     Variable,
@@ -10,7 +8,7 @@ export enum FinAssetCategory {
 }
 
 
-export const finAssetCategoryDictionary = {
+export const finAssetCategoryDictionary: {[id: number]: string} = {
     [FinAssetCategory.Fixed]: "Fixed",
     [FinAssetCategory.Variable]: "Variable",
     [FinAssetCategory.Currency]: "Currency",
@@ -27,4 +25,6 @@ const taggedCategories = [
 export const isTaggedCategory = (fc : FinAssetCategory) => {
     return taggedCategories.includes(fc)
 }
-export const categories = Object.keys(FinAssetCategory).map((x: any) => finAssetCategoryDictionary[x as keyof typeof finAssetCategoryDictionary])
+
+export const categories_keys = Object.keys(finAssetCategoryDictionary)
+export const categories = Object.values(finAssetCategoryDictionary)

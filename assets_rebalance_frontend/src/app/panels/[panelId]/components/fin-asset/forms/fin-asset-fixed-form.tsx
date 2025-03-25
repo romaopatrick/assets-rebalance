@@ -4,6 +4,9 @@ import * as Form from '@radix-ui/react-form'
 import MoneyInput from '@/app/components/inputs/money-input'
 import { FinAsset } from '@/lib/domain/fin-asset'
 import { FixedIncomeIndexer } from '@/lib/domain/enums/fixed-income-indexer.enum'
+import {DatePicker} from 'rsuite'
+
+
 const defaultFixedIncomeData = {
     applicationAmount: 0,
     expirationDate: new Date(),
@@ -14,10 +17,12 @@ const defaultFixedIncomeData = {
 }
 export default function FinAssetFixedForm(props: FinAssetFormProps) {
     const { asset, account, onChange } = props
-
+    console.log(asset)
     asset.accountId = account?.id ?? ''
     if (!asset.fixedIncomeData)
         asset.fixedIncomeData = { ...defaultFixedIncomeData }
+
+    asset.fixedIncomeData.expirationDate = new Date(asset.fixedIncomeData.expirationDate!)
 
     const handleChange = (fnSetAsset: (fa: FinAsset) => FinAsset) => {
         onChange?.(fnSetAsset(asset))
@@ -35,7 +40,7 @@ export default function FinAssetFixedForm(props: FinAssetFormProps) {
                     <Form.Field name='fixedIncomeData.applicationAmount' className='flex flex-col gap-2'>
                         <Form.Label className='text-sm'>Application Amount</Form.Label>
                         <MoneyInput
-                            className='text-xl '
+                            className='text-xl'
                             inputClassName='py-1 bg-slate-600 rounded-lg'
                             value={asset.fixedIncomeData.applicationAmount!}
                             onChange={v => handleChange(x => {
@@ -64,6 +69,24 @@ export default function FinAssetFixedForm(props: FinAssetFormProps) {
                             value={asset.fixedIncomeData.grossValue!}
                             onChange={v => handleChange(x => {
                                 x.fixedIncomeData!.grossValue = v
+                                return x
+                            })}
+                        />
+                    </Form.Field>
+                    <Form.Field name='fixedIncomeData.expirationDate' className='flex flex-col gap-2'>
+                        <Form.Label className='text-sm'>Expiration Date</Form.Label>
+                        <DatePicker
+                            onError={(e) => {
+                                console.log(e)
+                            }}
+                            menuClassName='bg-slate-600'
+                            format='dd/MM/yyyy'
+
+                            className='w-40'
+                            value={asset.fixedIncomeData.expirationDate ?? new Date()}
+                            onChange={v => handleChange(x => {
+                                x.fixedIncomeData!.expirationDate = v ?? new Date()
+
                                 return x
                             })}
                         />

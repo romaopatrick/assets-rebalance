@@ -1,5 +1,6 @@
 import 'reflect-metadata';
 import "./globals.css";
+import 'rsuite/dist/rsuite.min.css';
 
 import { Metadata } from "next";
 import Header from "./components/header";

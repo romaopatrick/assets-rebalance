@@ -7,6 +7,7 @@ import { categories, categories_keys, FinAssetCategory, finAssetCategoryDictiona
 import { currency_f } from '@/lib/utils/numeric';
 import BarChartVestedByCategory from './charts/bar-chart-vested-category';
 import PieChartCategoryScores from './charts/pie-chart-category-scores';
+import LineChartNextExpirations from './charts/line-chart-next-expirations';
 
 type Props = {
   panel: FinAssetsPanel
@@ -16,6 +17,7 @@ export default function ChartsSession({ panel }: Props) {
    <section className='flex w-full h-fit gap-4 flex-wrap'>
      <BarChartVestedByCategory panel={panel}/>
      <PieChartCategoryScores panel={panel}/>
+     <LineChartNextExpirations panel={panel}/>
    </section>
   );
 }

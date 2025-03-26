@@ -22,8 +22,8 @@ To Think On:
 Quick Wins
 - [x] Save dates (application, due) from fixed assets
 - [x] Line chart for:  Fixed Assets Due Years X Assets
-- Line chart for:  Fixed Assets Due Months X Assets
-    - Include filter by year
+- [x] Line chart for:  Fixed Assets Due Months X Assets
+    - [x] Include filter by year
 - Alert assets that reached due date but is not with status 'Settled'
 - Move charts to detailed panel page
 - Move panels list from dashboard to panel page

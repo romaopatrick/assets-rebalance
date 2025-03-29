@@ -82,7 +82,7 @@ export default function EditPainel({ params: { panelId } }: Props) {
     fetchPanel()
   }, [])
 
-  return (
+  return ( panel &&
     <>
       <main className='p-12'>
         <div className='flex justify-between items-center'>
@@ -104,7 +104,6 @@ export default function EditPainel({ params: { panelId } }: Props) {
             panel &&
             <div className='flex flex-col w-full'>
               <div className='flex gap-4 flex-wrap'>
-
                 <ResumeCard amount={panel?.totalAmount} className='gap-4 w-52' label='Total' />
                 <ResumeCard amount={panel?.investedAmount} className='gap-4 w-52' label='Invested' />
                 <Form.Field name='amountToInvest' className='flex flex-col gap-4 w-52 bg-slate-800 p-2 rounded-md'>

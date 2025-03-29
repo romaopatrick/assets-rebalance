@@ -3,8 +3,9 @@ import FinAssetForm, { FinAssetFormProps } from './fin-asset-form'
 import * as Form from '@radix-ui/react-form'
 import MoneyInput from '@/app/components/inputs/money-input'
 import { FinAsset } from '@/lib/domain/fin-asset'
-import { FixedIncomeIndexer } from '@/lib/domain/enums/fixed-income-indexer.enum'
-import {DatePicker} from 'rsuite'
+import { FixedIncomeIndexer, fixedIncomeIndexerDict } from '@/lib/domain/enums/fixed-income-indexer.enum'
+import { DatePicker } from 'rsuite'
+import IndexerSelect from '@/app/components/selects/indexer-select'
 
 
 const defaultFixedIncomeData = {
@@ -90,6 +91,26 @@ export default function FinAssetFixedForm(props: FinAssetFormProps) {
                                 return x
                             })}
                         />
+                    </Form.Field>
+                    <Form.Field name='indexer' className='flex flex-col gap-2'>
+                        <Form.Label className='text-sm'>Indexer</Form.Label>
+                        <IndexerSelect
+                            value={asset.fixedIncomeData.indexer}
+                            onSelect={v => handleChange(fa => {
+                                fa.fixedIncomeData!.indexer = v
+                                return fa
+                            })}
+                        />
+                    </Form.Field>
+                    <Form.Field name='indexerPercent' className='flex flex-col gap-2'>
+                        <Form.Label className='text-sm'>{fixedIncomeIndexerDict[asset.fixedIncomeData.indexer ?? 0]} %</Form.Label>
+                            <Form.Control type='number'
+                                className='text-lg px-2 py-1 rounded-md bg-slate-600 appearance-none w-24'
+                                onChange={v => handleChange(fa => {
+                                    fa.currentQuantity = v.target.value ? Number(v.target.value) : undefined
+                                    return fa
+                                })}
+                                value={asset.currentQuantity} />
                     </Form.Field>
                 </div>
                 <br />

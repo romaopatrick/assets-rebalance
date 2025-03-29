@@ -30,7 +30,8 @@ export default function FinAssetItem({ asset, onChange, accounts }: Props) {
     return (
         <Collapsible.Root className=''>
             <Collapsible.Trigger value={expanded ? 1 : 0} onClick={toggle}
-                className={`flex w-full px-4 py-3 justify-between items-center cursor-pointer bg-slate-900 hover:bg-green-950 hover:text-white 
+                className={`flex w-full px-4 py-3 justify-between items-center cursor-pointer 
+                    bg-slate-900 hover:bg-green-950 hover:text-white 
                  transition-all duration-300 outline-none
                  ${expanded
                         ? '!bg-green-950 hover:!bg-green-950 rounded-t-md rounded-b-none'

@@ -67,7 +67,7 @@ export type FinAsset = Entity & {
     status: FinAssetStatus;
     currentAmount: number;
     accountId: string;
-    currentQuantity?: number | null;
+    currentQuantity?: number;
     category: FinAssetCategory;
     variableIncomeData?: FinAssetExternalVariableIncomeData | null;
     fixedIncomeData?: Partial<FinAssetFixedIncomeData> | null;

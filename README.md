@@ -19,12 +19,14 @@ To Think On:
 - Charts for groups (refin)
 
 Quick Wins
-- Save quantity for variable, cripto, currency, 
+- Save fields for fixed:
+    indexer: FixedIncomeIndexer; // required
+    indexerPercent: number; // required
 - Show average of indexes percentage (14% a.a., 105% from CDI, IPCA + 5%)
 
 Features
 - Take Snapshots
     - Should take a snapshot for updates grouped by month+asset, so my asset can only have one registered snapshot by month
 - Snapshots line Chart
-
-
+- Auto-sync quotations with B3 
+- Auto-close settled fixed

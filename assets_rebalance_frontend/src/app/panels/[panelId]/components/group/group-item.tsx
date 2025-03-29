@@ -17,6 +17,8 @@ type Props = {
     accounts: FinAssetBankAccount[]
 }
 export default function GroupItem({ group, onChange, accounts }: Props) {
+    group.children = group.children.sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()))
+    
     const useTag = isTaggedCategory(group.category)
     const groupSet = groupByToSet(group.children, x => x.tag)
     const keys = groupSet.keys()

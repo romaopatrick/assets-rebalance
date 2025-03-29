@@ -3,3 +3,9 @@ export enum FixedIncomeIndexer {
     IPCA,
     FIXED
 }
+
+export const fixedIncomeIndexerDict: {[id: number]: string} = {
+    [FixedIncomeIndexer.CDI]: "CDI",
+    [FixedIncomeIndexer.IPCA]: "IPCA+",
+    [FixedIncomeIndexer.FIXED]: "FIXED",
+}

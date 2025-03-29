@@ -136,13 +136,25 @@ export default function FinAssetForm({
 
         <Form.Field name='status' className='flex flex-col gap-2'>
           <Form.Label className='text-sm'>Status</Form.Label>
-          <FinAssetStatusSelect 
+          <FinAssetStatusSelect
             value={asset.status}
             onSelect={v => handleChange(fa => {
               fa.status = v
               return fa
             })}
           />
+        </Form.Field>
+        <Form.Field name='currentQuantity' className='flex flex-col gap-2'>
+          <Form.Label className='text-sm'>Current Quantity</Form.Label>
+          <div className='flex gap-1'>
+            <Form.Control type='number'
+              className='text-lg px-2 py-1 rounded-md bg-slate-600 appearance-none'
+              onChange={v => handleChange(fa => {
+                fa.currentQuantity = v.target.value ? Number(v.target.value) : undefined
+                return fa
+              })}
+              value={asset.currentQuantity} />
+          </div>
         </Form.Field>
       </div>
       {children}

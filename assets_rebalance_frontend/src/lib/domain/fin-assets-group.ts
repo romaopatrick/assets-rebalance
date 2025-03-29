@@ -15,7 +15,7 @@ export type FinAssetsGroup = Entity & {
     scorePercent: number
 }
 
-export function finAssetsGroupManager(group: FinAssetsGroup) {
+export function finAssetsGroupManager(group: FinAssetsGroup) {    
     return {
         validate() {
             const scoreSum = group.children

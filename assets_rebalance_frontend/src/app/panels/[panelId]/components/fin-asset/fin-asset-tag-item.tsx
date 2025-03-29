@@ -69,9 +69,9 @@ export default function FinAssetTagItem({ assets, onChange, accounts }: Props) {
                     <MdArrowRight />
                 </span>
             </Collapsible.Trigger>
-            <Collapsible.Content className='border-b border-x rounded-b-md border-green-800 overflow-hidden'>
+            <Collapsible.Content className='border-b border-x rounded-b-md border-green-800 '>
                 {
-                    assets.map((x, i) => <FinAssetItem accounts={accounts} asset={x} onChange={a => handleChange(i, x)} />)
+                    assets.map((x, i) => <FinAssetItem key={i} accounts={accounts} asset={x} onChange={a => handleChange(i, x)} />)
                 }
             </Collapsible.Content>
         </Collapsible.Root >

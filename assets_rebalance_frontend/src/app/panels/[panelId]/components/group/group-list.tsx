@@ -59,7 +59,7 @@ function GroupListChildren({ groups, onChange, value, accounts }: Props) {
                                     const active = selected === id
 
                                     return <Tabs.Trigger onClick={() => !active && onTabChange(id)}
-                                        className={`p-2 flex items-center bg-green-800 rounded-t-sm 
+                                        className={`p-2 flex items-center bg-green-800 rounded-t-sm w-28
                                 ${!active ? '!bg-transparent border-r border-t border-green-800 mt-2' : ''}
                         `} key={id} value={id}>
                                         {x.name}

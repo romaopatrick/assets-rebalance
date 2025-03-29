@@ -65,6 +65,8 @@ builder.Services.AddSwaggerGen(c =>
 builder.Services.AddHealthChecks()
     .AddCheck("ready", () => HealthCheckResult.Healthy());
 
+builder.Services.AddOutputCache();
+
 var app = builder.Build();
 
 app
@@ -85,7 +87,8 @@ app
             .AllowAnyHeader()
             .AllowAnyOrigin();
     })
-    .UseApplicationMiddlewares();
+    .UseApplicationMiddlewares()
+    .UseOutputCache();
 
 
 app.MapGet("/apikeycheck", ([FromHeader(Name = "x-api-key")] string apiKey) => Results.Ok(apiKey));

@@ -6,10 +6,11 @@ type Props = {
     label?: string
     amount: number
     className?: string
-    useSign?: boolean
+    useSign?: boolean,
+    showCurrency?: boolean
 }
 
-export default function ResumeCard({ label, amount, className, useSign }: Props) {
+export default function ResumeCard({ label, amount, className, useSign, showCurrency }: Props) {
     const positive = amount >= 0
 
     return (
@@ -23,7 +24,7 @@ export default function ResumeCard({ label, amount, className, useSign }: Props)
                 }
                 <span
                     className={'text-2xl ' + (useSign && (positive ? 'text-green-300' : 'text-red-400'))}>
-                    {currency_f(Math.abs(amount))}
+                    {currency_f(Math.abs(amount), 'pt-BR', 'BRL', showCurrency)}
                 </span>
             </div>
         </div >

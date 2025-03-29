@@ -1,6 +1,7 @@
 using assets_rebalance_backend.Adapters.FinAssetBankAccounts;
 using assets_rebalance_backend.Adapters.FinAssetBanks;
 using assets_rebalance_backend.Adapters.FinAssetsPanels;
+using assets_rebalance_backend.Adapters.Indexer;
 using assets_rebalance_backend.Adapters.MongoDbRepository;
 using assets_rebalance_backend.Domain;
 using assets_rebalance_backend.Ports;
@@ -50,5 +51,6 @@ public static class DI
     private static IServiceCollection AddServices(this IServiceCollection services)
         => services.AddScoped<FinAssetBankService>()
             .AddScoped<FinAssetBankAccountService>()
-            .AddScoped<FinAssetsPanelService>();
+            .AddScoped<FinAssetsPanelService>()
+            .AddScoped<IndexerService>();
 }

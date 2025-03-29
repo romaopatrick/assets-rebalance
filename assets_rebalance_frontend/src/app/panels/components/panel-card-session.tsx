@@ -7,15 +7,27 @@ import GroupCard from '../../dashboard/components/group-card'
 import Link from 'next/link'
 import { FinAssetBankAccount } from '@/lib/domain/fin-asset-bank-account'
 import ChartsSession from '../../banks/components/charts/charts-session'
+import { FinAssetCategory } from '@/lib/domain/enums/fin-asset-category.enum'
+import { getIndexerTotalPercentage } from '@/lib/domain/fin-asset'
 type Props = {
     panel: FinAssetsPanel
     accounts: FinAssetBankAccount[]
+    cdi?: number
+    ipca?: number
 }
-export default function PanelCardSession({ panel, accounts }: Props) {
+export default function PanelCardSession({ panel, accounts, cdi, ipca }: Props) {
     const [collapseds, setCollapseds] = useState(panel?.children?.map(x => x.id) ?? [])
     const toggle = (id: string) => {
         setCollapseds(prev => prev.includes(id) ? [...prev.filter(c => c !== id)] : [...prev, id])
     }
+    const fixedChildren = panel.children.flatMap(x => x.children).
+        filter(x => x.category === FinAssetCategory.Fixed
+            && x.fixedIncomeData?.indexer
+            && x.fixedIncomeData.indexerPercent)
+    const yearRateAverage = fixedChildren.reduce((acc, b) =>
+        acc += getIndexerTotalPercentage(b.fixedIncomeData!, cdi ?? 0, ipca ?? 0) ?? 0,
+        0
+    ) / fixedChildren.length
 
     return (
         <section className='flex gap-8 pl-6 flex-col mt-4'>
@@ -28,6 +40,7 @@ export default function PanelCardSession({ panel, accounts }: Props) {
                     <ResumeCard amount={panel.totalAmount} label='Total' />
                     <ResumeCard amount={panel.investedAmount} label='Invested' />
                     <ResumeCard amount={panel.amountToInvest} label='Available' useSign />
+                    <ResumeCard amount={yearRateAverage} label='Yearly Fixed Income Rate Avg %' showCurrency={false} />
                 </div>
 
                 <ChartsSession panel={panel} />

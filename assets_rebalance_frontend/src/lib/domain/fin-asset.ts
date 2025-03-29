@@ -58,6 +58,16 @@ class FinAssetFixedIncomeData {
     get currentGrossBalancePercent(): number {
         return (this.currentGrossBalance * 100) / this.applicationAmount;
     }
+
+
+}
+export function getIndexerTotalPercentage(t: Partial<FinAssetFixedIncomeData>, cdi: number, ipca: number): number {
+    return indexer_handler?.[t.indexer ?? FixedIncomeIndexer.FIXED]?.(t.indexerPercent ?? 0, cdi, ipca)
+}
+const indexer_handler: { [indexer: number]: (idx_percent: number, cdi: number, ipca: number) => number } = {
+    [FixedIncomeIndexer.CDI]: (idx_percent, cdi) => (idx_percent / 100) * cdi,
+    [FixedIncomeIndexer.IPCA]: (idx_percent, _, ipca) => ipca + idx_percent,
+    [FixedIncomeIndexer.FIXED]: (idx_percent) => idx_percent
 }
 
 export type FinAsset = Entity & {

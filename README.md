@@ -12,15 +12,10 @@ docker run -p 5237:5237 assets-rebalance-backend
 ## Makefile
 mk dev
 
-
 ## TODO List
 To Think On:
 - Charts grouping by fin assets groups (refin)
 - Charts for groups (refin)
-
-Quick Wins
-
-- Show average of indexes percentage (14% a.a., 105% from CDI, IPCA + 5%)
 
 Features
 - Take Snapshots

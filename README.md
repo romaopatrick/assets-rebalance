@@ -12,10 +12,14 @@ docker run -p 5237:5237 assets-rebalance-backend
 ## Makefile
 mk dev
 
+
 ## TODO List
 To Think On:
 - Charts grouping by fin assets groups (refin)
 - Charts for groups (refin)
+
+Quick Wins
+
 
 Features
 - Take Snapshots

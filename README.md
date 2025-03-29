@@ -19,9 +19,7 @@ To Think On:
 - Charts for groups (refin)
 
 Quick Wins
-- Save fields for fixed:
-    indexer: FixedIncomeIndexer; // required
-    indexerPercent: number; // required
+
 - Show average of indexes percentage (14% a.a., 105% from CDI, IPCA + 5%)
 
 Features

@@ -7,6 +7,7 @@ import { ResponsiveContainer, BarChart, CartesianGrid, XAxis, YAxis, Tooltip, Le
 type Props = {
     panel: FinAssetsPanel
 }
+
 export default function BarChartVestedByCategory({ panel }: Props) {
     const grouped = groupByToSet(panel.children, f => f.category)
     const data = categories_keys.map((x: any) => {
@@ -61,11 +62,11 @@ export default function BarChartVestedByCategory({ panel }: Props) {
                         </linearGradient>
                     </defs>
                     <CartesianGrid strokeDasharray="3 3" strokeOpacity={0.2} />
-                    <XAxis dataKey="category" name='Category' tick={{ fill: '#94A3B8', fontSize: 13 }} /> {/* Slate-400 for subtle contrast */}
+                    <XAxis dataKey="category" name='Category' tick={{ fill: '#94A3B8', fontSize: 12 }} /> {/* Slate-400 for subtle contrast */}
                     <YAxis
                         allowDecimals
                         tickSize={10}
-                        tick={{ fill: '#94A3B8', fontSize: 12 }}
+                        tick={{ fill: '#94A3B8', fontSize: 10 }}
                         tickFormatter={(v) => currency_f(v, 'pt-BR', 'BRL', false)}
                     />
                     <Tooltip content={<BarTooltip />} cursor={{ fill: 'rgba(24, 24, 33, 0.19)' }} />
@@ -145,7 +146,7 @@ const BarTooltip = ({ active, payload, label }: TooltipProps<number, string>) =>
         <div className='bg-slate-600 p-5 rounded-lg'>
             <p className="text-slate-200 font-bold">{`${label}`}</p>
             {
-                payload.map(x => <div className='flex gap-2 text-sm'>
+                payload.map(x => <div key={x.name} className='flex gap-2 text-sm'>
                     <p className='font-bold'>{x.name}</p>
                     <p>{currency_f(x.value ?? 0)}</p>
                 </div>)

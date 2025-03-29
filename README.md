@@ -15,18 +15,10 @@ mk dev
 
 ## TODO List
 To Think On:
-- Panels Page
 - Charts grouping by fin assets groups (refin)
 - Charts for groups (refin)
 
 Quick Wins
-- [x] Save dates (application, due) from fixed assets
-- [x] Line chart for:  Fixed Assets Due Years X Assets
-- [x] Line chart for:  Fixed Assets Due Months X Assets
-    - [x] Include filter by year
-- Alert assets that reached due date but is not with status 'Settled'
-- Move charts to detailed panel page
-- Move panels list from dashboard to panel page
 - Save quantity for variable, cripto, currency, 
 - Show average of indexes percentage (14% a.a., 105% from CDI, IPCA + 5%)
 

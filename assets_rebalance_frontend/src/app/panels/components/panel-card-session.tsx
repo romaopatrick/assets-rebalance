@@ -1,18 +1,24 @@
+'use client'
+
 import { FinAssetsPanel } from '@/lib/domain/fin-assets-panel'
-import React from 'react'
-import ResumeCard from './resume-card'
-import GroupCard from './group-card'
+import React, { useState } from 'react'
+import ResumeCard from '../../dashboard/components/resume-card'
+import GroupCard from '../../dashboard/components/group-card'
 import Link from 'next/link'
 import { FinAssetBankAccount } from '@/lib/domain/fin-asset-bank-account'
-import ChartsSession from './charts-session'
+import ChartsSession from '../../banks/components/charts/charts-session'
 type Props = {
     panel: FinAssetsPanel
     accounts: FinAssetBankAccount[]
 }
 export default function PanelCardSession({ panel, accounts }: Props) {
+    const [collapseds, setCollapseds] = useState(panel?.children?.map(x => x.id) ?? [])
+    const toggle = (id: string) => {
+        setCollapseds(prev => prev.includes(id) ? [...prev.filter(c => c !== id)] : [...prev, id])
+    }
 
     return (
-        <section className='flex gap-8 pl-6 flex-col'>
+        <section className='flex gap-8 pl-6 flex-col mt-4'>
             <Link href={`/panels/${panel?.id}`} className='hover:shadow transition-all rounded-sm duration-300 hover:shadow-green-800'>
                 <h3 className='text-2xl px-2'>{panel.name}</h3>
                 <span className='w-full border-b-2 border-b-green-800' />
@@ -21,16 +27,18 @@ export default function PanelCardSession({ panel, accounts }: Props) {
                 <div className='flex gap-4 flex-wrap'>
                     <ResumeCard amount={panel.totalAmount} label='Total' />
                     <ResumeCard amount={panel.investedAmount} label='Invested' />
-                    <ResumeCard amount={panel.amountToInvest} label='Available' useSign/>
+                    <ResumeCard amount={panel.amountToInvest} label='Available' useSign />
                 </div>
 
                 <ChartsSession panel={panel} />
-                
+
                 <div className='flex gap-4 flex-wrap'>
                     {
                         panel
                             .children
-                            .map(c => <GroupCard group={c} key={c.name} accounts={accounts} />)
+                            .map(c => <GroupCard collapsed={collapseds.includes(c.id)} onClick={() => {
+                                c.id && toggle(c.id)
+                            }} group={c} key={c.id} accounts={accounts} />)
                     }
                 </div>
             </div>

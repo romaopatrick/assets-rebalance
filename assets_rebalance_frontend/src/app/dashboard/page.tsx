@@ -1,17 +1,12 @@
 'use client'
 
 import React, { Suspense, useEffect, useState } from 'react'
-import * as finAssetsBankAccountService from '@/app/accounts/actions'
 import * as finAssetsPanelService from '@/app/panels/actions'
-import PanelCardSession from './components/panel-card-session'
 import ResumeCard from './components/resume-card'
-import { FinAssetBankAccount } from '@/lib/domain/fin-asset-bank-account'
 import { FinAssetsPanel } from '@/lib/domain/fin-assets-panel'
 import { toast } from 'react-toastify'
-import ChartsSession from './components/charts-session'
 
 export default function Dashboard() {
-    const [accounts, setAccounts] = useState<FinAssetBankAccount[]>([])
     const [panels, setPanels] = useState<FinAssetsPanel[]>([])
     const invested = panels?.length
         ? panels?.map((itm) => itm.investedAmount)
@@ -26,9 +21,7 @@ export default function Dashboard() {
 
     const fetchDashboard = async () => {
         try {
-            const accounts = await finAssetsBankAccountService.getAllBankAccounts()
             const panels = await finAssetsPanelService.getAllPanels()
-            setAccounts(accounts)
             setPanels(panels)
         } catch (e: any) {
             toast.error(e.message)
@@ -46,11 +39,6 @@ export default function Dashboard() {
                     <ResumeCard amount={invested} label='Invested' />
                     <ResumeCard amount={available} label='Available' />
                 </div>
-                {
-                    panels?.map(x => (<>
-                        <PanelCardSession accounts={accounts} key={x.id} panel={x} />
-                    </>))
-                }
             </Suspense>
         </div>
     )
